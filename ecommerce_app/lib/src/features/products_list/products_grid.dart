@@ -14,6 +14,7 @@ class ProductsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Read from data source
     const products = kTestProducts;
     return products.isEmpty
         ? Center(
