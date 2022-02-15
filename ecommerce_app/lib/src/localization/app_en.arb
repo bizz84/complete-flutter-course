@@ -1,0 +1,187 @@
+{
+  "appTitle": "My Shop",
+  "previewNotice": "This is a preview of the final app that you'll build in the course. More features will be added before the course is complete.",
+  "appBarTitle": "My Shop",
+  "@appBarTitle": {
+    "description": "The title to be shown in the menu bar"
+  },
+  "ok": "OK",
+  "anErrorOccurred": "An error occurred",
+  "orders": "Orders",
+  "account": "Account",
+  "admin": "Admin",
+  "signIn": "Sign In",
+  "@signIn": {
+    "description": "Title of the sign in page"
+  },
+  "register": "Register",
+  "forgotPassword": "Forgot password",
+  "forgotPasswordQuestion": "Forgot password?",
+  "createAnAccount": "Create an account",
+  "needAnAccount": "Need an account? Register",
+  "haveAnAccount": "Have an account? Sign in",
+  "signInFailed": "Sign in failed",
+  "registrationFailed": "Registration failed",
+  "passwordResetFailed": "Password reset failed",
+  "sendResetLink": "Send reset link",
+  "backToSignIn": "Back to sign in",
+  "resetLinkSentTitle": "Reset link sent",
+  "resetLinkSentMessage": "Check your email to reset your password",
+  "emailLabel": "Email",
+  "emailHint": "test@test.com",
+  "password8CharactersLabel": "Password (8+ characters)",
+  "passwordLabel": "Password",
+  "invalidEmailEmpty": "Email can't be empty",
+  "invalidPasswordTooShort": "Password is too short",
+  "invalidPasswordEmpty": "Password can't be empty",
+  "logout": "Logout",
+  "submit": "Submit",
+  "invalidEmail": "Invalid email",
+  "emailAlreadyInUse": "Email already in use",
+  "weakPassword": "Password is too weak",
+  "operationNotAllowed": "Operation not allowed",
+  "wrongPassword": "Wrong password",
+  "userNotFound": "User not found",
+  "userDisabled": "User disabled",
+  "tooManyAuthRequests": "This account has been locked due to too many failed login attempts. Please try again later.",
+  "permissionDenied": "Permission denied",
+  "purchasedOnDate": "Purchased on {date}",
+  "@purchasedOnDate": {
+    "description": "When the product was purchased",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "leaveReview": "Leave a review",
+  "yourReviewHint": "Your review (optional)",
+  "previouslyReviewedHint": "You reviewed this product before. You can edit your review.",
+  "numRatings": "({count, plural, =1{1 rating} other{{count} ratings}})",
+  "@numRatings": {
+    "description": "The number of ratings",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "address": "Address",
+  "@address": {
+    "description": "Title of the address page"
+  },
+  "townCity": "Town/City",
+  "state": "State",
+  "postalCode": "Postal Code",
+  "country": "Country",
+  "cantBeEmpty": "Can't be empty",
+  "@cantBeEmpty": {
+    "description": "Message for product fields that can't be empty"
+  },
+  "invalidUrl": "Not a valid URL",
+  "minimumLength20Chars": "Minimum length: 20 characters",
+  "invalidNumber": "Not a valid number",
+  "priceGreaterThanZero": "Price must be greater than zero",
+  "priceLessThanMax": "The maximum price must be less than $100,000",
+  "quantityGreaterThanZero": "Quantity must be zero or more",
+  "quantityLessThanMax": "The maximum quantity must be less than 1,000",
+  "field": "Field",
+  "@field": {
+    "description": "Field label used in account page"
+  },
+  "value": "Value",
+  "uidLowercase": "uid",
+  "emailLowercase": "email",
+  "isAdminLowercase": "isAdmin",
+  "adminDashboard": "Admin Dashboard",
+  "@adminDashboard": {
+    "description": "Admin Dashboard page title"
+  },
+  "manageOrders": "Manage Orders",
+  "userId": "User ID",
+  "userEmail": "User Email",
+  "newProduct": "New Product",
+  "editProduct": "Edit Product",
+  "productUpdated": "Product updated",
+  "couldNotSaveProduct": "Could not save product data",
+  "couldNotUpdateOrderStatus": "Could not update order status",
+  "imageUrl": "Image URL",
+  "title": "Title",
+  "description": "Description",
+  "price": "Price",
+  "availableQuantity": "Available Quantity",
+  "manageProducts": "Manage Products",
+  "payment": "Payment",
+  "@payment": {
+    "description": "Payment page title"
+  },
+  "cardPayment": "Card Payment",
+  "saveCardDuringPayment": "Save card during payment",
+  "devBuildTestingNotice": "[DEV build] Use 4242 4242 4242 4242 for testing",
+  "missingAddress": "The operation can't be completed (missing address)",
+  "userNotSignedIn": "The operation can't be completed (not signed in)",
+  "orderPlaced": "Order placed",
+  "total": "Total",
+  "totalValue": "Total: {value}",
+  "@totalValue": {
+    "description": "The total value of the shopping cart",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "yourOrders": "Your Orders",
+  "@yourOrders": {
+    "description": "Title of orders page"
+  },
+  "noPreviousOrders": "No previous orders",
+  "couldNotPlaceOrder": "Could not place order",
+  "status": "Status:",
+  "confirmed": "Confirmed",
+  "confirmedPreparingDelivery": "Confirmed - preparing for delivery",
+  "shipped": "Shipped",
+  "delivered": "Delivered",
+  "latestProducts": "Latest Products",
+  "@latestProducts": {
+    "description": "Heading for product listings"
+  },
+  "searchProducts": "Search products",
+  "noProductsFound": "No products found",
+  "productNotFound": "Product not found",
+  "quantity": "Quantity:",
+  "quantityValue": "Quantity: {quantity}",
+  "@quantityValue": {
+    "description": "The quantity of the product to be added to the cart",
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "quantityAvailable": "{quantity} available",
+  "@quantityAvailable": {
+    "description": "The quantity of the product to be added to the cart",
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingCart": "Shopping Cart",
+  "@shoppingCart": {
+    "description": "Title of shopping cart page"
+  },
+  "addToCart": "Add to Cart",
+  "outOfStock": "Out of Stock",
+  "cantAddItemToCart": "Can't add item to cart",
+  "cantUpdateQuantity": "Could not update quantity",
+  "cantDeleteItem": "Could not delete item",
+  "alreadyAddedToCart": "Already added to cart",
+  "shoppingCartEmpty": "Your shopping cart is empty",
+  "goBack": "Go Back",
+  "checkout": "Checkout",
+  "pay": "Pay",
+  "notFound404": "404 - Page not found!",
+  "goHome": "Go Home"
+}
