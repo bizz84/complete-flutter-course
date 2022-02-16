@@ -116,3 +116,4 @@ firebase-exports
 # Environment variables
 .env.dev
 .env.stg
+.env.prod
