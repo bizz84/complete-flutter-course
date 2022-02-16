@@ -1,0 +1,27 @@
+# CocoaPods not installed. Skipping pod install
+
+When building for ios, sometimes this error appears:
+
+```
+Warning: CocoaPods not installed. Skipping pod install.
+  CocoaPods is used to retrieve the iOS and macOS platform side's plugin code that responds to your plugin usage on the Dart side.
+  Without CocoaPods, plugins will not work on iOS or macOS.
+  For more info, see https://flutter.dev/platform-plugins
+To install see https://guides.cocoapods.org/using/getting-started.html#installation for instructions.
+
+CocoaPods not installed or not in valid state.
+Error launching application on iPhone 13.
+```
+
+More info [here](https://stackoverflow.com/questions/68446186/flutter-warning-cocoapods-not-installed-skipping-pod-install-even-while-inst).
+
+## What seems to work
+
+Open a separate shell, then run:
+
+```
+sudo gem install cocoapods
+```
+
+Then close VSCode **entirely**, reopen it, and build again.
+

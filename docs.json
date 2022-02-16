@@ -1,0 +1,99 @@
+{
+    "name": "Complete Flutter Course Bundle - Documentation",
+    "sidebar": [
+        [
+            "Start Here",
+            "/index"
+        ],
+        [
+            "FAQ",
+            [
+                [
+                    "CocoaPods not installed. Skipping pod install",
+                    "/faq/cocoapods-not-installed"
+                ]
+            ]
+        ],
+        [
+            "Articles, Videos & Reference Guides",
+            [
+                [
+                    "Flutter App Architecture",
+                    [
+                        [
+                            "Flutter App Architecture: The Repository Pattern",
+                            "https://codewithandrea.com/articles/flutter-repository-pattern/"
+                        ],
+                        [
+                            "Flutter App Architecture: The Domain Model",
+                            "https://codewithandrea.com/articles/flutter-app-architecture-domain-model/"
+                        ]
+                    ]
+                ],
+                [
+                    "Flutter State Management",
+                    [
+                        [
+                            "Flutter State Management Basics and Useful Resources",
+                            "https://codewithandrea.com/videos/flutter-state-management-basics/"
+                        ],
+                        [
+                            "Flutter State Management with Riverpod: The Essential Guide",
+                            "https://codewithandrea.com/articles/flutter-state-management-riverpod/"
+                        ],
+                        [
+                            "How to handle loading and error states with StateNotifier & AsyncValue in Flutter",
+                            "https://codewithandrea.com/articles/loading-error-states-state-notifier-async-value/"
+                        ],
+                        [
+                            "AsyncValueWidget: a reusable Flutter widget to work with AsyncValue (using Riverpod)",
+                            "https://codewithandrea.com/articles/async-value-widget-riverpod/"
+                        ]
+                    ]
+                ],
+                [
+                    "Firebase",
+                    [
+                        [
+                            "Firebase Cloud Functions: Introduction and Project Setup",
+                            "https://codewithandrea.com/articles/firebase-cloud-functions/"
+                        ],
+                        [
+                            "Flutter Tutorial: How to use the Firebase Local Emulator with Cloud Functions",
+                            "https://codewithandrea.com/articles/flutter-tutorial-firebase-cloud-functions/"
+                        ],
+                        [
+                            "How to add Firebase to a Flutter app with FlutterFire CLI",
+                            "https://codewithandrea.com/articles/flutter-firebase-flutterfire-cli/"
+                        ],
+                        [
+                            "Flutter Flavors Setup with multiple Firebase Environments using FlutterFire and Very Good CLI",
+                            "https://codewithandrea.com/articles/flutter-flavors-for-firebase-apps/"
+                        ]
+                    ]
+                ],
+                [
+                    "Other Flutter Topics",
+                    [
+                        [
+                            "How to create a Flutter GridView with content-sized items",
+                            "https://codewithandrea.com/articles/flutter-layout-grid-content-sized-items/"
+                        ],
+                        [
+                            "Flutter TextField Validation: How to work with TextEditingController, Form, and TextFormField",
+                            "https://codewithandrea.com/articles/flutter-text-field-form-validation/"
+                        ],
+                        [
+                            "Simplified Flutter Localization using a BuildContext extension",
+                            "https://codewithandrea.com/articles/flutter-localization-build-context-extension/"
+                        ]
+                    ]
+                ]
+            ]
+        ],
+        [
+            "Flutter Web Demo",
+            "https://my-shop-ecommerce-stg.web.app/"
+        ]
+    ]
+}

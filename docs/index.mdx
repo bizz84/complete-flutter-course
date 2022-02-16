@@ -1,0 +1,50 @@
+# Complete Flutter Course Bundle - Documentation
+
+> **Note**: This site is a work-in-progress. More pages will be added as I make progress with the course.
+
+This is the documentation website for the Flutter eCommerce app that we will build as part of my [Complete Flutter Course Bundle](https://codewithandrea.com/courses/complete-flutter-bundle/).
+
+A Flutter web build of the completed app is available at this link:
+
+- [Flutter eCommerce Demo App](https://my-shop-ecommerce-stg.web.app/)
+
+This is intended as a **reference eCommerce app** for viewing and purchasing products, and includes the following features:
+
+- Products List
+- Product Page
+- Product Reviews
+- Shopping Cart
+- Checkout using Stripe
+- Orders List
+- Sign in & sign out flows
+- Admin pages (manage products and orders)
+
+## Flutter Client
+
+The demo includes a Flutter app that runs on iOS, Android and web.
+
+The **primary** packages in use by the reference app are:
+
+- [`flutter_riverpod`](https://pub.dev/packages/flutter_riverpod) and [`freezed`](https://pub.dev/packages/freezed) for state management
+- [`go_router`](https://pub.dev/packages/go_router) for navigation and routing
+- [`flutter_stripe`](https://pub.dev/packages/flutter_stripe), [`flutter_stripe_web`](https://pub.dev/packages/flutter_stripe_web) and [`pay`](https://pub.dev/packages/pay) for payments
+- [`sembast`](https://pub.dev/packages/sembast) and [`sembast_web`](https://pub.dev/packages/sembast_web) for local data persistence
+- [`firebase_auth`](https://pub.dev/packages/firebase_auth)
+- [`cloud_firestore`](https://pub.dev/packages/cloud_firestore)
+- [`cloud_functions`](https://pub.dev/packages/cloud_functions)
+- [`flutter_layout_grid`](https://pub.dev/packages/flutter_layout_grid) for layouts based on CSS-grid
+- [`cached_network_image`](cached_network_image) to show images from the Internet and keep them in the cache directory
+- [`mocktail`](https://pub.dev/packages/mocktail) for testing
+
+
+### Architecture
+
+The client app uses the controller-service-repository pattern and defines four layers:
+
+- **Data layer** using **repositories** to access to the outside world (Firebase) and expose data classes to the rest of the app via Futures and Streams
+- **Domain layer** containing all the **models/entities** needed by the app, along with the business logic to manipulate them
+- **Application layer** using **service** classes to mediate between the repositories and the levels below
+- **Presentation layer** containing the **widgets** along with the **controllers** that manipulate their state and call APIs from the layers above
+
+
+
