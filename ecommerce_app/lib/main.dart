@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // https://docs.flutter.dev/testing/errors
+  // * For more info on error handling, see:
+  // * https://docs.flutter.dev/testing/errors
   await runZonedGuarded(() async {
+    // * Entry point of the app
     runApp(const MyApp());
 
+    // * This code will present some error UI if any uncaught exception happens
     FlutterError.onError = (FlutterErrorDetails details) {
       FlutterError.presentError(details);
     };
@@ -22,6 +25,7 @@ void main() async {
       );
     };
   }, (Object error, StackTrace stack) {
+    // * Log any errors to console
     debugPrint(error.toString());
   });
 }
