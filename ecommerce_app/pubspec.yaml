@@ -1,5 +1,5 @@
 name: ecommerce_app
-description: A new Flutter project.
+description: Flutter eCommerce app (part of the Complete Flutter Course Bundle)
 
 # Prevent accidental publishing to pub.dev.
 publish_to: 'none'
@@ -12,14 +12,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_lints: 1.0.4
   flutter_localizations:
     sdk: flutter
+  intl: 0.17.0 # Used for date and currency formatting
+  flutter_layout_grid: 1.0.3 # Used for content-sized items in the products grid layout
+  flutter_rating_bar: 4.0.0 # Used for the "leave a rating" feature
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^1.0.0
 
 flutter:
   uses-material-design: true
@@ -30,3 +32,4 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+    - assets/products/

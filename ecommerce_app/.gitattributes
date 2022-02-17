@@ -1,0 +1,6 @@
+# https://twitter.com/mkobuolys/status/1489610640335515648
+*.chopper.dart -diff
+*.freezed.dart -diff
+*.g.dart -diff
+*.gen.dart -diff
+*.gr.dart -diff
