@@ -12,7 +12,18 @@ class ProductReviewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: Read from data source
-    final reviews = <Review>[];
+    final reviews = <Review>[
+      Review(
+        date: DateTime(2022, 2, 12),
+        score: 4.5,
+        comment: 'Great product, would buy again!',
+      ),
+      Review(
+        date: DateTime(2022, 2, 10),
+        score: 4.0,
+        comment: 'Looks great but the packaging was damaged.',
+      ),
+    ];
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) => ResponsiveCenter(
