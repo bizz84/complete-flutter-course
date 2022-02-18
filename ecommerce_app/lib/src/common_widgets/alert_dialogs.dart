@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/platform/platform_is.dart';
 
 /// Generic function to show a platform-aware Material or Cupertino dialog
 Future<bool?> showAlertDialog({
@@ -11,7 +13,7 @@ Future<bool?> showAlertDialog({
   String? cancelActionText,
   String defaultActionText = 'OK',
 }) async {
-  if (!PlatformIs.iOS) {
+  if (kIsWeb || !Platform.isIOS) {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
