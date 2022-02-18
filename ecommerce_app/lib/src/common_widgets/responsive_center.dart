@@ -1,5 +1,5 @@
+import 'package:ecommerce_app/src/constants/breakpoints.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
 
 /// Reusable widget for showing a child with a maximum content width constraint.
 /// If available width is larger than the maximum width, the child will be

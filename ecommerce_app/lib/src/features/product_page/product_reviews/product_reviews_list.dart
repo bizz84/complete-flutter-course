@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/constants/breakpoints.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/common_widgets/responsive_center.dart';
 import 'package:ecommerce_app/src/constants/app_sizes.dart';
