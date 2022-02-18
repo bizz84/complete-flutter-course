@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:ecommerce_app/src/common_widgets/alert_dialogs.dart';
 import 'package:ecommerce_app/src/constants/test_products.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
@@ -94,9 +95,7 @@ class ShoppingCartItemContents extends StatelessWidget {
                       itemIndex: itemIndex,
                       // TODO: Implement onChanged
                       onChanged: (value) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Not implemented')),
-                        );
+                        showNotImplementedAlertDialog(context: context);
                       },
                     ),
                     IconButton(
@@ -104,9 +103,7 @@ class ShoppingCartItemContents extends StatelessWidget {
                       icon: Icon(Icons.delete, color: Colors.red[700]),
                       // TODO: Implement onPressed
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Not implemented')),
-                        );
+                        showNotImplementedAlertDialog(context: context);
                       },
                     ),
                     const Spacer(),

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/common_widgets/alert_dialogs.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/common_widgets/primary_button.dart';
@@ -8,9 +9,7 @@ class PaymentButton extends StatelessWidget {
 
   Future<void> _pay(BuildContext context) async {
     // TODO: Implement
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Not implemented')),
-    );
+    showNotImplementedAlertDialog(context: context);
   }
 
   @override

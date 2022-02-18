@@ -7,16 +7,16 @@ import 'package:ecommerce_app/src/platform/platform_is.dart';
 Future<bool?> showAlertDialog({
   required BuildContext context,
   required String title,
-  required String content,
+  String? content,
   String? cancelActionText,
-  required String defaultActionText,
+  String defaultActionText = 'OK',
 }) async {
   if (!PlatformIs.iOS) {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(title),
-        content: Text(content),
+        content: content != null ? Text(content) : null,
         actions: <Widget>[
           if (cancelActionText != null)
             TextButton(
@@ -35,7 +35,7 @@ Future<bool?> showAlertDialog({
     context: context,
     builder: (context) => CupertinoAlertDialog(
       title: Text(title),
-      content: Text(content),
+      content: content != null ? Text(content) : null,
       actions: <Widget>[
         if (cancelActionText != null)
           CupertinoDialogAction(
@@ -62,4 +62,10 @@ Future<void> showExceptionAlertDialog({
       title: title,
       content: exception.toString(),
       defaultActionText: 'OK'.hardcoded,
+    );
+
+Future<void> showNotImplementedAlertDialog({required BuildContext context}) =>
+    showAlertDialog(
+      context: context,
+      title: 'Not implemented'.hardcoded,
     );

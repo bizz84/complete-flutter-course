@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:ecommerce_app/src/common_widgets/alert_dialogs.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/common_widgets/item_quantity_selector.dart';
@@ -33,9 +34,7 @@ class AddToCartWidget extends StatelessWidget {
               maxQuantity: min(availableQuantity, 10),
               // TODO: Implement onChanged
               onChanged: (value) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Not implemented')),
-                );
+                showNotImplementedAlertDialog(context: context);
               },
             ),
           ],
@@ -48,9 +47,7 @@ class AddToCartWidget extends StatelessWidget {
           isLoading: false,
           // TODO: Implement onPressed
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Not implemented')),
-            );
+            showNotImplementedAlertDialog(context: context);
           },
           text: availableQuantity > 0
               ? 'Add to Cart'.hardcoded
