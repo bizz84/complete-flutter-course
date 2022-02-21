@@ -5,9 +5,10 @@ import 'package:ecommerce_app/src/common_widgets/responsive_scrollable_card.dart
 import 'package:ecommerce_app/src/constants/app_sizes.dart';
 
 /// A page where the user can enter and submit all the address details.
+/// * This page is not yet in use. We will add it to the checkout flows later.
 class AddressScreen extends StatefulWidget {
-  const AddressScreen({Key? key, this.onDataSubmitted}) : super(key: key);
-  final VoidCallback? onDataSubmitted;
+  const AddressScreen({Key? key, this.onSubmit}) : super(key: key);
+  final VoidCallback? onSubmit;
 
   // * Keys for testing using find.byKey()
   static const addressKey = Key('address');
@@ -43,7 +44,8 @@ class _AddressPageState extends State<AddressScreen> {
       //   postalCode: _postalCodeController.value.text,
       //   country: _countryController.value.text,
       // );
-      widget.onDataSubmitted?.call();
+      // TODO: Only fire callback if submission is successful
+      widget.onSubmit?.call();
     }
   }
 
