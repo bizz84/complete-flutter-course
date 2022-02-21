@@ -6,6 +6,7 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 class ShoppingCartIcon extends StatelessWidget {
   const ShoppingCartIcon({Key? key}) : super(key: key);
 
+  // * Keys for testing using find.byKey()
   static const shoppingCartIconKey = Key('shopping-cart');
 
   @override

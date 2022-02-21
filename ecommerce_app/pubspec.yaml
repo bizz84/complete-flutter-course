@@ -15,9 +15,9 @@ dependencies:
   flutter_lints: 1.0.4
   flutter_localizations:
     sdk: flutter
-  intl: 0.17.0 # Used for date and currency formatting
-  flutter_layout_grid: 1.0.3 # Used for content-sized items in the products grid layout
-  flutter_rating_bar: 4.0.0 # Used for the "leave a rating" feature
+  intl: 0.17.0
+  flutter_layout_grid: 1.0.3
+  flutter_rating_bar: 4.0.0
 
 dev_dependencies:
   flutter_test:

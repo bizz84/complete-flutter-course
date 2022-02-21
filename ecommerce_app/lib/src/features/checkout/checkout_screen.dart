@@ -5,6 +5,7 @@ import 'package:ecommerce_app/src/features/checkout/payment/payment_page.dart';
 import 'package:ecommerce_app/src/features/sign_in/email_password_sign_in_screen.dart';
 
 /// The two sub-routes that are presented as part of the checkout flow.
+/// TODO: add the address page as well (see [AddressScreen]).
 enum CheckoutSubRoute { register, payment }
 
 /// This is the root widget of the checkout flow, which is composed of 2 pages:

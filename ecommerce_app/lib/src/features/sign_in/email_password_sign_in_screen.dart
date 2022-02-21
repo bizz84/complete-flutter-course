@@ -16,6 +16,7 @@ class EmailPasswordSignInScreen extends StatelessWidget {
       : super(key: key);
   final EmailPasswordSignInFormType formType;
 
+  // * Keys for testing using find.byKey()
   static const emailKey = Key('email');
   static const passwordKey = Key('password');
 
