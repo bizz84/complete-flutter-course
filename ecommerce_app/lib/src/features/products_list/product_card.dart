@@ -13,6 +13,7 @@ class ProductCard extends StatelessWidget {
   final Product product;
   final VoidCallback? onPressed;
 
+  // * Keys for testing using find.byKey()
   static const productCardKey = Key('product-card');
 
   @override

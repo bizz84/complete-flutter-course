@@ -16,6 +16,7 @@ class MoreMenuButton extends StatelessWidget {
   const MoreMenuButton({Key? key, this.user}) : super(key: key);
   final AppUser? user;
 
+  // * Keys for testing using find.byKey()
   static const signInKey = Key('menuSignIn');
   static const ordersKey = Key('menuOrders');
   static const accountKey = Key('menuAccount');

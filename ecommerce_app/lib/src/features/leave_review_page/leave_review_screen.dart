@@ -36,6 +36,7 @@ class LeaveReviewForm extends StatefulWidget {
   final String productId;
   final Review? review;
 
+  // * Keys for testing using find.byKey()
   static const reviewCommentKey = Key('reviewComment');
 
   @override
@@ -50,9 +51,10 @@ class _LeaveReviewFormState extends State<LeaveReviewForm> {
   @override
   void initState() {
     super.initState();
-    if (widget.review != null) {
-      _controller.text = widget.review!.comment;
-      _rating = widget.review!.score;
+    final review = widget.review;
+    if (review != null) {
+      _controller.text = review.comment;
+      _rating = review.score;
     }
   }
 
@@ -75,8 +77,7 @@ class _LeaveReviewFormState extends State<LeaveReviewForm> {
       children: [
         if (widget.review != null) ...[
           Text(
-            'You reviewed this product before. You can edit your review.'
-                .hardcoded,
+            'You reviewed this product before. Submit again to edit.'.hardcoded,
             textAlign: TextAlign.center,
           ),
           gapH24,
