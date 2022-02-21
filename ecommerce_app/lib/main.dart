@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ecommerce_app/src/app.dart';
+import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -19,7 +20,7 @@ void main() async {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
-          title: const Text('An error occurred'),
+          title: Text('An error occurred'.hardcoded),
         ),
         body: Center(child: Text(details.toString())),
       );
