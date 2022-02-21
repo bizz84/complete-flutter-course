@@ -1,3 +1,4 @@
+/// Address information used for shipping.
 class Address {
   const Address({
     required this.address,
@@ -7,7 +8,6 @@ class Address {
     required this.country,
   });
 
-  /// Unique id
   final String address;
   final String city;
   final String state;
