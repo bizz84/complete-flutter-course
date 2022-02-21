@@ -13,12 +13,6 @@ class Sizes {
   static const p64 = 64.0;
 }
 
-/// Layout breakpoints used in the app.
-class Breakpoint {
-  static const double desktop = 900;
-  static const double tablet = 600;
-}
-
 /// Constant gap widths
 const gapW4 = SizedBox(width: Sizes.p4);
 const gapW8 = SizedBox(width: Sizes.p8);

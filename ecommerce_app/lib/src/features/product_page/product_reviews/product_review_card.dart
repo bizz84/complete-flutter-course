@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/common_widgets/alert_dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/constants/app_sizes.dart';
 import 'package:ecommerce_app/src/features/product_page/product_reviews/product_rating_bar.dart';
@@ -27,9 +28,7 @@ class ProductReviewCard extends StatelessWidget {
                   itemSize: 20,
                   // TODO: Implement onRatingUpdate
                   onRatingUpdate: (value) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Not implemented')),
-                    );
+                    showNotImplementedAlertDialog(context: context);
                   },
                 ),
                 Text(dateFormatted, style: Theme.of(context).textTheme.caption),

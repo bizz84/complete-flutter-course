@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/src/common_widgets/alert_dialogs.dart';
+import 'package:ecommerce_app/src/constants/breakpoints.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/common_widgets/responsive_center.dart';
@@ -61,9 +63,7 @@ class _LeaveReviewFormState extends State<LeaveReviewForm> {
         _rating != previousReview.score ||
         _controller.text != previousReview.comment) {
       // TODO: Submit review
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Not implemented')),
-      );
+      showNotImplementedAlertDialog(context: context);
     }
     Navigator.of(context).pop();
   }

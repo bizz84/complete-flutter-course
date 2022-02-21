@@ -9,6 +9,8 @@ const kTestProducts = [
     description: 'Lorem ipsum',
     price: 15,
     availableQuantity: 5,
+    avgRating: 4.5,
+    numRatings: 2,
   ),
   Product(
     id: '2',
@@ -17,6 +19,8 @@ const kTestProducts = [
     description: 'Lorem ipsum',
     price: 13,
     availableQuantity: 5,
+    avgRating: 4,
+    numRatings: 2,
   ),
   Product(
     id: '3',
@@ -25,6 +29,8 @@ const kTestProducts = [
     description: 'Lorem ipsum',
     price: 17,
     availableQuantity: 5,
+    avgRating: 5,
+    numRatings: 2,
   ),
   Product(
     id: '4',

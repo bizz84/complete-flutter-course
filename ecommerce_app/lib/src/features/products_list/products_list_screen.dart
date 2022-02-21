@@ -50,10 +50,6 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
           ResponsiveSliverCenter(
             padding: EdgeInsets.all(Sizes.p16),
             child: ProductsSearchTextField(),
-            // child: Text(
-            //   'Latest Products'.hardcoded,
-            //   style: Theme.of(context).textTheme.headline4,
-            // ),
           ),
           ResponsiveSliverCenter(
             padding: EdgeInsets.all(Sizes.p16),
