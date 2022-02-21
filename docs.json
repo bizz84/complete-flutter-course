@@ -11,6 +11,10 @@
                 [
                     "CocoaPods not installed. Skipping pod install",
                     "/faq/cocoapods-not-installed"
+                ],
+                [
+                    "The sandbox is not in sync with the Podfile.lock",
+                    "/faq/sandbox-not-in-sync-podfile"
                 ]
             ]
         ],

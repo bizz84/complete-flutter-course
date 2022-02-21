@@ -1,0 +1,20 @@
+# The sandbox is not in sync with the Podfile.lock
+
+This is a common error when running on iOS or macOS after installing new packages:
+
+```
+The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation
+```
+
+## Steps to try
+
+```
+flutter pub get
+cd ios # or `macos` depending on target platform
+pod install
+pod update
+```
+
+More info here:
+
+- [How to resolve an error: The sandbox is not in sync with the Podfile.lock](https://stackoverflow.com/questions/63226903/how-to-resolve-an-error-the-sandbox-is-not-in-sync-with-the-podfile-lock)
