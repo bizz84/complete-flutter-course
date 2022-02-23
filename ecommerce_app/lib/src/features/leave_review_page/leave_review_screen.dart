@@ -59,15 +59,15 @@ class _LeaveReviewFormState extends State<LeaveReviewForm> {
   }
 
   Future<void> _submitReview() async {
+    await showNotImplementedAlertDialog(context: context);
     // only submit if new rating or different from before
-    final previousReview = widget.review;
-    if (previousReview == null ||
-        _rating != previousReview.score ||
-        _controller.text != previousReview.comment) {
-      // TODO: Submit review
-      showNotImplementedAlertDialog(context: context);
-    }
-    Navigator.of(context).pop();
+    // final previousReview = widget.review;
+    // if (previousReview == null ||
+    //     _rating != previousReview.score ||
+    //     _controller.text != previousReview.comment) {
+    //   // TODO: Submit review
+    // }
+    // Navigator.of(context).pop();
   }
 
   @override
