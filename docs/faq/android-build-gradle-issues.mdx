@@ -1,0 +1,46 @@
+## Android build.gradle issues
+
+Starting with Flutter 2.8, the `compileSdkVersion`, `minSdkVersion` and `targetSdkVersion` are no longer hardcoded.
+
+Instead, they are set like this inside `android/app/build.gradle`:
+
+```gradle
+android {
+    compileSdkVersion flutter.compileSdkVersion
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.example.ecommerce_app"
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+```
+
+All these variables are set like this inside `android/local.properties` (note that this file is **git ignored** by default):
+
+```
+sdk.dir=/Users/andrea/Library/Android/sdk
+flutter.sdk=/Users/andrea/fvm/versions/stable
+flutter.buildMode=debug
+flutter.versionName=1.0.0
+flutter.versionCode=1
+```
+
+Note that the build may fail if these variables are not added:
+
+```
+flutter.minSdkVersion=21
+flutter.targetSdkVersion=30
+flutter.compileSdkVersion=30
+```
+
+There's an open issue regarding this here:
+
+- [[Android] build.gradle defaultConfig with local.properties not working properly.](https://github.com/flutter/flutter/issues/95533) (related [PR](https://github.com/flutter/flutter/pull/95684))
+
+For more info about building on Android, see the official docs:
+
+- [Build and release an Android app](https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration)
+

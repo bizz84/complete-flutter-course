@@ -9,6 +9,10 @@
             "FAQ",
             [
                 [
+                    "Android build.gradle issues",
+                    "/faq/android-build-gradle-issues"
+                ],
+                [
                     "CocoaPods not installed. Skipping pod install",
                     "/faq/cocoapods-not-installed"
                 ],
