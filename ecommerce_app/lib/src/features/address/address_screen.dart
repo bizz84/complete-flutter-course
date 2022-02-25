@@ -33,6 +33,16 @@ class _AddressPageState extends State<AddressScreen> {
 
   final _isLoading = false;
 
+  @override
+  void dispose() {
+    _addressController.dispose();
+    _cityController.dispose();
+    _stateController.dispose();
+    _postalCodeController.dispose();
+    _countryController.dispose();
+    super.dispose();
+  }
+
   Future<void> _submit() async {
     if (_formKey.currentState!.validate()) {
       FocusScope.of(context).unfocus();
