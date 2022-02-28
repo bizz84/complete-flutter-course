@@ -14,6 +14,13 @@ class _ProductsSearchTextFieldState extends State<ProductsSearchTextField> {
   final _controller = TextEditingController();
 
   @override
+  void dispose() {
+    // * TextEditingControllers should be always disposed
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // See this article for more info about how to use [ValueListenableBuilder]
     // with TextField:
