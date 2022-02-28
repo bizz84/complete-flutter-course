@@ -23,6 +23,9 @@ class ProductRatingBar extends StatelessWidget {
   /// callback called when the rating changes
   final ValueChanged<double> onRatingUpdate;
 
+  // * Keys for testing using find.byKey()
+  static Key starRatingKey(int index) => Key('stars-$index');
+
   @override
   Widget build(BuildContext context) {
     return RatingBar.builder(
@@ -33,7 +36,8 @@ class ProductRatingBar extends StatelessWidget {
       itemSize: itemSize,
       itemBuilder: (context, index) => Icon(
         Icons.star,
-        key: Key('stars-$index'),
+        // * Keys for testing using find.byKey()
+        key: starRatingKey(index),
         color: Colors.amber,
       ),
       onRatingUpdate: onRatingUpdate,

@@ -15,7 +15,7 @@ class ItemQuantitySelector extends StatelessWidget {
   final int? itemIndex;
   final ValueChanged<int>? onChanged;
 
-  // * Some keys that will be used in the widget tests
+  // * Keys for testing using find.byKey()
   static Key decrementKey([int? index]) =>
       index != null ? Key('decrement-$index') : const Key('decrement');
   static Key quantityKey([int? index]) =>

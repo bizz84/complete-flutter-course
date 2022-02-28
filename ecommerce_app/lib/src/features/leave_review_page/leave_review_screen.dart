@@ -58,6 +58,13 @@ class _LeaveReviewFormState extends State<LeaveReviewForm> {
     }
   }
 
+  @override
+  void dispose() {
+    // * TextEditingControllers should be always disposed
+    _controller.dispose();
+    super.dispose();
+  }
+
   Future<void> _submitReview() async {
     await showNotImplementedAlertDialog(context: context);
     // only submit if new rating or different from before

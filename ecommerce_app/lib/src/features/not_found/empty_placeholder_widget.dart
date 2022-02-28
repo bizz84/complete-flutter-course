@@ -26,6 +26,8 @@ class EmptyPlaceholderWidget extends StatelessWidget {
             gapH32,
             PrimaryButton(
               onPressed: () =>
+                  // * Pop all routes in the navigation stack until the home
+                  // * screen is reached.
                   Navigator.of(context).popUntil((route) => route.isFirst),
               text: 'Go Home'.hardcoded,
             )

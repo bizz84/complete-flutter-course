@@ -35,6 +35,7 @@ class _AddressPageState extends State<AddressScreen> {
 
   @override
   void dispose() {
+    // * TextEditingControllers should be always disposed
     _addressController.dispose();
     _cityController.dispose();
     _stateController.dispose();

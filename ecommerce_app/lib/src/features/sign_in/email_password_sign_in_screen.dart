@@ -71,6 +71,7 @@ class _EmailPasswordSignInContentsState
 
   @override
   void dispose() {
+    // * TextEditingControllers should be always disposed
     _node.dispose();
     _emailController.dispose();
     _passwordController.dispose();
