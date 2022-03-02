@@ -28,6 +28,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   var _subRoute = CheckoutSubRoute.register;
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   void _onSignedIn() {
     setState(() => _subRoute = CheckoutSubRoute.payment);
     // perform a nice scroll animation to reveal the next page
