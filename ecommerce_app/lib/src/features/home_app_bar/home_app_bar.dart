@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/src/constants/breakpoints.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:ecommerce_app/src/models/app_user.dart';
+import 'package:ecommerce_app/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/common_widgets/action_text_button.dart';
 import 'package:ecommerce_app/src/features/home_app_bar/more_menu_button.dart';
@@ -46,18 +47,18 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             ActionTextButton(
               key: MoreMenuButton.ordersKey,
               text: 'Orders'.hardcoded,
-              onPressed: () => context.go('/orders'),
+              onPressed: () => context.goNamed(AppRoute.orders.name),
             ),
             ActionTextButton(
               key: MoreMenuButton.accountKey,
               text: 'Account'.hardcoded,
-              onPressed: () => context.go('/account'),
+              onPressed: () => context.goNamed(AppRoute.account.name),
             ),
           ] else
             ActionTextButton(
               key: MoreMenuButton.signInKey,
               text: 'Sign In'.hardcoded,
-              onPressed: () => context.go('/signIn'),
+              onPressed: () => context.goNamed(AppRoute.signIn.name),
             )
         ],
       );
