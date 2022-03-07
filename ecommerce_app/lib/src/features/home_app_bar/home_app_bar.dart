@@ -46,18 +46,18 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             ActionTextButton(
               key: MoreMenuButton.ordersKey,
               text: 'Orders'.hardcoded,
-              onPressed: () => context.goNamed(AppRoute.orders.name),
+              onPressed: () => context.pushNamed(AppRoute.orders.name),
             ),
             ActionTextButton(
               key: MoreMenuButton.accountKey,
               text: 'Account'.hardcoded,
-              onPressed: () => context.goNamed(AppRoute.account.name),
+              onPressed: () => context.pushNamed(AppRoute.account.name),
             ),
           ] else
             ActionTextButton(
               key: MoreMenuButton.signInKey,
               text: 'Sign In'.hardcoded,
-              onPressed: () => context.go(AppRoute.signIn.name),
+              onPressed: () => context.pushNamed(AppRoute.signIn.name),
             )
         ],
       );
