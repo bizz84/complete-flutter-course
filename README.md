@@ -50,4 +50,21 @@ git checkout <branch-name>
 11. Useful Widgets for Responsive Design
 12. App Localization
 
+## 2. Navigation with GoRouter
+
+1. Section Intro
+2. From Navigator 1.0 to GoRouter: Overview
+3. GoRouter installation & initial setup with `MaterialApp.router`
+4. Routes, sub-routes and navigation
+5. `GoRouterHelper` Extension and `pageBuilder`
+6. Adding some additional routes
+7. Routing by **path** vs routing by **name**
+8. Routing with parameters
+9. GoRouter error handling
+10. Navigating with **go** vs **push**
+11. Adding the remaining routes
+12. How to pop a route with GoRouter
+13. Nested Navigation
+14. Bug fix & wrap up
+
 ### [LICENSE: MIT](LICENSE.md)
