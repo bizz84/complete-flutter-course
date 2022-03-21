@@ -1,13 +1,13 @@
-import 'package:ecommerce_app/src/features/account/account_screen.dart';
-import 'package:ecommerce_app/src/features/checkout/checkout_screen.dart';
-import 'package:ecommerce_app/src/features/leave_review_page/leave_review_screen.dart';
-import 'package:ecommerce_app/src/features/not_found/not_found_screen.dart';
-import 'package:ecommerce_app/src/features/orders_list/orders_list_screen.dart';
-import 'package:ecommerce_app/src/features/product_page/product_screen.dart';
-import 'package:ecommerce_app/src/features/products_list/products_list_screen.dart';
-import 'package:ecommerce_app/src/features/shopping_cart/shopping_cart_screen.dart';
-import 'package:ecommerce_app/src/features/sign_in/email_password_sign_in_screen.dart';
-import 'package:ecommerce_app/src/features/sign_in/email_password_sign_in_state.dart';
+import 'package:ecommerce_app/src/features/authentication/presentation/account/account_screen.dart';
+import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_screen.dart';
+import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
+import 'package:ecommerce_app/src/features/cart/presentation/shopping_cart/shopping_cart_screen.dart';
+import 'package:ecommerce_app/src/features/checkout/presentation/checkout_screen/checkout_screen.dart';
+import 'package:ecommerce_app/src/features/orders/presentation/orders_list/orders_list_screen.dart';
+import 'package:ecommerce_app/src/features/products/presentation/product_screen/product_screen.dart';
+import 'package:ecommerce_app/src/features/products/presentation/products_list/products_list_screen.dart';
+import 'package:ecommerce_app/src/features/reviews/presentation/leave_review_screen/leave_review_screen.dart';
+import 'package:ecommerce_app/src/routing/not_found_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
