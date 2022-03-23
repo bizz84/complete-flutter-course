@@ -50,10 +50,10 @@ git checkout <branch-name>
 11. Useful Widgets for Responsive Design
 12. App Localization
 
-## 2. Navigation with GoRouter
+### 2. Navigation with GoRouter
 
 1. Section Intro
-2. From Navigator 1.0 to GoRouter: Overview
+2. Limitations of Navigator 1.0
 3. GoRouter installation & initial setup with `MaterialApp.router`
 4. Routes, sub-routes and navigation
 5. `GoRouterHelper` Extension and `pageBuilder`
@@ -66,5 +66,16 @@ git checkout <branch-name>
 12. How to pop a route with GoRouter
 13. Nested Navigation
 14. Bug fix & wrap up
+
+### 3. Flutter App Architecture
+
+1. Section Intro
+2. Popular App Architectures: MVC, MVP, MVVM, Clean Architecture, Bloc
+3. Riverpod App Architecture with the Controller-Service-Repository Pattern
+4. Project Structure: Feature-first vs Layer-first
+5. The Repository Pattern and the Data Layer
+6. Implementing the "fake" products repository as a singleton
+7. Working with Future and Stream-based APIs
+8. Wrap Up
 
 ### [LICENSE: MIT](LICENSE.md)
