@@ -3,9 +3,6 @@ import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FakeProductsRepository {
-  FakeProductsRepository._();
-  static FakeProductsRepository instance = FakeProductsRepository._();
-
   final List<Product> _products = kTestProducts;
 
   List<Product> getProductsList() {
@@ -31,5 +28,5 @@ class FakeProductsRepository {
 }
 
 final productsRepositoryProvider = Provider<FakeProductsRepository>((ref) {
-  return FakeProductsRepository.instance;
+  return FakeProductsRepository();
 });
