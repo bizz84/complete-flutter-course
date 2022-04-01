@@ -78,4 +78,18 @@ git checkout <branch-name>
 7. Working with Future and Stream-based APIs
 8. Wrap Up
 
+### 4. State Management with Riverpod - Part 1
+
+1. Section Intro
+2. Introduction to Riverpod
+3. Riverpod installation and setup
+4. Creating our first provider
+5. Reading providers with `ConsumerWidget` and `Consumer`
+6. Working with `FutureProvider`, `StreamProvider`, and `AsyncValue`
+7. Testing `AsyncValue` by adding a delay
+8. The `family` modifier
+9. The `autoDispose` modifier + advanced data caching options
+10. Creating a reusable `AsyncValueWidget` helper
+11. Wrap Up + Exercise
+
 ### [LICENSE: MIT](LICENSE.md)
