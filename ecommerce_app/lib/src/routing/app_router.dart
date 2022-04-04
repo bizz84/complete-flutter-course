@@ -29,6 +29,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   final authStateNotifier =
       AuthStateNotifier(authStateChanges: authRepository.authStateChanges());
+  ref.onDispose(() => authStateNotifier.dispose());
   return GoRouter(
     initialLocation: '/',
     debugLogDiagnostics: false,
