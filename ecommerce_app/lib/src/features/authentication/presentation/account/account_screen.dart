@@ -86,12 +86,12 @@ class UserDataTable extends ConsumerWidget {
         rows: [
           _makeDataRow(
             'uid'.hardcoded,
-            user!.uid,
+            user?.uid ?? '',
             style,
           ),
           _makeDataRow(
             'email'.hardcoded,
-            user.email ?? '',
+            user?.email ?? '',
             style,
           ),
         ],
