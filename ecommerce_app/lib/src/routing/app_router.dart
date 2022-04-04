@@ -44,7 +44,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       }
       return null;
     },
-    //refreshListenable: authStateNotifier,
+    refreshListenable: authStateNotifier,
     routes: [
       GoRoute(
         path: '/',

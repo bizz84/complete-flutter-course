@@ -29,7 +29,7 @@ class EmailPasswordSignInScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Sign In'.hardcoded)),
       body: EmailPasswordSignInContents(
         formType: formType,
-        onSignedIn: () => Navigator.of(context).pop(),
+        //onSignedIn: () => Navigator.of(context).pop(),
       ),
     );
   }
@@ -84,10 +84,7 @@ class _EmailPasswordSignInContentsState
     if (_formKey.currentState!.validate()) {
       final controller = ref.read(
           emailPasswordSignInControllerProvider(widget.formType).notifier);
-      final success = await controller.submit(email, password);
-      if (success) {
-        widget.onSignedIn?.call();
-      }
+      await controller.submit(email, password);
     }
   }
 

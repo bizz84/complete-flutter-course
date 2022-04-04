@@ -14,15 +14,13 @@ class EmailPasswordSignInController
         ));
   final FakeAuthRepository authRepository;
 
-  Future<bool> submit(String email, String password) async {
+  Future<void> submit(String email, String password) async {
     try {
       state = state.copyWith(state: const VoidAsyncValue.loading());
       await _submit(email, password);
       state = state.copyWith(state: const VoidAsyncValue.data(null));
-      return true;
     } catch (e) {
       state = state.copyWith(state: VoidAsyncValue.error(e));
-      return false;
     }
   }
 

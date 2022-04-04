@@ -36,9 +36,8 @@ void main() {
       //     ],
       //   ),
       // );
-      final result = await controller.submit(testEmail, testPassword);
+      await controller.submit(testEmail, testPassword);
       // verify
-      expect(result, true);
       expect(
         controller.debugState,
         EmailPasswordSignInState(
@@ -61,9 +60,8 @@ void main() {
         formType: EmailPasswordSignInFormType.signIn,
       );
       // run
-      final result = await controller.submit(testEmail, testPassword);
+      await controller.submit(testEmail, testPassword);
       // verify
-      expect(result, false);
       expect(
         controller.debugState,
         EmailPasswordSignInState(
@@ -85,9 +83,8 @@ void main() {
         authRepository: authRepository,
         formType: EmailPasswordSignInFormType.register,
       );
-      final result = await controller.submit(testEmail, testPassword);
+      await controller.submit(testEmail, testPassword);
       // verify
-      expect(result, true);
       expect(
         controller.debugState,
         EmailPasswordSignInState(
@@ -110,9 +107,8 @@ void main() {
         formType: EmailPasswordSignInFormType.register,
       );
       // run
-      final result = await controller.submit(testEmail, testPassword);
+      await controller.submit(testEmail, testPassword);
       // verify
-      expect(result, false);
       expect(
         controller.debugState,
         EmailPasswordSignInState(
