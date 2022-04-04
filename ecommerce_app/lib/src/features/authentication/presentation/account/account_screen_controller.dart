@@ -24,7 +24,5 @@ final accountScreenControllerProvider =
     StateNotifierProvider.autoDispose<AccountScreenController, VoidAsyncValue>(
         (ref) {
   final authRepository = ref.watch(authRepositoryProvider);
-  return AccountScreenController(
-    authRepository: authRepository,
-  );
+  return AccountScreenController(authRepository: authRepository);
 });

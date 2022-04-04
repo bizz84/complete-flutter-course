@@ -8,25 +8,31 @@ import '../../../../mocks.dart';
 void main() {
   group('AccountScreenController', () {
     test('signOut success', () async {
+      // setup
       final authRepository = MockAuthRepository();
       when(() => authRepository.signOut())
           .thenAnswer((_) async => Future.value(null));
       final controller = AccountScreenController(
         authRepository: authRepository,
       );
+      // run
       await controller.signOut();
+      // verify
       verify(() => authRepository.signOut()).called(1);
       expect(controller.debugState, const VoidAsyncValue.data(null));
     });
 
     test('signOut failure', () async {
+      // setup
       final authRepository = MockAuthRepository();
       final exception = Exception('Connection failed');
       when(() => authRepository.signOut()).thenThrow(exception);
       final controller = AccountScreenController(
         authRepository: authRepository,
       );
+      // run
       await controller.signOut();
+      // verify
       verify(() => authRepository.signOut()).called(1);
       expect(controller.debugState, VoidAsyncValue.error(exception));
     });
