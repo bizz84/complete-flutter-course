@@ -8,7 +8,7 @@ import 'package:ecommerce_app/src/features/orders/presentation/orders_list/order
 import 'package:ecommerce_app/src/features/products/presentation/product_screen/product_screen.dart';
 import 'package:ecommerce_app/src/features/products/presentation/products_list/products_list_screen.dart';
 import 'package:ecommerce_app/src/features/reviews/presentation/leave_review_screen/leave_review_screen.dart';
-import 'package:ecommerce_app/src/routing/app_router_listenable.dart';
+import 'package:ecommerce_app/src/routing/auth_state_notifier.dart';
 import 'package:ecommerce_app/src/routing/not_found_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,13 +27,13 @@ enum AppRoute {
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
-  final appRouterListenable =
-      AppRouterListenable(authRepository: authRepository);
+  final authStateNotifier =
+      AuthStateNotifier(authStateChanges: authRepository.authStateChanges());
   return GoRouter(
     initialLocation: '/',
     debugLogDiagnostics: false,
     redirect: (state) {
-      if (appRouterListenable.isLoggedIn) {
+      if (authStateNotifier.isLoggedIn) {
         if (state.location == '/signIn') {
           return '/';
         }
@@ -44,6 +44,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       }
       return null;
     },
+    //refreshListenable: authStateNotifier,
     routes: [
       GoRoute(
         path: '/',
