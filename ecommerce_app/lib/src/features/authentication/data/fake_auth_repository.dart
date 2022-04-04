@@ -52,6 +52,6 @@ final authRepositoryProvider = Provider<FakeAuthRepository>((ref) {
 });
 
 final authStateChangesProvider = StreamProvider.autoDispose<AppUser?>((ref) {
-  final authService = ref.watch(authRepositoryProvider);
-  return authService.authStateChanges();
+  final authRepository = ref.watch(authRepositoryProvider);
+  return authRepository.authStateChanges();
 });
