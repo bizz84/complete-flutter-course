@@ -16,6 +16,16 @@ class AccountScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<AsyncValue<void>>(
+      accountScreenControllerProvider,
+      (previousState, state) => state.whenOrNull(
+        error: (error, _) => showExceptionAlertDialog(
+          context: context,
+          title: 'Error'.hardcoded,
+          exception: error,
+        ),
+      ),
+    );
     final state = ref.watch(accountScreenControllerProvider);
     return Scaffold(
       appBar: AppBar(
