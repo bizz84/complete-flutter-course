@@ -12,10 +12,8 @@ class InMemoryStore<T> {
 
   // A synchronous getter for the current value
   T get value => _subject.value;
-  // A setter for updating the data
-  set value(T value) {
-    _subject.add(value);
-  }
+  // A setter for updating the value
+  set value(T value) => _subject.add(value);
 
   // Close the BehaviorSubject when no longer needed
   void close() => _subject.close();
