@@ -7,13 +7,11 @@ typedef VoidAsyncValue = AsyncValue<void>;
 
 extension AsyncValueUI on VoidAsyncValue {
   void showAlertDialogOnError(BuildContext context) {
-    if (!isRefreshing) {
-      whenOrNull(
-        error: (error, _) => showExceptionAlertDialog(
-          context: context,
-          title: 'Error'.hardcoded,
-          exception: error,
-        ),
+    if (!isRefreshing && hasError) {
+      showExceptionAlertDialog(
+        context: context,
+        title: 'Error'.hardcoded,
+        exception: error,
       );
     }
   }
