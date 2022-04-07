@@ -63,6 +63,12 @@ class _EmailPasswordSignInContentsState
   String get email => _emailController.text;
   String get password => _passwordController.text;
 
+  // local variable used to apply AutovalidateMode.onUserInteraction and show
+  // error hints only when the form has been submitted
+  // For more details on how this is implemented, see:
+  // https://codewithandrea.com/articles/flutter-text-field-form-validation/
+  var _submitted = false;
+
   @override
   void dispose() {
     // * TextEditingControllers should be always disposed
@@ -73,7 +79,7 @@ class _EmailPasswordSignInContentsState
   }
 
   Future<void> _submit(EmailPasswordSignInState state) async {
-    //setState(() => _submitted = true);
+    setState(() => _submitted = true);
     // only submit the form if validation passes
     if (_formKey.currentState!.validate()) {
       final controller = ref.read(
@@ -136,7 +142,7 @@ class _EmailPasswordSignInContentsState
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (email) =>
-                    !_submitted ? null : _state.emailErrorText(email ?? ''),
+                    !_submitted ? null : state.emailErrorText(email ?? ''),
                 autocorrect: false,
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
