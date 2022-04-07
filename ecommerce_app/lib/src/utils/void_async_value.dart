@@ -6,11 +6,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 typedef VoidAsyncValue = AsyncValue<void>;
 
 extension AsyncValueUI on VoidAsyncValue {
-  void showAlertDialogOnError(BuildContext context) => whenOrNull(
+  void showAlertDialogOnError(BuildContext context) {
+    if (!isRefreshing) {
+      whenOrNull(
         error: (error, _) => showExceptionAlertDialog(
           context: context,
           title: 'Error'.hardcoded,
           exception: error,
         ),
       );
+    }
+  }
 }
