@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
 import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/string_validators.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:ecommerce_app/src/utils/void_async_value.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ecommerce_app/src/common_widgets/custom_text_button.dart';
@@ -66,8 +67,8 @@ class _EmailPasswordSignInContentsState
   // https://codewithandrea.com/articles/flutter-text-field-form-validation/
   var _submitted = false;
   // local variable representing the form type and loading state
-  late var _state =
-      EmailPasswordSignInState(formType: widget.formType, isLoading: false);
+  late var _state = EmailPasswordSignInState(
+      formType: widget.formType, state: const VoidAsyncValue.data(null));
 
   @override
   void dispose() {
@@ -126,7 +127,7 @@ class _EmailPasswordSignInContentsState
                 decoration: InputDecoration(
                   labelText: 'Email'.hardcoded,
                   hintText: 'test@test.com'.hardcoded,
-                  enabled: !_state.isLoading,
+                  enabled: !_state.state.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (email) =>
@@ -148,7 +149,7 @@ class _EmailPasswordSignInContentsState
                 controller: _passwordController,
                 decoration: InputDecoration(
                   labelText: _state.passwordLabelText,
-                  enabled: !_state.isLoading,
+                  enabled: !_state.state.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (password) => !_submitted
@@ -163,13 +164,14 @@ class _EmailPasswordSignInContentsState
               gapH8,
               PrimaryButton(
                 text: _state.primaryButtonText,
-                isLoading: _state.isLoading,
-                onPressed: _state.isLoading ? null : () => _submit(_state),
+                isLoading: _state.state.isLoading,
+                onPressed:
+                    _state.state.isLoading ? null : () => _submit(_state),
               ),
               gapH8,
               CustomTextButton(
                 text: _state.secondaryButtonText,
-                onPressed: _state.isLoading
+                onPressed: _state.state.isLoading
                     ? null
                     : () => _updateFormType(_state.secondaryActionFormType),
               ),
