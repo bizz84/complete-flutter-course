@@ -61,12 +61,14 @@ class _EmailPasswordSignInContentsState
   String get email => _emailController.text;
   String get password => _passwordController.text;
 
+  // local variable used to apply AutovalidateMode.onUserInteraction and show
+  // error hints only when the form has been submitted
+  // For more details on how this is implemented, see:
+  // https://codewithandrea.com/articles/flutter-text-field-form-validation/
+  var _submitted = false;
   // local variable representing the form type and loading state
   late var _state = EmailPasswordSignInState(
-    formType: widget.formType,
-    submitted: false,
-    state: const VoidAsyncValue.data(null),
-  );
+      formType: widget.formType, state: const VoidAsyncValue.data(null));
 
   @override
   void dispose() {
@@ -78,7 +80,7 @@ class _EmailPasswordSignInContentsState
   }
 
   Future<void> _submit(EmailPasswordSignInState state) async {
-    setState(() => _state = _state.copyWith(submitted: true));
+    setState(() => _submitted = true);
     // only submit the form if validation passes
     if (_formKey.currentState!.validate()) {
       // TODO: Authentication logic
@@ -128,9 +130,8 @@ class _EmailPasswordSignInContentsState
                   enabled: !_state.state.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (email) => !_state.submitted
-                    ? null
-                    : _state.emailErrorText(email ?? ''),
+                validator: (email) =>
+                    !_submitted ? null : _state.emailErrorText(email ?? ''),
                 autocorrect: false,
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
@@ -151,7 +152,7 @@ class _EmailPasswordSignInContentsState
                   enabled: !_state.state.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (password) => !_state.submitted
+                validator: (password) => !_submitted
                     ? null
                     : _state.passwordErrorText(password ?? ''),
                 obscureText: true,

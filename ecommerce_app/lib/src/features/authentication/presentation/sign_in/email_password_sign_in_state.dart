@@ -18,33 +18,25 @@ mixin EmailAndPasswordValidators {
 class EmailPasswordSignInState with EmailAndPasswordValidators {
   EmailPasswordSignInState({
     this.formType = EmailPasswordSignInFormType.signIn,
-    this.submitted = false,
     required this.state,
   });
 
   final EmailPasswordSignInFormType formType;
-  // local variable used to apply AutovalidateMode.onUserInteraction and show
-  // error hints only when the form has been submitted
-  // For more details on how this is implemented, see:
-  // https://codewithandrea.com/articles/flutter-text-field-form-validation/
-  final bool submitted;
   final VoidAsyncValue state;
 
   EmailPasswordSignInState copyWith({
     EmailPasswordSignInFormType? formType,
-    bool? submitted,
     VoidAsyncValue? state,
   }) {
     return EmailPasswordSignInState(
       formType: formType ?? this.formType,
-      submitted: submitted ?? this.submitted,
       state: state ?? this.state,
     );
   }
 
   @override
   String toString() {
-    return 'EmailPasswordSignInState(formType: $formType, submitted: $submitted, state: $state)';
+    return 'EmailPasswordSignInState(formType: $formType, state: $state)';
   }
 
   @override
@@ -53,13 +45,12 @@ class EmailPasswordSignInState with EmailAndPasswordValidators {
 
     return other is EmailPasswordSignInState &&
         other.formType == formType &&
-        other.submitted == submitted &&
         other.state == state;
   }
 
   @override
   int get hashCode {
-    return formType.hashCode ^ submitted.hashCode ^ state.hashCode;
+    return formType.hashCode ^ state.hashCode;
   }
 }
 
