@@ -33,6 +33,10 @@ class EmailPasswordSignInController
   void updateFormType(EmailPasswordSignInFormType formType) {
     state = state.copyWith(formType: formType);
   }
+
+  void setSubmitted() {
+    state = state.copyWith(submitted: true);
+  }
 }
 
 final emailPasswordSignInControllerProvider = StateNotifierProvider.autoDispose
