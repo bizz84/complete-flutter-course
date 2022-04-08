@@ -18,26 +18,25 @@ mixin EmailAndPasswordValidators {
 class EmailPasswordSignInState with EmailAndPasswordValidators {
   EmailPasswordSignInState({
     this.formType = EmailPasswordSignInFormType.signIn,
-    required this.state,
+    required this.value,
   });
 
   final EmailPasswordSignInFormType formType;
-  final VoidAsyncValue state;
+  final VoidAsyncValue value;
 
   EmailPasswordSignInState copyWith({
     EmailPasswordSignInFormType? formType,
-    VoidAsyncValue? state,
+    VoidAsyncValue? value,
   }) {
     return EmailPasswordSignInState(
       formType: formType ?? this.formType,
-      state: state ?? this.state,
+      value: value ?? this.value,
     );
   }
 
   @override
-  String toString() {
-    return 'EmailPasswordSignInState(formType: $formType, state: $state)';
-  }
+  String toString() =>
+      'EmailPasswordSignInState(formType: $formType, value: $value)';
 
   @override
   bool operator ==(Object other) {
@@ -45,13 +44,11 @@ class EmailPasswordSignInState with EmailAndPasswordValidators {
 
     return other is EmailPasswordSignInState &&
         other.formType == formType &&
-        other.state == state;
+        other.value == value;
   }
 
   @override
-  int get hashCode {
-    return formType.hashCode ^ state.hashCode;
-  }
+  int get hashCode => formType.hashCode ^ value.hashCode;
 }
 
 extension EmailPasswordSignInStateX on EmailPasswordSignInState {

@@ -10,20 +10,15 @@ class EmailPasswordSignInController
     required EmailPasswordSignInFormType formType,
   }) : super(EmailPasswordSignInState(
           formType: formType,
-          state: const VoidAsyncValue.data(null),
+          value: const VoidAsyncValue.data(null),
         ));
   final FakeAuthRepository authRepository;
 
   Future<bool> submit(String email, String password) async {
-    try {
-      state = state.copyWith(state: const VoidAsyncValue.loading());
-      await _submit(email, password);
-      state = state.copyWith(state: const VoidAsyncValue.data(null));
-      return true;
-    } catch (e) {
-      state = state.copyWith(state: VoidAsyncValue.error(e));
-      return false;
-    }
+    state = state.copyWith(value: const VoidAsyncValue.loading());
+    final value = await VoidAsyncValue.guard(() => _submit(email, password));
+    state = state.copyWith(value: value);
+    return !value.hasError;
   }
 
   Future<void> _submit(String email, String password) {

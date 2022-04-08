@@ -118,7 +118,7 @@ class _EmailPasswordSignInContentsState
   Widget build(BuildContext context) {
     ref.listen<EmailPasswordSignInState>(
       emailPasswordSignInControllerProvider(widget.formType),
-      (_, state) => state.state.showAlertDialogOnError(context),
+      (_, state) => state.value.showAlertDialogOnError(context),
     );
     final state =
         ref.watch(emailPasswordSignInControllerProvider(widget.formType));
@@ -138,7 +138,7 @@ class _EmailPasswordSignInContentsState
                 decoration: InputDecoration(
                   labelText: 'Email'.hardcoded,
                   hintText: 'test@test.com'.hardcoded,
-                  enabled: !state.state.isLoading,
+                  enabled: !state.value.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (email) =>
@@ -160,7 +160,7 @@ class _EmailPasswordSignInContentsState
                 controller: _passwordController,
                 decoration: InputDecoration(
                   labelText: state.passwordLabelText,
-                  enabled: !state.state.isLoading,
+                  enabled: !state.value.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (password) => !_submitted
@@ -175,13 +175,13 @@ class _EmailPasswordSignInContentsState
               gapH8,
               PrimaryButton(
                 text: state.primaryButtonText,
-                isLoading: state.state.isLoading,
-                onPressed: state.state.isLoading ? null : () => _submit(state),
+                isLoading: state.value.isLoading,
+                onPressed: state.value.isLoading ? null : () => _submit(state),
               ),
               gapH8,
               CustomTextButton(
                 text: state.secondaryButtonText,
-                onPressed: state.state.isLoading
+                onPressed: state.value.isLoading
                     ? null
                     : () => _updateFormType(state.secondaryActionFormType),
               ),
