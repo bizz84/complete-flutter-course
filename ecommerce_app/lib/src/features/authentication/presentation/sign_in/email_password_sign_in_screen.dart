@@ -67,7 +67,7 @@ class _EmailPasswordSignInContentsState
   // error hints only when the form has been submitted
   // For more details on how this is implemented, see:
   // https://codewithandrea.com/articles/flutter-text-field-form-validation/
-  //var _submitted = false;
+  var _submitted = false;
 
   @override
   void dispose() {
@@ -79,11 +79,11 @@ class _EmailPasswordSignInContentsState
   }
 
   Future<void> _submit(EmailPasswordSignInState state) async {
-    final controller = ref
-        .read(emailPasswordSignInControllerProvider(widget.formType).notifier);
-    controller.setSubmitted();
+    setState(() => _submitted = true);
     // only submit the form if validation passes
     if (_formKey.currentState!.validate()) {
+      final controller = ref.read(
+          emailPasswordSignInControllerProvider(widget.formType).notifier);
       final success = await controller.submit(email, password);
       if (success) {
         widget.onSignedIn?.call();
@@ -142,7 +142,7 @@ class _EmailPasswordSignInContentsState
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (email) =>
-                    !state.submitted ? null : state.emailErrorText(email ?? ''),
+                    !_submitted ? null : state.emailErrorText(email ?? ''),
                 autocorrect: false,
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
@@ -163,7 +163,7 @@ class _EmailPasswordSignInContentsState
                   enabled: !state.value.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (password) => !state.submitted
+                validator: (password) => !_submitted
                     ? null
                     : state.passwordErrorText(password ?? ''),
                 obscureText: true,
