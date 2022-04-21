@@ -34,9 +34,8 @@ class EmailPasswordSignInState with EmailAndPasswordValidators {
   }
 
   @override
-  String toString() {
-    return 'EmailPasswordSignInState(formType: $formType, isLoading: $isLoading)';
-  }
+  String toString() =>
+      'EmailPasswordSignInState(formType: $formType, isLoading: $isLoading)';
 
   @override
   bool operator ==(Object other) {
@@ -48,9 +47,7 @@ class EmailPasswordSignInState with EmailAndPasswordValidators {
   }
 
   @override
-  int get hashCode {
-    return formType.hashCode ^ isLoading.hashCode;
-  }
+  int get hashCode => formType.hashCode ^ isLoading.hashCode;
 }
 
 extension EmailPasswordSignInStateX on EmailPasswordSignInState {
