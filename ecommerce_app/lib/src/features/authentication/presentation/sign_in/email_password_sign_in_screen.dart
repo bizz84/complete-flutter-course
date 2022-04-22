@@ -28,7 +28,6 @@ class EmailPasswordSignInScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Sign In'.hardcoded)),
       body: EmailPasswordSignInContents(
         formType: formType,
-        onSignedIn: () => Navigator.of(context).pop(),
       ),
     );
   }
