@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/common_widgets/action_text_button.dart';
 import 'package:ecommerce_app/src/common_widgets/responsive_center.dart';
 import 'package:ecommerce_app/src/constants/app_sizes.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Simple account screen showing some user info and a logout button.
@@ -32,10 +31,6 @@ class AccountScreen extends ConsumerWidget {
             onPressed: state.isLoading
                 ? null
                 : () async {
-                    // * Get the navigator beforehand to prevent this warning:
-                    // * Don't use 'BuildContext's across async gaps.
-                    // * More info here: https://youtu.be/bzWaMpD1LHY
-                    final goRouter = GoRouter.of(context);
                     final logout = await showAlertDialog(
                       context: context,
                       title: 'Are you sure?'.hardcoded,
@@ -43,12 +38,9 @@ class AccountScreen extends ConsumerWidget {
                       defaultActionText: 'Logout'.hardcoded,
                     );
                     if (logout == true) {
-                      final success = await ref
+                      ref
                           .read(accountScreenControllerProvider.notifier)
                           .signOut();
-                      if (success) {
-                        goRouter.pop();
-                      }
                     }
                   },
           ),
