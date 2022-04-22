@@ -78,7 +78,7 @@ git checkout <branch-name>
 7. Working with Future and Stream-based APIs
 8. Wrap Up
 
-### 4. State Management with Riverpod - Part 1
+### 4. State Management with Riverpod - Part 1 (Product Listings)
 
 1. Section Intro
 2. Introduction to Riverpod
@@ -91,5 +91,31 @@ git checkout <branch-name>
 9. The `autoDispose` modifier + advanced data caching options
 10. Creating a reusable `AsyncValueWidget` helper
 11. Wrap Up + Exercise
+
+### 5. State Management with Riverpod - Part 2 (Authentication Flow)
+
+1. Section intro
+2. Implementing a fake authentication repository
+3. Creating repositories using abstract classes (optional)
+4. Intro: a reactive in-memory store with RxDart
+5. Implementing the `InMemoryStore` with RxDart
+6. Using the `InMemoryStore` in the `FakeAuthRepository`
+7. Accessing the `FakeAuthRepository` with `ref.read()` in the `AccountScreen`
+8. Creating our first controller using `StateNotifier`
+9. Using the `StateNotifier` inside the `AccountScreen` widget
+10. Listening to provider state changes with `ref.listen()`
+11. Bug-fix for `Navigator.pop`
+12. The `AsyncValue.guard` method
+13. Adding an `AsyncValue` extension method
+14. Using the `authStateChangesProvider` in `HomeAppBar`
+15. Intro to the email & password sign-in screen
+16. How to generate immutable state classes in Dart
+17. Using `AsyncValue` inside `EmailPasswordSignInState`
+18. Implementing the `EmailPasswordSignInController`
+19. Using the `EmailPasswordSignInController` in the widget class
+20. Bug fix + filtering state updates with `select()`
+21. GoRouter redirects
+22. GoRouter: the `refreshListenable` argument
+23. Wrap Up
 
 ### [LICENSE: MIT](LICENSE.md)
