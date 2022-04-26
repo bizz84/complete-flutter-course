@@ -19,6 +19,10 @@
                 [
                     "The sandbox is not in sync with the Podfile.lock",
                     "/faq/sandbox-not-in-sync-podfile"
+                ],
+                [
+                    "How to run CocoaPods on Apple Silicon (M1)",
+                    "/faq/how-to-run-cocoapods-apple-silicon"
                 ]
             ]
         ],
