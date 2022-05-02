@@ -6,11 +6,31 @@ This is a common error when running on iOS or macOS after installing new package
 The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation
 ```
 
-## Steps to try
+### Steps to try
 
 ```
 flutter pub get
-cd ios # or `macos` depending on target platform
+
+# From the root of the project folder:
+cd ios
+pod install
+pod update
+
+# Or likewise if you want to fix this for macOS:
+cd macos
+pod install
+pod update
+```
+
+If this still does not work, you can also try a full clean:
+
+```
+# From the project root:
+flutter clean
+
+cd ios
+rm Podfile.lock
+rm -rf Pods/
 pod install
 pod update
 ```
@@ -18,3 +38,8 @@ pod update
 More info here:
 
 - [How to resolve an error: The sandbox is not in sync with the Podfile.lock](https://stackoverflow.com/questions/63226903/how-to-resolve-an-error-the-sandbox-is-not-in-sync-with-the-podfile-lock)
+
+Also see the steps in [this answer](https://stackoverflow.com/a/34765245/436422) to this thread:
+
+- [How to remove CocoaPods from a project?](https://stackoverflow.com/questions/16427421/how-to-remove-cocoapods-from-a-project/34765245#34765245)
+

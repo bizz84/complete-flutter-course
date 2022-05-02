@@ -1,0 +1,27 @@
+# Error: ADB exited with exit code 1 - Requested internal only, but not enough space
+
+If you're running the Android emulator on a low-memory machine, you may get an `INSTALL_FAILED_INSUFFICIENT_STORAGE` error as explained here:
+
+- [Error: ADB exited with exit code 1 Performing Streamed Install | StackOverflow](https://stackoverflow.com/questions/57000915/error-adb-exited-with-exit-code-1-performing-streamed-install)
+
+Other relevant questions:
+
+- [Flutter - android.os.ParcelableException: java.io.IOException: Requested internal only, but not enough space](https://stackoverflow.com/questions/52459928/flutter-android-os-parcelableexception-java-io-ioexception-requested-interna)
+- [Installation failed with message Error: android.os.ParcelableException: java.io.IOException: Requested internal only, but not enough space](https://stackoverflow.com/questions/54461288/installation-failed-with-message-error-android-os-parcelableexception-java-io)
+
+In all cases, the issue seems to be that the Android emulator needs to have more internal storage. This answer shows the steps for fixing it:
+
+- [Increasing the storage in the emulator](https://stackoverflow.com/a/71309984/436422)
+
+This may also be solved by **wiping the emulator data**.
+
+Then you can run these commands and try again:
+
+```
+flutter clean
+flutter pub get
+```
+
+### Notes about creating the Android emulator
+
+- You can try to install devices such as `Pixel_3a_XL_API_32`, `Pixel_4a_API_32`, `Pixel_5_API_32` as they may use less memory.

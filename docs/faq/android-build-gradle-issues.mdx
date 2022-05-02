@@ -1,10 +1,10 @@
-## Android build.gradle issues
+# Android build.gradle issues
 
 Starting with Flutter 2.8, the `compileSdkVersion`, `minSdkVersion` and `targetSdkVersion` are no longer hardcoded.
 
 Instead, they are set like this inside `android/app/build.gradle`:
 
-```gradle
+```
 android {
     compileSdkVersion flutter.compileSdkVersion
 
@@ -16,6 +16,8 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+    ...
+}
 ```
 
 All these variables are set like this inside `android/local.properties` (note that this file is **git ignored** by default):
