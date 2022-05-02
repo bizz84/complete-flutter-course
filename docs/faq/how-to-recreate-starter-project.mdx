@@ -1,0 +1,47 @@
+# How to recreate the starter project from scratch 💣
+
+If the starter project doesn't compile for you despite trying everything else, you can **create it from scratch** by following these steps below.
+
+First of all, do this:
+
+- Grab the desired starter project attached in the course lesson (e.g. `ecommerce_app_section1.zip`)
+- Extract it locally. This will create an `ecommerce_app` folder.
+
+Then open a terminal prompt and run these commands (you can copy paste the whole lot):
+
+```sh
+# Rename downloaded project
+mv ecommerce_app ecommerce_app_starter
+# Create brand new Flutter project
+flutter create -t skeleton ecommerce_app
+# Remove some files that will be copied over
+rm -rf ecommerce_app/lib
+rm -rf ecommerce_app/test
+rm ecommerce_app/pubspec.yaml
+rm ecommerce_app/pubspec.lock
+rm ecommerce_app/l10n.yaml
+# Copy them from the starter project
+cp -r ecommerce_app_starter/lib ecommerce_app/
+cp ecommerce_app_starter/pubspec.yaml ecommerce_app
+cp ecommerce_app_starter/pubspec.lock ecommerce_app
+cp ecommerce_app_starter/l10n.yaml ecommerce_app
+# Uncomment and run this only if the test folder exists in the starter project
+# cp -r ecommerce_app_starter/test ecommerce_app
+# Copy assets folder
+cp -r ecommerce_app_starter/assets ecommerce_app
+# Copy .vscode folder that contains the launch configuration
+cp -r ecommerce_app_starter/.vscode ecommerce_app
+# Move to new project folder
+cd ecommerce_app
+# Get packages
+flutter pub get
+```
+
+Finally, open the new project in VSCode:
+
+```
+code .
+```
+
+Then, you can choose one of the available devices and run it.
+
