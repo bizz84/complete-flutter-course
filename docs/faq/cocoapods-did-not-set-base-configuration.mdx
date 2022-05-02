@@ -1,0 +1,17 @@
+# CocoaPods did not set the base configuration of your project because your project already has a custom config set
+
+If you get a "CocoaPods did not set the base configuration of your project" warning, see this issue for more details:
+
+- [CocoaPods did not set the base configuration of your project because your project already has a custom config set.](https://github.com/flutter/flutter/issues/66222#issuecomment-695802808)
+
+Note that this is **only a warning**: you can still run the app.
+
+It can solved directly in the Xcode project as explained in [this comment](https://github.com/flutter/flutter/issues/66222#issuecomment-695802808).
+
+Alternatively, add the following inside `macos/Runner/Configs/AppInfo.xcconfig` or `ios/Runner/Configs/AppInfo.xcconfig`:
+
+```
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"
+```

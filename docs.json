@@ -6,12 +6,8 @@
             "/index"
         ],
         [
-            "FAQ",
+            "FAQ (iOS & macOS)",
             [
-                [
-                    "Android build.gradle issues",
-                    "/faq/android-build-gradle-issues"
-                ],
                 [
                     "CocoaPods not installed. Skipping pod install",
                     "/faq/cocoapods-not-installed"
@@ -19,84 +15,106 @@
                 [
                     "The sandbox is not in sync with the Podfile.lock",
                     "/faq/sandbox-not-in-sync-podfile"
+                ],
+                [
+                    "CocoaPods did not set the base configuration of your project because your project already has a custom config set",
+                    "/faq/cocoapods-did-not-set-base-configuration"
+                ],
+                [
+                    "How to run CocoaPods on Apple Silicon (M1)",
+                    "/faq/how-to-run-cocoapods-apple-silicon"
+                ],
+                [
+                    "Enable macOS/Linux desktop support",
+                    "/faq/enable-macos-desktop-support"
                 ]
             ]
         ],
         [
-            "Articles, Videos & Reference Guides",
+            "FAQ (Android)",
             [
                 [
-                    "Flutter App Architecture",
-                    [
-                        [
-                            "Flutter App Architecture: The Repository Pattern",
-                            "https://codewithandrea.com/articles/flutter-repository-pattern/"
-                        ],
-                        [
-                            "Flutter App Architecture: The Domain Model",
-                            "https://codewithandrea.com/articles/flutter-app-architecture-domain-model/"
-                        ]
-                    ]
+                    "Android build.gradle issues",
+                    "/faq/android-build-gradle-issues"
                 ],
                 [
-                    "Flutter State Management",
-                    [
-                        [
-                            "Flutter State Management Basics and Useful Resources",
-                            "https://codewithandrea.com/videos/flutter-state-management-basics/"
-                        ],
-                        [
-                            "Flutter State Management with Riverpod: The Essential Guide",
-                            "https://codewithandrea.com/articles/flutter-state-management-riverpod/"
-                        ],
-                        [
-                            "How to handle loading and error states with StateNotifier & AsyncValue in Flutter",
-                            "https://codewithandrea.com/articles/loading-error-states-state-notifier-async-value/"
-                        ],
-                        [
-                            "AsyncValueWidget: a reusable Flutter widget to work with AsyncValue (using Riverpod)",
-                            "https://codewithandrea.com/articles/async-value-widget-riverpod/"
-                        ]
-                    ]
-                ],
-                [
-                    "Firebase",
-                    [
-                        [
-                            "Firebase Cloud Functions: Introduction and Project Setup",
-                            "https://codewithandrea.com/articles/firebase-cloud-functions/"
-                        ],
-                        [
-                            "Flutter Tutorial: How to use the Firebase Local Emulator with Cloud Functions",
-                            "https://codewithandrea.com/articles/flutter-tutorial-firebase-cloud-functions/"
-                        ],
-                        [
-                            "How to add Firebase to a Flutter app with FlutterFire CLI",
-                            "https://codewithandrea.com/articles/flutter-firebase-flutterfire-cli/"
-                        ],
-                        [
-                            "Flutter Flavors Setup with multiple Firebase Environments using FlutterFire and Very Good CLI",
-                            "https://codewithandrea.com/articles/flutter-flavors-for-firebase-apps/"
-                        ]
-                    ]
-                ],
-                [
-                    "Other Flutter Topics",
-                    [
-                        [
-                            "How to create a Flutter GridView with content-sized items",
-                            "https://codewithandrea.com/articles/flutter-layout-grid-content-sized-items/"
-                        ],
-                        [
-                            "Flutter TextField Validation: How to work with TextEditingController, Form, and TextFormField",
-                            "https://codewithandrea.com/articles/flutter-text-field-form-validation/"
-                        ],
-                        [
-                            "Simplified Flutter Localization using a BuildContext extension",
-                            "https://codewithandrea.com/articles/flutter-localization-build-context-extension/"
-                        ]
-                    ]
+                    "Error: ADB exited with exit code 1 - Requested internal only, but not enough space",
+                    "/faq/adb-exited-code-1-not-enough-space"
                 ]
+            ]
+        ],
+        [
+            "FAQ (Other)",
+            [
+                [
+                    "How to recreate the starter project from scratch",
+                    "/faq/how-to-recreate-starter-project"
+                ],
+                [
+                    "Using the Bash or Zsh shell terminal on Windows",
+                    "/faq/using-bash-zsh-on-windows"
+                ],
+                [
+                    "How to deal with localization (multiple `arb` files) with the feature-first approach",
+                    "/faq/localization-feature-first"
+                ]
+            ]
+        ],
+        [
+            "Articles & Reference Guides",
+            [
+                [
+                    "Flutter App Architecture: The Repository Pattern",
+                    "https://codewithandrea.com/articles/flutter-repository-pattern/"
+                ],
+                [
+                    "Flutter App Architecture: The Domain Model",
+                    "https://codewithandrea.com/articles/flutter-app-architecture-domain-model/"
+                ],
+                [
+                    "Flutter State Management Basics and Useful Resources",
+                    "https://codewithandrea.com/videos/flutter-state-management-basics/"
+                ],
+                [
+                    "Flutter State Management with Riverpod: The Essential Guide",
+                    "https://codewithandrea.com/articles/flutter-state-management-riverpod/"
+                ],
+                [
+                    "How to handle loading and error states with StateNotifier & AsyncValue in Flutter",
+                    "https://codewithandrea.com/articles/loading-error-states-state-notifier-async-value/"
+                ],
+                [
+                    "AsyncValueWidget: a reusable Flutter widget to work with AsyncValue (using Riverpod)",
+                    "https://codewithandrea.com/articles/async-value-widget-riverpod/"
+                ],
+                [
+                    "Firebase Cloud Functions: Introduction and Project Setup",
+                    "https://codewithandrea.com/articles/firebase-cloud-functions/"
+                ],
+                [
+                    "Flutter Tutorial: How to use the Firebase Local Emulator with Cloud Functions",
+                    "https://codewithandrea.com/articles/flutter-tutorial-firebase-cloud-functions/"
+                ],
+                [
+                    "How to add Firebase to a Flutter app with FlutterFire CLI",
+                    "https://codewithandrea.com/articles/flutter-firebase-flutterfire-cli/"
+                ],
+                [
+                    "Flutter Flavors Setup with multiple Firebase Environments using FlutterFire and Very Good CLI",
+                    "https://codewithandrea.com/articles/flutter-flavors-for-firebase-apps/"
+                ],
+                [
+                    "How to create a Flutter GridView with content-sized items",
+                    "https://codewithandrea.com/articles/flutter-layout-grid-content-sized-items/"
+                ],
+                [
+                    "Flutter TextField Validation: How to work with TextEditingController, Form, and TextFormField",
+                    "https://codewithandrea.com/articles/flutter-text-field-form-validation/"
+                ],
+                [
+                    "Simplified Flutter Localization using a BuildContext extension",
+                    "https://codewithandrea.com/articles/flutter-localization-build-context-extension/"
+                ]                
             ]
         ],
         [
