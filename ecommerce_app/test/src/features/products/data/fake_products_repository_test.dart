@@ -10,4 +10,20 @@ void main() {
       kTestProducts,
     );
   });
+
+  test('getProduct(1) returns first item', () {
+    final productsRepository = FakeProductsRepository();
+    expect(
+      productsRepository.getProduct('1'),
+      kTestProducts[0],
+    );
+  });
+
+  test('getProduct(100) returns null', () {
+    final productsRepository = FakeProductsRepository();
+    expect(
+      () => productsRepository.getProduct('100'),
+      throwsStateError,
+    );
+  });
 }
