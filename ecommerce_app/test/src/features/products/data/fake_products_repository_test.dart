@@ -22,8 +22,8 @@ void main() {
   test('getProduct(100) returns null', () {
     final productsRepository = FakeProductsRepository();
     expect(
-      () => productsRepository.getProduct('100'),
-      throwsStateError,
+      productsRepository.getProduct('100'),
+      null,
     );
   });
 }
