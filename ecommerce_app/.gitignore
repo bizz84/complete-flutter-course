@@ -117,3 +117,6 @@ firebase-exports
 .env.dev
 .env.stg
 .env.prod
+
+# Ignore test coverage data
+coverage/lcov.info
