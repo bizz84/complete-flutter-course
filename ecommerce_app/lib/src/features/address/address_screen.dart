@@ -19,7 +19,7 @@ class AddressScreen extends StatefulWidget {
   static const scrollableKey = Key('addressPageScrollable');
 
   @override
-  _AddressPageState createState() => _AddressPageState();
+  State<AddressScreen> createState() => _AddressPageState();
 }
 
 class _AddressPageState extends State<AddressScreen> {
