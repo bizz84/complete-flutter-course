@@ -124,4 +124,29 @@ This project includes a documentation website that can be found here:
 22. GoRouter: the `refreshListenable` argument
 23. Wrap Up
 
+### 6. Automated Testing - Part 1
+
+1. Section Intro
+2. Introduction to Automated Testing and the Testing Pyramid
+3. Getting started with automated testing
+4. Writing the first unit test + adding `toString()` and equality implementations
+5. Test matchers and working with methods that throw exceptions
+6. Fixing the `getProduct()` method and updating the unit tests
+7. Working with groups and testing Futures and Streams
+8. Adding an optional delay to the `FakeProductsRepository`
+9. How to generate a Flutter test coverage report in VSCode
+10. Testing the `FakeAuthRepository` (part 1)
+11. Testing the `FakeAuthRepository` (part 2) + advanced stream matchers
+12. Mocks vs Fakes + installing the mocktail package
+13. Testing the `AccountScreenController` (part 1) + `AsyncValue` subclasses
+14. Testing the `AccountScreenController` (part 2) + working with mocks
+15. Testing the `AccountScreenController` (part 3) + type matchers
+16. Testing with Stream Matchers and Predicates
+17. Testing lifecycle methods (`setUp`, `tearDown`, `setUpAll`, `tearDownAll`)
+18. Testing the `EmailPasswordSignInController` with acceptance criteria
+19. Testing the `EmailPasswordSignInController` (part 2)
+20. Tip: setting custom test timeouts per-file
+21. Adding a test workflow to automate testing with GitHub Actions
+22. Wrap up
+
 ### [LICENSE: MIT](LICENSE.md)
