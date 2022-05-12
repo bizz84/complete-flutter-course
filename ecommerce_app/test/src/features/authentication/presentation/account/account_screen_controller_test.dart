@@ -6,24 +6,24 @@ import 'package:mocktail/mocktail.dart';
 import '../../../../mocks.dart';
 
 void main() {
+  late MockAuthRepository authRepository;
+  late AccountScreenController controller;
+  setUp(() {
+    authRepository = MockAuthRepository();
+    controller = AccountScreenController(
+      authRepository: authRepository,
+    );
+  });
   group('AccountScreenController', () {
     test('initial state is AsyncValue.data', () {
-      final authRepository = MockAuthRepository();
-      final controller = AccountScreenController(
-        authRepository: authRepository,
-      );
       verifyNever(authRepository.signOut);
       expect(controller.debugState, const AsyncData<void>(null));
     });
 
     test('signOut success', () async {
       // setup
-      final authRepository = MockAuthRepository();
       when(authRepository.signOut).thenAnswer(
         (_) => Future.value(),
-      );
-      final controller = AccountScreenController(
-        authRepository: authRepository,
       );
       // run
       await controller.signOut();
@@ -33,12 +33,8 @@ void main() {
     });
     test('signOut failure', () async {
       // setup
-      final authRepository = MockAuthRepository();
       final exception = Exception('Connection failed');
       when(authRepository.signOut).thenThrow(exception);
-      final controller = AccountScreenController(
-        authRepository: authRepository,
-      );
       // run
       await controller.signOut();
       // verify
