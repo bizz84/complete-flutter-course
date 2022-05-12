@@ -5,10 +5,10 @@ import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   // * For more info on error handling, see:
   // * https://docs.flutter.dev/testing/errors
   await runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
     // * Entry point of the app
     runApp(const MyApp());
 
