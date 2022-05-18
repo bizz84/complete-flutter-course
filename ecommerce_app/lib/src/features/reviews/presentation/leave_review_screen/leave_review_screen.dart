@@ -9,8 +9,7 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
 
 class LeaveReviewScreen extends StatelessWidget {
-  const LeaveReviewScreen({Key? key, required this.productId})
-      : super(key: key);
+  const LeaveReviewScreen({super.key, required this.productId});
   final String productId;
 
   @override
@@ -31,8 +30,7 @@ class LeaveReviewScreen extends StatelessWidget {
 }
 
 class LeaveReviewForm extends StatefulWidget {
-  const LeaveReviewForm({Key? key, required this.productId, this.review})
-      : super(key: key);
+  const LeaveReviewForm({super.key, required this.productId, this.review});
   final String productId;
   final Review? review;
 

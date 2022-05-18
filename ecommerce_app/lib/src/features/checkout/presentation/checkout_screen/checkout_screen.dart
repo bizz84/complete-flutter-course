@@ -17,7 +17,7 @@ enum CheckoutSubRoute { register, payment }
 /// [CheckoutScreenController], while UI updates are handled by a
 /// [PageController].
 class CheckoutScreen extends StatefulWidget {
-  const CheckoutScreen({Key? key}) : super(key: key);
+  const CheckoutScreen({super.key});
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();

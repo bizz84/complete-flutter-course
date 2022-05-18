@@ -4,12 +4,12 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 /// Item quantity selector with +/- buttons and a text value in the middle
 class ItemQuantitySelector extends StatelessWidget {
   const ItemQuantitySelector({
-    Key? key,
+    super.key,
     required this.quantity,
     this.maxQuantity = 10,
     this.itemIndex,
     this.onChanged,
-  }) : super(key: key);
+  });
   final int quantity;
   final int maxQuantity;
   final int? itemIndex;

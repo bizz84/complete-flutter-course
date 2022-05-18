@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 /// Payment screen showing the items in the cart (with read-only quantities) and
 /// a button to checkout.
 class PaymentPage extends StatelessWidget {
-  const PaymentPage({Key? key}) : super(key: key);
+  const PaymentPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ enum PopupMenuOption {
 }
 
 class MoreMenuButton extends StatelessWidget {
-  const MoreMenuButton({Key? key, this.user}) : super(key: key);
+  const MoreMenuButton({super.key, this.user});
   final AppUser? user;
 
   // * Keys for testing using find.byKey()

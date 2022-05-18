@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 /// Search field used to filter products by name
 class ProductsSearchTextField extends StatefulWidget {
-  const ProductsSearchTextField({Key? key}) : super(key: key);
+  const ProductsSearchTextField({super.key});
 
   @override
   State<ProductsSearchTextField> createState() =>

@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 /// Shopping cart icon with items count badge
 class ShoppingCartIcon extends StatelessWidget {
-  const ShoppingCartIcon({Key? key}) : super(key: key);
+  const ShoppingCartIcon({super.key});
 
   // * Keys for testing using find.byKey()
   static const shoppingCartIconKey = Key('shopping-cart');
@@ -36,8 +36,7 @@ class ShoppingCartIcon extends StatelessWidget {
 
 /// Icon badge showing the items count
 class ShoppingCartIconBadge extends StatelessWidget {
-  const ShoppingCartIconBadge({Key? key, required this.itemsCount})
-      : super(key: key);
+  const ShoppingCartIconBadge({super.key, required this.itemsCount});
   final int itemsCount;
 
   @override

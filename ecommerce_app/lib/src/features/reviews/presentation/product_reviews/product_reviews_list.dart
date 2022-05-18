@@ -7,8 +7,7 @@ import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
 
 /// Shows the list of reviews for a given product ID
 class ProductReviewsList extends StatelessWidget {
-  const ProductReviewsList({Key? key, required this.productId})
-      : super(key: key);
+  const ProductReviewsList({super.key, required this.productId});
   final String productId;
   @override
   Widget build(BuildContext context) {

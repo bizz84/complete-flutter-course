@@ -10,7 +10,7 @@ import 'package:ecommerce_app/src/utils/date_formatter.dart';
 
 /// Shows all the details for a given order
 class OrderCard extends StatelessWidget {
-  const OrderCard({Key? key, required this.order}) : super(key: key);
+  const OrderCard({super.key, required this.order});
   final Order order;
 
   @override
@@ -36,7 +36,7 @@ class OrderCard extends StatelessWidget {
 /// - Total order amount
 /// - Order date
 class OrderHeader extends StatelessWidget {
-  const OrderHeader({Key? key, required this.order}) : super(key: key);
+  const OrderHeader({super.key, required this.order});
   final Order order;
 
   @override
@@ -86,7 +86,7 @@ class OrderHeader extends StatelessWidget {
 
 /// List of items in the order
 class OrderItemsList extends StatelessWidget {
-  const OrderItemsList({Key? key, required this.order}) : super(key: key);
+  const OrderItemsList({super.key, required this.order});
   final Order order;
 
   @override
