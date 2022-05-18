@@ -10,7 +10,7 @@ import 'package:ecommerce_app/src/features/products_list/product_card.dart';
 
 /// A widget that displays the list of products that match the search query.
 class ProductsGrid extends StatelessWidget {
-  const ProductsGrid({Key? key}) : super(key: key);
+  const ProductsGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +44,10 @@ class ProductsGrid extends StatelessWidget {
 /// See: https://codewithandrea.com/articles/flutter-layout-grid-content-sized-items/
 class ProductsLayoutGrid extends StatelessWidget {
   const ProductsLayoutGrid({
-    Key? key,
+    super.key,
     required this.itemCount,
     required this.itemBuilder,
-  }) : super(key: key);
+  });
 
   /// Total number of items to display.
   final int itemCount;

@@ -4,8 +4,7 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 /// Custom [DecoratedBox] widget with shadow to be used at the bottom of the
 /// screen on mobile. Useful for pinning CTAs such as checkout buttons etc.
 class DecoratedBoxWithShadow extends StatelessWidget {
-  const DecoratedBoxWithShadow({Key? key, required this.child})
-      : super(key: key);
+  const DecoratedBoxWithShadow({super.key, required this.child});
   final Widget child;
 
   @override

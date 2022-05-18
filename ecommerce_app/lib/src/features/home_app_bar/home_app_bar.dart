@@ -17,7 +17,7 @@ import 'package:ecommerce_app/src/features/home_app_bar/shopping_cart_icon.dart'
 /// - Orders button
 /// - Account or Sign-in button
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
-  const HomeAppBar({Key? key}) : super(key: key);
+  const HomeAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

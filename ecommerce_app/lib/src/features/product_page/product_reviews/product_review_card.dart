@@ -7,7 +7,7 @@ import 'package:ecommerce_app/src/utils/date_formatter.dart';
 
 /// Simple card widget to show a product review info (score, comment, date)
 class ProductReviewCard extends StatelessWidget {
-  const ProductReviewCard(this.review, {Key? key}) : super(key: key);
+  const ProductReviewCard(this.review, {super.key});
   final Review review;
   @override
   Widget build(BuildContext context) {

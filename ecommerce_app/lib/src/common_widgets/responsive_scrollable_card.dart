@@ -6,8 +6,7 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 /// Scrollable widget that shows a responsive card with a given child widget.
 /// Useful for displaying forms and other widgets that need to be scrollable.
 class ResponsiveScrollableCard extends StatelessWidget {
-  const ResponsiveScrollableCard({Key? key, required this.child})
-      : super(key: key);
+  const ResponsiveScrollableCard({super.key, required this.child});
   final Widget child;
   @override
   Widget build(BuildContext context) {

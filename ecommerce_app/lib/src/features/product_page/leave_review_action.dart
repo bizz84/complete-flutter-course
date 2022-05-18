@@ -10,8 +10,7 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 /// Simple widget to show the product purchase date along with a button to
 /// leave a review.
 class LeaveReviewAction extends StatelessWidget {
-  const LeaveReviewAction({Key? key, required this.productId})
-      : super(key: key);
+  const LeaveReviewAction({super.key, required this.productId});
   final String productId;
 
   @override

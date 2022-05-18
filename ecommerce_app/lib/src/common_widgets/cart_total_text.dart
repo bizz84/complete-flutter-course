@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 /// Text widget for showing the total price of the cart
 class CartTotalText extends StatelessWidget {
-  const CartTotalText({Key? key}) : super(key: key);
+  const CartTotalText({super.key});
 
   @override
   Widget build(BuildContext context) {

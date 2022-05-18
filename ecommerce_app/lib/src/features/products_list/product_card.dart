@@ -8,8 +8,7 @@ import 'package:ecommerce_app/src/utils/currency_formatter.dart';
 
 /// Used to show a single product inside a card.
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key, required this.product, this.onPressed})
-      : super(key: key);
+  const ProductCard({super.key, required this.product, this.onPressed});
   final Product product;
   final VoidCallback? onPressed;
 

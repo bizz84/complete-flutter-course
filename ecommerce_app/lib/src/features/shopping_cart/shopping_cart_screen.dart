@@ -9,7 +9,7 @@ import 'package:ecommerce_app/src/features/shopping_cart/shopping_cart_items_bui
 /// Shopping cart screen showing the items in the cart (with editable
 /// quantities) and a button to checkout.
 class ShoppingCartScreen extends StatelessWidget {
-  const ShoppingCartScreen({Key? key}) : super(key: key);
+  const ShoppingCartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

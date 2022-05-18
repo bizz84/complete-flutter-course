@@ -8,7 +8,7 @@ import 'package:ecommerce_app/src/constants/app_sizes.dart';
 
 /// Simple account screen showing some user info and a logout button.
 class AccountScreen extends StatelessWidget {
-  const AccountScreen({Key? key}) : super(key: key);
+  const AccountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class AccountScreen extends StatelessWidget {
 
 /// Simple user data table showing the uid and email
 class UserDataTable extends StatelessWidget {
-  const UserDataTable({Key? key}) : super(key: key);
+  const UserDataTable({super.key});
 
   @override
   Widget build(BuildContext context) {
