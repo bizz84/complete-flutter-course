@@ -17,34 +17,59 @@ void main() {
       expect(controller.state, const AsyncData<void>(null));
     });
 
-    test('signOut success', () async {
-      // setup
-      final authRepository = MockAuthRepository();
-      when(authRepository.signOut).thenAnswer(
-        (_) => Future.value(),
-      );
-      final controller = AccountScreenController(
-        authRepository: authRepository,
-      );
-      // run
-      await controller.signOut();
-      // verify
-      verify(authRepository.signOut).called(1);
-      expect(controller.state, const AsyncData<void>(null));
-    });
-    test('signOut failure', () async {
-      // setup
-      final authRepository = MockAuthRepository();
-      final exception = Exception('Connection failed');
-      when(authRepository.signOut).thenThrow(exception);
-      final controller = AccountScreenController(
-        authRepository: authRepository,
-      );
-      // run
-      await controller.signOut();
-      // verify
-      verify(authRepository.signOut).called(1);
-      expect(controller.state.hasError, true);
-    });
+    test(
+      'signOut success',
+      () async {
+        // setup
+        final authRepository = MockAuthRepository();
+        when(authRepository.signOut).thenAnswer(
+          (_) => Future.value(),
+        );
+        final controller = AccountScreenController(
+          authRepository: authRepository,
+        );
+        // expect later
+        expectLater(
+          controller.stream,
+          emitsInOrder(const [
+            AsyncLoading<void>(),
+            AsyncData<void>(null),
+          ]),
+        );
+        // run
+        await controller.signOut();
+        // verify
+        verify(authRepository.signOut).called(1);
+      },
+      timeout: const Timeout(Duration(milliseconds: 500)),
+    );
+    test(
+      'signOut failure',
+      () async {
+        // setup
+        final authRepository = MockAuthRepository();
+        final exception = Exception('Connection failed');
+        when(authRepository.signOut).thenThrow(exception);
+        final controller = AccountScreenController(
+          authRepository: authRepository,
+        );
+        // expect later
+        expectLater(
+          controller.stream,
+          emitsInOrder([
+            const AsyncLoading<void>(),
+            predicate<AsyncValue<void>>((value) {
+              expect(value.hasError, true);
+              return true;
+            }),
+          ]),
+        );
+        // run
+        await controller.signOut();
+        // verify
+        verify(authRepository.signOut).called(1);
+      },
+      timeout: const Timeout(Duration(milliseconds: 500)),
+    );
   });
 }
