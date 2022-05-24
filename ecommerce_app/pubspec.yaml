@@ -23,8 +23,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter    
   flutter_lints: 5.0.0
   mocktail: 1.0.4
+
 
 # Custom app icon. For more info see: https://pub.dev/packages/flutter_launcher_icons
 flutter_icons:
@@ -49,6 +52,13 @@ flutter:
   # Enable generation of localized Strings from arb files.
   generate: true
 
+  fonts:
+    # Used for Golden Image tests
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+
   assets:
     # Add all product images
     - assets/products/
+
