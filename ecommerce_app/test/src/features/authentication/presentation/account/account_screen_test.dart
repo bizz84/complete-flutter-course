@@ -39,4 +39,23 @@ void main() {
     await r.tapDialogLogoutButton();
     r.expectErrorAlertFound();
   });
+  testWidgets('Confirm logout, loading state', (tester) async {
+    final r = AuthRobot(tester);
+    final authRepository = MockAuthRepository();
+    when(authRepository.signOut).thenAnswer(
+      (_) => Future.delayed(const Duration(seconds: 1)),
+    );
+    when(authRepository.authStateChanges).thenAnswer(
+      (_) => Stream.value(
+        const AppUser(uid: '123', email: 'test@test.com'),
+      ),
+    );
+    await r.pumpAccountScreen(authRepository: authRepository);
+    await tester.runAsync(() async {
+      await r.tapLogoutButton();
+      r.expectLogoutDialogFound();
+      await r.tapDialogLogoutButton();
+    });
+    r.expectCircularProgressIndicator();
+  });
 }
