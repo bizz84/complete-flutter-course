@@ -7,5 +7,14 @@ void main() {
     final r = Robot(tester);
     await r.pumpMyApp();
     r.expectFindAllProductCards();
+    await r.openPopupMenu();
+    await r.auth.openEmailPasswordSignInScreen();
+    await r.auth.signInWithEmailAndPassword();
+    r.expectFindAllProductCards();
+    await r.openPopupMenu();
+    await r.auth.openAccountScreen();
+    await r.auth.tapLogoutButton();
+    await r.auth.tapDialogLogoutButton();
+    r.expectFindAllProductCards();
   });
 }
