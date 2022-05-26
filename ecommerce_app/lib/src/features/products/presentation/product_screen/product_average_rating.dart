@@ -21,11 +21,13 @@ class ProductAverageRating extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         gapW8,
-        Text(
-          product.numRatings == 1
-              ? '1 rating'
-              : '${product.numRatings} ratings',
-          style: Theme.of(context).textTheme.bodyMedium,
+        Expanded(
+          child: Text(
+            product.numRatings == 1
+                ? '1 rating'
+                : '${product.numRatings} ratings',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
         ),
       ],
     );
