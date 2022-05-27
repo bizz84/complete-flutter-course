@@ -149,4 +149,25 @@ This project includes a documentation website that can be found here:
 21. Adding a test workflow to automate testing with GitHub Actions
 22. Wrap up
 
+### 7. Automated Testing - Part 2
+
+1. Section Intro
+2. Introduction to widget tests + starter project
+3. Writing our first widget test using `pumpWidget()`
+4. Working with `WidgetTester` and finder
+5. Robot testing
+6. How to find widgets by key
+7. Writing widget tests with mocks and provider overrides
+8. Writing widget tests with `Future.delayed()` and `runAsync()`
+9. Adding the email & password widget tests
+10. Adding the email & password widget tests (part 2)
+11. Test setup for the authentication flow + using `pumpAndSettle()`
+12. Fixing the RenderFlex overflow error
+13. Completing the authentication flow test
+14. Integration tests
+15. Golden image tests
+16. Running golden image tests with size variants
+17. How to deal with holden image tests failing on CI
+18. Wrap Up
+
 ### [LICENSE: MIT](LICENSE.md)
