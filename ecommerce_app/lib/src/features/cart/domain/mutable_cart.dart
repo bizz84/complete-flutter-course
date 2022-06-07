@@ -6,22 +6,16 @@ import 'package:ecommerce_app/src/features/products/domain/product.dart';
 extension MutableCart on Cart {
   Cart addItem(Item item) {
     final copy = Map<ProductID, int>.from(items);
-    if (copy.containsKey(item.productId)) {
-      copy[item.productId] = item.quantity + copy[item.productId]!;
-    } else {
-      copy[item.productId] = item.quantity;
-    }
+    // * update item quantity. Read this for more details:
+    // * https://codewithandrea.com/tips/dart-map-update-method/
+    copy[item.productId] = item.quantity + (copy[item.productId] ?? 0);
     return Cart(copy);
   }
 
   Cart addItems(List<Item> itemsToAdd) {
     final copy = Map<ProductID, int>.from(items);
     for (var item in itemsToAdd) {
-      if (copy.containsKey(item.productId)) {
-        copy[item.productId] = item.quantity + copy[item.productId]!;
-      } else {
-        copy[item.productId] = item.quantity;
-      }
+      copy[item.productId] = item.quantity + (copy[item.productId] ?? 0);
     }
     return Cart(copy);
   }
