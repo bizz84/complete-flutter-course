@@ -1,35 +1,35 @@
+import 'package:ecommerce_app/src/features/cart/data/remote/remote_cart_repository.dart';
 import 'package:ecommerce_app/src/features/cart/domain/cart.dart';
 import 'package:ecommerce_app/src/utils/delay.dart';
 import 'package:ecommerce_app/src/utils/in_memory_store.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FakeRemoteCartRepository {
+class FakeRemoteCartRepository implements RemoteCartRepository {
   FakeRemoteCartRepository({this.addDelay = true});
   final bool addDelay;
 
-  final _cart = InMemoryStore<Map<String, Cart>>({});
+  /// An InMemoryStore containing a Map where:
+  /// key: uid
+  /// value: Cart
+  final _carts = InMemoryStore<Map<String, Cart>>({});
 
+  @override
   Future<Cart> fetchCart(String uid) {
-    return Future.value(_cart.value[uid] ?? const Cart());
+    return Future.value(_carts.value[uid] ?? const Cart());
   }
 
+  @override
   Stream<Cart> watchCart(String uid) {
-    return _cart.stream.map((cartData) {
-      return cartData[uid] ?? const Cart();
-    });
+    return _carts.stream.map((cartData) => cartData[uid] ?? const Cart());
   }
 
-  Future<void> setCart(String uid, Cart items) async {
+  @override
+  Future<void> setCart(String uid, Cart cart) async {
     await delay(addDelay);
-    // First, get the current cart data
-    final value = _cart.value;
-    // Then, set the items for the given uid
-    value[uid] = items;
-    // Finally, update the cart data (will emit a new value)
-    _cart.value = value;
+    // First, get the current carts data
+    final carts = _carts.value;
+    // Then, set the cart for the given uid
+    carts[uid] = cart;
+    // Finally, update the carts data (will emit a new value)
+    _carts.value = carts;
   }
 }
-
-final remoteCartRepositoryProvider = Provider<FakeRemoteCartRepository>((ref) {
-  return FakeRemoteCartRepository();
-});

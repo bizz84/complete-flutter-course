@@ -10,9 +10,7 @@ class FakeLocalCartRepository implements LocalCartRepository {
   final _cart = InMemoryStore<Cart>(const Cart());
 
   @override
-  Future<Cart> fetchCart() {
-    return Future.value(_cart.value);
-  }
+  Future<Cart> fetchCart() => Future.value(_cart.value);
 
   @override
   Stream<Cart> watchCart() => _cart.stream;
