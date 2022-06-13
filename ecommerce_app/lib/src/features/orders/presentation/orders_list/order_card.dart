@@ -7,6 +7,7 @@ import 'package:ecommerce_app/src/features/cart/domain/item.dart';
 import 'package:ecommerce_app/src/features/orders/domain/order.dart';
 import 'package:ecommerce_app/src/utils/currency_formatter.dart';
 import 'package:ecommerce_app/src/utils/date_formatter.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Shows all the details for a given order
 class OrderCard extends StatelessWidget {
@@ -35,16 +36,16 @@ class OrderCard extends StatelessWidget {
 /// Order header showing the following:
 /// - Total order amount
 /// - Order date
-class OrderHeader extends StatelessWidget {
+class OrderHeader extends ConsumerWidget {
   const OrderHeader({super.key, required this.order});
   final Order order;
 
   @override
-  Widget build(BuildContext context) {
-    // TODO: Inject currency formatter
-    final totalFormatted = kCurrencyFormatter.format(order.total);
-    // TODO: Inject date formatter
-    final dateFormatted = kDateFormatter.format(order.orderDate);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final totalFormatted =
+        ref.watch(currencyFormatterProvider).format(order.total);
+    final dateFormatted =
+        ref.watch(dateFormatterProvider).format(order.orderDate);
     return Container(
       color: Colors.grey[200],
       padding: const EdgeInsets.all(Sizes.p16),
