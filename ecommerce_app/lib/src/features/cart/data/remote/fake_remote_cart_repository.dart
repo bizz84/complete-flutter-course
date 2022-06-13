@@ -7,9 +7,9 @@ class FakeRemoteCartRepository implements RemoteCartRepository {
   FakeRemoteCartRepository({this.addDelay = true});
   final bool addDelay;
 
-  /// An InMemoryStore containing a Map where:
-  /// key: uid
-  /// value: Cart
+  /// An InMemoryStore containing the shopping cart data for all users, where:
+  /// key: uid of the user
+  /// value: Cart of that user
   final _carts = InMemoryStore<Map<String, Cart>>({});
 
   @override
@@ -25,7 +25,7 @@ class FakeRemoteCartRepository implements RemoteCartRepository {
   @override
   Future<void> setCart(String uid, Cart cart) async {
     await delay(addDelay);
-    // First, get the current carts data
+    // First, get the current carts data for all users
     final carts = _carts.value;
     // Then, set the cart for the given uid
     carts[uid] = cart;
