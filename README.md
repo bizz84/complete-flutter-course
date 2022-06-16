@@ -170,4 +170,34 @@ This project includes a documentation website that can be found here:
 17. How to deal with holden image tests failing on CI
 18. Wrap Up
 
+### 8. Feature: Shopping Cart
+
+1. Section Intro
+2. Overview of the shopping cart feature + technical requirements
+3. App Architecture for the shopping cart feature
+4. Starter project + overview of the data and domain layers
+5. Local data persistence with Sembast: Initial setup
+6. How to persist the shopping cart data with the `SembastCartRepository`
+7. Implementing the `CartService` class
+8. Updating the `CartService` class to read dependencies using `Ref`
+9. Writing unit tests using `ProviderContainer`
+10. Writing the unit tests for the `CartService` class
+11. Implementing the `AddToCartController`
+12. Updating the `AddToCartWidget`
+13. Bug Fix: Adding `autoDispose` to the `AddToCartController`
+14. Showing the cart items in the `ShoppingCartScreen` + AutoDispose vs AlwaysAlive error when combining providers
+15. Implementing the `ShoppingCartItemController`
+16. Updating the `EditOrRemoveItemWidget` and `ShoppingCartScreen` widgets
+17. Calculating and showing the cart items count
+18. Calculating and showing the cart total price
+19. Limiting the available quantity when adding items to the shopping cart
+20. Implementing the `CartSyncService` with a listener
+21. Registering the `CartSyncService` with `ProviderContainer` when the app starts
+22. Implementing the logic inside the `CartSyncService`
+23. Implementing the logic inside the `CartSyncService` (part 2 - optional)
+24. Unit tests for the `CartSyncService`
+25. Unit-testing providers with dependencies using `ProviderContainer`
+26. Updated widget and integration tests
+27. Wrap up + exercise (implement a wish list feature)
+
 ### [LICENSE: MIT](LICENSE.md)
