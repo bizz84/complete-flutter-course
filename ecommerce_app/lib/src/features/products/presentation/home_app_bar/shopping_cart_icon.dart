@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/cart/application/cart_service.dart';
 import 'package:ecommerce_app/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/src/constants/app_sizes.dart';
@@ -13,8 +14,7 @@ class ShoppingCartIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // TODO: Read from data source
-    const cartItemsCount = 3;
+    final cartItemsCount = ref.watch(cartItemsCountProvider);
     return Stack(
       children: [
         Center(
@@ -25,7 +25,7 @@ class ShoppingCartIcon extends ConsumerWidget {
           ),
         ),
         if (cartItemsCount > 0)
-          const Positioned(
+          Positioned(
             top: Sizes.p4,
             right: Sizes.p4,
             child: ShoppingCartIconBadge(itemsCount: cartItemsCount),
