@@ -4,6 +4,7 @@ import 'package:ecommerce_app/src/features/cart/data/remote/remote_cart_reposito
 import 'package:ecommerce_app/src/features/cart/domain/cart.dart';
 import 'package:ecommerce_app/src/features/cart/domain/item.dart';
 import 'package:ecommerce_app/src/features/cart/domain/mutable_cart.dart';
+import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -74,4 +75,20 @@ final cartItemsCountProvider = Provider<int>((ref) {
         data: (cart) => cart.value.items.length,
         orElse: () => 0,
       );
+});
+
+final cartTotalProvider = Provider.autoDispose<double>((ref) {
+  final cart = ref.watch(cartProvider).value ?? const Cart();
+  final productsList = ref.watch(productsListStreamProvider).value ?? [];
+  if (cart.items.isNotEmpty && productsList.isNotEmpty) {
+    var total = 0.0;
+    for (final item in cart.items.entries) {
+      final product =
+          productsList.firstWhere((product) => product.id == item.key);
+      total += product.price * item.value;
+    }
+    return total;
+  } else {
+    return 0.0;
+  }
 });
