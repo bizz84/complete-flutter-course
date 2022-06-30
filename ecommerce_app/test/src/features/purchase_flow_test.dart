@@ -1,16 +1,29 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../robot.dart';
+import '../robot.dart';
 
 void main() {
-  testWidgets('Sign in and sign out flow', (tester) async {
+  testWidgets('Full purchase flow', (tester) async {
     final r = Robot(tester);
     await r.pumpMyApp();
     r.products.expectFindAllProductCards();
+    // add to cart flows
+    await r.products.selectProduct();
+    await r.products.setProductQuantity(3);
+    await r.cart.addToCart();
+    await r.cart.openCart();
+    r.cart.expectFindNCartItems(1);
+    await r.closePage();
+    // sign in
     await r.openPopupMenu();
     await r.auth.openEmailPasswordSignInScreen();
     await r.auth.signInWithEmailAndPassword();
     r.products.expectFindAllProductCards();
+    // check cart again (to verify cart synchronization)
+    await r.cart.openCart();
+    r.cart.expectFindNCartItems(1);
+    await r.closePage();
+    // sign out
     await r.openPopupMenu();
     await r.auth.openAccountScreen();
     await r.auth.tapLogoutButton();
