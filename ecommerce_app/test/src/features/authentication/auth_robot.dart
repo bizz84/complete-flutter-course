@@ -69,6 +69,13 @@ class AuthRobot {
     await tester.enterText(passwordField, password);
   }
 
+  void expectEmailAndPasswordFieldsFound() {
+    final emailField = find.byKey(EmailPasswordSignInScreen.emailKey);
+    expect(emailField, findsOneWidget);
+    final passwordField = find.byKey(EmailPasswordSignInScreen.passwordKey);
+    expect(passwordField, findsOneWidget);
+  }
+
   void expectCreateAccountButtonFound() {
     final dialogTitle = find.text('Create an account');
     expect(dialogTitle, findsOneWidget);
