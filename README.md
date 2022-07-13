@@ -200,4 +200,14 @@ This project includes a documentation website that can be found here:
 26. Updated widget and integration tests
 27. Wrap up + exercise (implement a wish list feature)
 
+### 9. Feature: Checkout Flows
+
+1. Section intro
+2. Starter project for the checkout flows
+3. Updating the `CheckoutScreen` with the `PageController` initialization logic
+4. Do we need a `StateNotifier` for the `CheckoutScreen`?
+5. Updating the `PaymentPage`
+6. Implementing the `PaymentButtonController`
+7. Wrap Up
+
 ### [LICENSE: MIT](LICENSE.md)
