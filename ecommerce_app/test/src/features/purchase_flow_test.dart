@@ -13,15 +13,17 @@ void main() {
     await r.cart.addToCart();
     await r.cart.openCart();
     r.cart.expectFindNCartItems(1);
-    await r.closePage();
-    // sign in
-    await r.openPopupMenu();
-    await r.auth.openEmailPasswordSignInScreen();
+    // checkout
+    await r.checkout.startCheckout();
     await r.auth.signInWithEmailAndPassword();
-    r.products.expectFindAllProductCards();
-    // check cart again (to verify cart synchronization)
-    await r.cart.openCart();
     r.cart.expectFindNCartItems(1);
+    await r.checkout.startPayment();
+    // when a payment is complete, user is taken to the orders page
+    r.orders.expectFindNOrders(1);
+    await r.closePage(); // close orders page
+    // check that cart is now empty
+    await r.cart.openCart();
+    r.cart.expectFindZeroCartItems();
     await r.closePage();
     // sign out
     await r.openPopupMenu();
