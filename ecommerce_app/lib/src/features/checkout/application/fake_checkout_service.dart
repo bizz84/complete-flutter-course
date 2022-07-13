@@ -26,26 +26,30 @@ class FakeCheckoutService {
     final uid = authRepository.currentUser!.uid;
     // 1. Get the cart object
     final cart = await remoteCartRepository.fetchCart(uid);
-    final total = _totalPrice(cart);
-    // * If we want to make this code more testable, a DateTime builder
-    // * should be injected as a dependency
-    final orderDate = DateTime.now();
-    // * The orderId is a unique string that could be generated with the UUID
-    // * package. Since this is a fake service, we just derive it from the date.
-    final orderId = orderDate.toIso8601String();
-    // 2. Create an order
-    final order = Order(
-      id: orderId,
-      userId: uid,
-      items: cart.items,
-      orderStatus: OrderStatus.confirmed,
-      orderDate: orderDate,
-      total: total,
-    );
-    // 3. Save it using the repository
-    await ordersRepository.addOrder(uid, order);
-    // 4. Empty the cart
-    await remoteCartRepository.setCart(uid, const Cart());
+    if (cart.items.isNotEmpty) {
+      final total = _totalPrice(cart);
+      // * If we want to make this code more testable, a DateTime builder
+      // * should be injected as a dependency
+      final orderDate = DateTime.now();
+      // * The orderId is a unique string that could be generated with the UUID
+      // * package. Since this is a fake service, we just derive it from the date.
+      final orderId = orderDate.toIso8601String();
+      // 2. Create an order
+      final order = Order(
+        id: orderId,
+        userId: uid,
+        items: cart.items,
+        orderStatus: OrderStatus.confirmed,
+        orderDate: orderDate,
+        total: total,
+      );
+      // 3. Save it using the repository
+      await ordersRepository.addOrder(uid, order);
+      // 4. Empty the cart
+      await remoteCartRepository.setCart(uid, const Cart());
+    } else {
+      throw StateError('Can\'t place an order if the cart is empty');
+    }
   }
 
   // Helper method to calculate the total price
