@@ -15,7 +15,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(const Cart());
   });
-  const testUser = AppUser(uid: 'abc');
+  const testUser = AppUser(uid: 'abc', email: 'abc@test.com');
 
   late MockAuthRepository authRepository;
   late MockRemoteCartRepository remoteCartRepository;
