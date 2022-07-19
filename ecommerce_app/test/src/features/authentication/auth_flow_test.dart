@@ -9,7 +9,8 @@ void main() {
     r.products.expectFindAllProductCards();
     await r.openPopupMenu();
     await r.auth.openEmailPasswordSignInScreen();
-    await r.auth.signInWithEmailAndPassword();
+    await r.auth.tapFormToggleButton();
+    await r.auth.enterAndSubmitEmailAndPassword();
     r.products.expectFindAllProductCards();
     await r.openPopupMenu();
     await r.auth.openAccountScreen();

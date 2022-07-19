@@ -13,7 +13,7 @@ void main() {
     await r.checkout.startCheckout();
     // sign in from checkout screen
     r.auth.expectEmailAndPasswordFieldsFound();
-    await r.auth.signInWithEmailAndPassword();
+    await r.auth.enterAndSubmitEmailAndPassword();
     // check that we move to the payment page
     r.checkout.expectPayButtonFound();
   });
@@ -21,9 +21,10 @@ void main() {
   testWidgets('checkout when previously signed in', (tester) async {
     final r = Robot(tester);
     await r.pumpMyApp();
-    // sign in first
+    // create an account first
     await r.auth.openEmailPasswordSignInScreen();
-    await r.auth.signInWithEmailAndPassword();
+    await r.auth.tapFormToggleButton();
+    await r.auth.enterAndSubmitEmailAndPassword();
     // then add a product and start checkout
     await r.products.selectProduct();
     await r.cart.addToCart();

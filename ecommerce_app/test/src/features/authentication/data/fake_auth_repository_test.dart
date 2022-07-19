@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   const testEmail = 'test@test.com';
-  const testPassword = '1234';
+  const testPassword = 'test1234';
   final testUser = AppUser(
     uid: testEmail.split('').reversed.join(),
     email: testEmail,
@@ -19,15 +19,19 @@ void main() {
       expect(authRepository.currentUser, null);
       expect(authRepository.authStateChanges(), emits(null));
     });
-    test('currentUser is not null after sign in', () async {
+
+    test('sign in throws when user not found', () async {
       final authRepository = makeAuthRepository();
       addTearDown(authRepository.dispose);
-      await authRepository.signInWithEmailAndPassword(
-        testEmail,
-        testPassword,
+      await expectLater(
+        () => authRepository.signInWithEmailAndPassword(
+          testEmail,
+          testPassword,
+        ),
+        throwsA(isA<Exception>()),
       );
-      expect(authRepository.currentUser, testUser);
-      expect(authRepository.authStateChanges(), emits(testUser));
+      expect(authRepository.currentUser, null);
+      expect(authRepository.authStateChanges(), emits(null));
     });
 
     test('currentUser is not null after registration', () async {
@@ -44,7 +48,7 @@ void main() {
     test('currentUser is null after sign out', () async {
       final authRepository = makeAuthRepository();
       addTearDown(authRepository.dispose);
-      await authRepository.signInWithEmailAndPassword(
+      await authRepository.createUserWithEmailAndPassword(
         testEmail,
         testPassword,
       );
@@ -56,11 +60,11 @@ void main() {
       expect(authRepository.authStateChanges(), emits(null));
     });
 
-    test('sign in after dispose throws exception', () {
+    test('create user after dispose throws exception', () {
       final authRepository = makeAuthRepository();
       authRepository.dispose();
       expect(
-        () => authRepository.signInWithEmailAndPassword(
+        () => authRepository.createUserWithEmailAndPassword(
           testEmail,
           testPassword,
         ),
