@@ -12,7 +12,7 @@ import 'package:mocktail/mocktail.dart';
 import '../../../mocks.dart';
 
 void main() {
-  const testUser = AppUser(uid: 'abc');
+  const testUser = AppUser(uid: 'abc', email: 'abc@test.com');
   setUpAll(() {
     // needed for MockOrdersRepository
     registerFallbackValue(Order(
