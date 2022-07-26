@@ -190,4 +190,19 @@ This project includes a documentation website that can be found here:
 6. Implementing the `PaymentButtonController`
 7. Wrap Up
 
+### 10. Error Handling
+
+1. Intro
+2. Errors vs exceptions
+3. Starter project overview + defining custom exceptions with enums and subclasses
+4. Freezed Introduction and Installation
+5. Creating an `AppException` with Freezed
+6. Updating the `AsyncValueUI` extension to handle `AppException` values
+7. Adding an `AsyncErrorLogger` using `ProviderObserver`
+8. Creating a reusable `ErrorLogger` to catch all exceptions
+9. Completing the error handling system
+10. Working with the `Result` type (Success and Error)
+11. Drawbacks of the `Result` type (and when not to use it)
+12. Wrap Up
+
 ### [LICENSE: MIT](LICENSE.md)
