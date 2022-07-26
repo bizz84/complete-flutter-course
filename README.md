@@ -210,4 +210,18 @@ This project includes a documentation website that can be found here:
 6. Implementing the `PaymentButtonController`
 7. Wrap Up
 
+### 10. Error Handling
+
+1. Intro
+2. Errors vs exceptions
+3. Starter project overview + defining custom exceptions with enums
+4. Using sealed classes to define exception types
+5. Using the `AppException` sealed class in the `FakeAuthRepository`
+6. Adding an `AsyncErrorLogger` using `ProviderObserver`
+7. Creating a reusable `ErrorLogger` to catch all exceptions
+8. Completing the error handling system
+9.  Working with the Result type (`Success` and `Error`)
+10. Drawbacks of the Result type (and when not to use it)
+11. Wrap Up
+
 ### [LICENSE: MIT](LICENSE.md)
