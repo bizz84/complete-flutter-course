@@ -55,4 +55,26 @@ class Product {
         avgRating.hashCode ^
         numRatings.hashCode;
   }
+
+  Product copyWith({
+    ProductID? id,
+    String? imageUrl,
+    String? title,
+    String? description,
+    double? price,
+    int? availableQuantity,
+    double? avgRating,
+    int? numRatings,
+  }) {
+    return Product(
+      id: id ?? this.id,
+      imageUrl: imageUrl ?? this.imageUrl,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      price: price ?? this.price,
+      availableQuantity: availableQuantity ?? this.availableQuantity,
+      avgRating: avgRating ?? this.avgRating,
+      numRatings: numRatings ?? this.numRatings,
+    );
+  }
 }

@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/orders/domain/purchase.dart';
+import 'package:ecommerce_app/src/features/reviews/domain/purchase.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:ecommerce_app/src/routing/app_router.dart';
 import 'package:ecommerce_app/src/utils/date_formatter.dart';
