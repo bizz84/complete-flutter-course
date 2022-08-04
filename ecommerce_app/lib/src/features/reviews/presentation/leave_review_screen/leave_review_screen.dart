@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/src/common_widgets/async_value_widget.dart';
 import 'package:ecommerce_app/src/constants/breakpoints.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:ecommerce_app/src/features/reviews/application/reviews_service.dart';
 import 'package:ecommerce_app/src/features/reviews/presentation/leave_review_screen/leave_review_controller.dart';
 import 'package:ecommerce_app/src/features/reviews/presentation/product_reviews/product_rating_bar.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
@@ -18,8 +20,6 @@ class LeaveReviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Read from data source
-    const review = null;
     return Scaffold(
       appBar: AppBar(
         title: Text('Leave a review'.hardcoded),
@@ -27,7 +27,16 @@ class LeaveReviewScreen extends StatelessWidget {
       body: ResponsiveCenter(
         maxContentWidth: Breakpoint.tablet,
         padding: const EdgeInsets.all(Sizes.p16),
-        child: LeaveReviewForm(productId: productId, review: review),
+        child: Consumer(
+          builder: (context, ref, child) {
+            final reviewValue = ref.watch(userReviewFutureProvider(productId));
+            return AsyncValueWidget<Review?>(
+              value: reviewValue,
+              data: (review) =>
+                  LeaveReviewForm(productId: productId, review: review),
+            );
+          },
+        ),
       ),
     );
   }
@@ -53,7 +62,11 @@ class _LeaveReviewFormState extends ConsumerState<LeaveReviewForm> {
   @override
   void initState() {
     super.initState();
-    // TODO: Initialize state
+    final review = widget.review;
+    if (review != null) {
+      _controller.text = review.comment;
+      _rating = review.rating;
+    }
   }
 
   @override
