@@ -1,13 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../robot.dart';
+import '../../../../robot.dart';
 
 void main() {
-  testWidgets('Full purchase flow', (tester) async {
-    final r = Robot(tester);
-    await r.pumpMyApp();
-    r.products.expectFindAllProductCards();
-    // add to cart flows
+  Future<void> purchaseOneProduct(Robot r) async {
+    // add to cart
     await r.products.selectProduct();
     await r.products.setProductQuantity(3);
     await r.cart.addToCart();
@@ -21,21 +18,24 @@ void main() {
     // when a payment is complete, user is taken to the orders page
     r.orders.expectFindNOrders(1);
     await r.closePage(); // close orders page
-    // check that cart is now empty
-    await r.cart.openCart();
-    r.cart.expectFindZeroCartItems();
-    await r.closePage();
-    // reviews flow
+  }
+
+  testWidgets('purchase product, leave review, update it', (tester) async {
+    final r = Robot(tester);
+    await r.pumpMyApp();
+    await purchaseOneProduct(r);
     await r.products.selectProduct();
+    // leave review
     r.reviews.expectFindLeaveReview();
     await r.reviews.tapLeaveReviewButton();
     await r.reviews.createAndSubmitReview('Love it!');
     r.reviews.expectFindOneReview();
-    // sign out
-    await r.openPopupMenu();
-    await r.auth.openAccountScreen();
-    await r.auth.tapLogoutButton();
-    await r.auth.tapDialogLogoutButton();
-    r.products.expectFindAllProductCards();
+    r.reviews.expectFindText('Love it!');
+    // update review
+    r.reviews.expectFindUpdateReview();
+    await r.reviews.tapUpdateReviewButton();
+    await r.reviews.updateAndSubmitReview('Great!');
+    r.reviews.expectFindOneReview();
+    r.reviews.expectFindText('Great!');
   });
 }

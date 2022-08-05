@@ -12,8 +12,20 @@ class ReviewsRobot {
     expect(finder, findsOneWidget);
   }
 
+  void expectFindUpdateReview() {
+    final finder = find.text('Update review');
+    expect(finder, findsOneWidget);
+  }
+
   Future<void> tapLeaveReviewButton() async {
     final finder = find.text('Leave a review');
+    expect(finder, findsOneWidget);
+    await tester.tap(finder);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> tapUpdateReviewButton() async {
+    final finder = find.text('Update review');
     expect(finder, findsOneWidget);
     await tester.tap(finder);
     await tester.pumpAndSettle();
@@ -26,17 +38,22 @@ class ReviewsRobot {
     expect(finder, findsOneWidget);
   }
 
+  void expectFindText(String text) {
+    final finder = find.text(text);
+    expect(finder, findsOneWidget);
+  }
+
   // leave a review
-  Future<void> selectReviewScore() async {
+  Future<void> enterReviewRating() async {
     final finder = find.byKey(const Key('stars-4'));
     expect(finder, findsOneWidget);
     await tester.tap(finder);
   }
 
-  Future<void> enterReviewComment() async {
+  Future<void> enterReviewComment(String comment) async {
     final finder = find.byKey(LeaveReviewForm.reviewCommentKey);
     expect(finder, findsOneWidget);
-    await tester.enterText(finder, 'Love it!');
+    await tester.enterText(finder, comment);
   }
 
   Future<void> submitReview() async {
@@ -46,9 +63,14 @@ class ReviewsRobot {
     await tester.pumpAndSettle();
   }
 
-  Future<void> createAndSubmitReview() async {
-    await selectReviewScore();
-    await enterReviewComment();
+  Future<void> createAndSubmitReview(String comment) async {
+    await enterReviewRating();
+    await enterReviewComment(comment);
+    await submitReview();
+  }
+
+  Future<void> updateAndSubmitReview(String comment) async {
+    await enterReviewComment(comment);
     await submitReview();
   }
 }
