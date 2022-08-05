@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:ecommerce_app/src/features/reviews/application/reviews_service.dart';
 import 'package:ecommerce_app/src/features/reviews/application/user_purchase_provider.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
@@ -14,7 +15,7 @@ import 'package:go_router/go_router.dart';
 /// leave a review.
 class LeaveReviewAction extends ConsumerWidget {
   const LeaveReviewAction({super.key, required this.productId});
-  final String productId;
+  final ProductID productId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
