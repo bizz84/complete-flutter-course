@@ -1,4 +1,5 @@
-import 'package:ecommerce_app/src/features/reviews/domain/purchase.dart';
+import 'package:ecommerce_app/src/features/reviews/application/reviews_service.dart';
+import 'package:ecommerce_app/src/features/reviews/application/user_purchase_provider.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:ecommerce_app/src/routing/app_router.dart';
 import 'package:ecommerce_app/src/utils/date_formatter.dart';
@@ -17,8 +18,7 @@ class LeaveReviewAction extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // TODO: Read from data source
-    final purchase = Purchase(orderId: 'abc', orderDate: DateTime.now());
+    final purchase = ref.watch(userPurchaseProvider(productId)).value;
     if (purchase != null) {
       final dateFormatted =
           ref.watch(dateFormatterProvider).format(purchase.orderDate);
@@ -35,16 +35,23 @@ class LeaveReviewAction extends ConsumerWidget {
             rowCrossAxisAlignment: CrossAxisAlignment.center,
             columnCrossAxisAlignment: CrossAxisAlignment.center,
             startContent: Text('Purchased on $dateFormatted'.hardcoded),
-            endContent: CustomTextButton(
-              text: 'Leave a review'.hardcoded,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: Colors.green[700]),
-              onPressed: () => context.goNamed(
-                AppRoute.leaveReview.name,
-                params: {'id': productId},
-              ),
+            endContent: Consumer(
+              builder: (context, ref, child) {
+                final review =
+                    ref.watch(userReviewStreamProvider(productId)).value;
+                return CustomTextButton(
+                  text: (review != null ? 'Update review' : 'Leave a review')
+                      .hardcoded,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: Colors.green[700]),
+                  onPressed: () => context.goNamed(
+                    AppRoute.leaveReview.name,
+                    params: {'id': productId},
+                  ),
+                );
+              },
             ),
           ),
           gapH8,
