@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
 import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
+import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
 import 'package:ecommerce_app/src/features/reviews/application/reviews_service.dart';
 import 'package:ecommerce_app/src/features/reviews/data/fake_reviews_repository.dart';
 import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
@@ -16,9 +17,12 @@ void main() {
       Review(rating: 5, comment: '', date: DateTime(2022, 7, 31));
   late MockAuthRepository authRepository;
   late MockReviewsRepository reviewsRepository;
+  late MockProductsRepository productsRepository;
+
   setUp(() {
     authRepository = MockAuthRepository();
     reviewsRepository = MockReviewsRepository();
+    productsRepository = MockProductsRepository();
   });
 
   ReviewsService makeReviewsService() {
@@ -26,6 +30,7 @@ void main() {
       overrides: [
         authRepositoryProvider.overrideWithValue(authRepository),
         reviewsRepositoryProvider.overrideWithValue(reviewsRepository),
+        productsRepositoryProvider.overrideWithValue(productsRepository),
       ],
     );
     addTearDown(container.dispose);
@@ -53,6 +58,13 @@ void main() {
             productId: testProductId,
             uid: testUser.uid,
             review: testReview,
+          )).thenAnswer((_) => Future.value());
+      when(() => reviewsRepository.fetchReviews(testProductId))
+          .thenAnswer((_) => Future.value([]));
+      when(() => productsRepository.updateProductRating(
+            productId: testProductId,
+            avgRating: 0.0,
+            numRatings: 0,
           )).thenAnswer((_) => Future.value());
       final reviewsService = makeReviewsService();
       // run

@@ -34,7 +34,7 @@ class FakePurchasesRepository {
   /// @param uid the identifier of the user who is making the purchase
   /// @param purchase a [Purchase] object with the review information
   Future<void> addPurchase({
-    required String productId,
+    required ProductID productId,
     required String uid,
     required Purchase purchase,
   }) async {
