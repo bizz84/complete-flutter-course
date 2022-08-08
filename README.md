@@ -224,4 +224,19 @@ This project includes a documentation website that can be found here:
 10. Drawbacks of the Result type (and when not to use it)
 11. Wrap Up
 
+### 11. Feature: Product Reviews
+
+1. Section Intro
+2. Starter project overview
+3. Overview of the `LeaveReviewScreen`
+4. Implemeting a `LeaveReviewController` and submitting form data
+5. Testing the `LeaveReviewForm` and preventing an `AssertionError`
+6. Dismissing the `LeaveReviewScreen` programmatically on success using a callback
+7. How to prefill a form with data from a repository/backend
+8. Optimization: only submit the form if the data has changed
+9. Showing existing reviews in the `ProductReviewsList`
+10. Updating the `LeaveReviewAction` by reading read data from the `userPurchaseProvider`
+11. Calculating the average product ratings
+12. Updated tests & wrap up
+
 ### [LICENSE: MIT](LICENSE.md)
