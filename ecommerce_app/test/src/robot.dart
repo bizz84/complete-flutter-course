@@ -85,14 +85,14 @@ class Robot {
 
   // navigation
   Future<void> closePage() async {
-    final finder = find.bySemanticsLabel('Close');
+    final finder = find.byTooltip('Close');
     expect(finder, findsOneWidget);
     await tester.tap(finder);
     await tester.pumpAndSettle();
   }
 
   Future<void> goBack() async {
-    final finder = find.bySemanticsLabel('Back');
+    final finder = find.byTooltip('Back');
     expect(finder, findsOneWidget);
     await tester.tap(finder);
     await tester.pumpAndSettle();
