@@ -21,21 +21,25 @@ void main() {
   }
 
   testWidgets('purchase product, leave review, update it', (tester) async {
-    final r = Robot(tester);
-    await r.pumpMyApp();
-    await purchaseOneProduct(r);
-    await r.products.selectProduct();
-    // leave review
-    r.reviews.expectFindLeaveReview();
-    await r.reviews.tapLeaveReviewButton();
-    await r.reviews.createAndSubmitReview('Love it!');
-    r.reviews.expectFindOneReview();
-    r.reviews.expectFindText('Love it!');
-    // update review
-    r.reviews.expectFindUpdateReview();
-    await r.reviews.tapUpdateReviewButton();
-    await r.reviews.updateAndSubmitReview('Great!');
-    r.reviews.expectFindOneReview();
-    r.reviews.expectFindText('Great!');
+    // * Note: All tests are wrapped with `runAsync` to prevent this error:
+    // * A Timer is still pending even after the widget tree was disposed.
+    await tester.runAsync(() async {
+      final r = Robot(tester);
+      await r.pumpMyApp();
+      await purchaseOneProduct(r);
+      await r.products.selectProduct();
+      // leave review
+      r.reviews.expectFindLeaveReview();
+      await r.reviews.tapLeaveReviewButton();
+      await r.reviews.createAndSubmitReview('Love it!');
+      r.reviews.expectFindOneReview();
+      r.reviews.expectFindText('Love it!');
+      // update review
+      r.reviews.expectFindUpdateReview();
+      await r.reviews.tapUpdateReviewButton();
+      await r.reviews.updateAndSubmitReview('Great!');
+      r.reviews.expectFindOneReview();
+      r.reviews.expectFindText('Great!');
+    });
   });
 }
