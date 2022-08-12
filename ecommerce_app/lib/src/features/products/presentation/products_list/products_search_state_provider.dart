@@ -9,5 +9,9 @@ final productsSearchQueryStateProvider = StateProvider<String>((ref) {
 final productsSearchResultsProvider =
     FutureProvider.autoDispose<List<Product>>((ref) async {
   final searchQuery = ref.watch(productsSearchQueryStateProvider);
-  return ref.watch(productsListSearchProvider(searchQuery).future);
+  if (searchQuery.isEmpty) {
+    return ref.watch(productsListFutureProvider.future);
+  } else {
+    return ref.watch(productsListSearchProvider(searchQuery).future);
+  }
 });
