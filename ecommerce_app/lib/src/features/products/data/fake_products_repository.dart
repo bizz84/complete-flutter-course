@@ -99,7 +99,8 @@ final productProvider =
 final productsListSearchProvider = FutureProvider.autoDispose
     .family<List<Product>, String>((ref, query) async {
   final link = ref.keepAlive();
-  final timer = Timer(const Duration(seconds: 5), () {
+  // * keep previous search results in memory for 60 seconds
+  final timer = Timer(const Duration(seconds: 60), () {
     link.close();
   });
   ref.onDispose(() => timer.cancel());
