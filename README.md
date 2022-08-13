@@ -239,4 +239,13 @@ This project includes a documentation website that can be found here:
 11. Calculating the average product ratings
 12. Updated tests & wrap up
 
+### 12. Feature: Products Search
+
+1. Section Intro
+2. Client-side vs server-side search
+3. Adding a search method to the `FakeProductsRepository`
+4. Implementing client-side search with `StateProvider` and `FutureProvider`
+5. Riverpod caching with `autoDispose`, `keepAlive()` and `Timer`
+6. Debouncing and cancelling network requests
+
 ### [LICENSE: MIT](LICENSE.md)
