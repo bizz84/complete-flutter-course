@@ -51,6 +51,10 @@
                     "/faq/how-to-recreate-starter-project"
                 ],
                 [
+                    "How to migrate from GoRouter 4.x to 5.0",
+                    "/faq/how-to-migrate-from-gorouter-4-to-5"
+                ],
+                [
                     "Using the Bash or Zsh shell terminal on Windows",
                     "/faq/using-bash-zsh-on-windows"
                 ],

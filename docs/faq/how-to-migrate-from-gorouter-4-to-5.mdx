@@ -1,0 +1,80 @@
+# eCommerce project: GoRouter 4.x to 5.0 migration guide
+
+This document outlines all the migration steps needed to upgrade the eCommerce project to GoRouter 5.0.
+
+## Support routerConfig
+
+GitHub issue: [Support routerConfig #109162](https://github.com/flutter/flutter/issues/109162)
+
+**Before**: we had to initialize `MaterialApp.router` like this:
+
+```dart
+MaterialApp.router(
+  routerDelegate: goRouter.routerDelegate,
+  routeInformationParser: goRouter.routeInformationParser,
+  routeInformationProvider: goRouter.routeInformationProvider,
+  ...
+)
+```
+
+**After**: we can initialize `MaterialApp.router` like this:
+
+```dart
+MaterialApp.router(
+  routerConfig: goRouter,
+  ...
+)
+```
+
+## Add BuildContext to redirect
+
+GitHub issue: [Add BuildContext to redirect #99121](https://github.com/flutter/flutter/issues/99121)
+
+**Before**
+
+```dart
+GoRouter(
+  redirect: (state) { ... },
+  ...
+)
+```
+
+**After**
+
+```dart
+GoRouter(
+  redirect: (context, state) { ... },
+  ...
+)
+```
+
+## remove navigatorBuilder, GoRouterRefreshStream, and urlPathStrategy
+
+GitHub issue: [remove navigatorBuilder, GoRouterRefreshStream, and urlPathStrategy #2410](https://github.com/flutter/packages/pull/2410)
+
+**Before**: `GoRouterRefreshStream` could be imported from GoRouter and used directly
+
+**After**: a `GoRouterRefreshStream` class needs to be created before it can be used:
+
+```dart
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+
+class GoRouterRefreshStream extends ChangeNotifier {
+  GoRouterRefreshStream(Stream<dynamic> stream) {
+    notifyListeners();
+    _subscription = stream.asBroadcastStream().listen(
+          (dynamic _) => notifyListeners(),
+        );
+  }
+
+  late final StreamSubscription<dynamic> _subscription;
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
+  }
+}
+```
