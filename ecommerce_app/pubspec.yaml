@@ -13,7 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: 0.9.2
-  flutter_lints: 2.0.1
   flutter_localizations:
     sdk: flutter
   intl: 0.17.0
@@ -23,6 +22,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: 2.0.1
 
 # Custom app icon. For more info see: https://pub.dev/packages/flutter_launcher_icons
 flutter_icons:
