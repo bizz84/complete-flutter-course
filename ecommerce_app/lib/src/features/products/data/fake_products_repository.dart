@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ecommerce_app/src/constants/test_products.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
@@ -99,12 +101,13 @@ final productProvider =
   return productsRepository.watchProduct(id);
 });
 
-final productsListSearchProvider =
-    FutureProvider.autoDispose.family<List<Product>, String>(
-  (ref, query) async {
-    final productsRepository = ref.watch(productsRepositoryProvider);
-    return productsRepository.searchProducts(query);
-  },
+final productsListSearchProvider = FutureProvider.autoDispose
+    .family<List<Product>, String>((ref, query) async {
+  final productsRepository = ref.watch(productsRepositoryProvider);
   // * keep previous search results in memory for 60 seconds
-  cacheTime: const Duration(seconds: 60),
-);
+  final link = ref.keepAlive();
+  Timer(const Duration(seconds: 60), () {
+    link.close();
+  });
+  return productsRepository.searchProducts(query);
+});
