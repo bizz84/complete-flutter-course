@@ -9,12 +9,13 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('cartTotalProvider', () {
     ProviderContainer makeProviderContainer({
-      required AsyncValue<Cart> cart,
-      required AsyncValue<List<Product>> products,
+      required Stream<Cart> cart,
+      required Stream<List<Product>> products,
     }) {
       final container = ProviderContainer(overrides: [
-        cartProvider.overrideWithValue(cart),
-        productsListStreamProvider.overrideWithValue(products)
+        cartProvider.overrideWithProvider(StreamProvider((ref) => cart)),
+        productsListStreamProvider
+            .overrideWithProvider(StreamProvider.autoDispose((ref) => products))
       ]);
       addTearDown(container.dispose);
       return container;
@@ -22,54 +23,65 @@ void main() {
 
     test('loading cart', () async {
       final container = makeProviderContainer(
-        cart: const AsyncLoading(),
-        products: const AsyncData(kTestProducts),
+        cart: const Stream.empty(),
+        products: Stream.value(kTestProducts),
       );
+      await container.read(productsListStreamProvider.future);
       final total = container.read(cartTotalProvider);
       expect(total, 0);
     });
 
     test('empty cart', () async {
       final container = makeProviderContainer(
-        cart: const AsyncData(Cart()),
-        products: const AsyncData(kTestProducts),
+        cart: Stream.value(const Cart()),
+        products: Stream.value(kTestProducts),
       );
+      await container.read(cartProvider.future);
+      await container.read(productsListStreamProvider.future);
       final total = container.read(cartTotalProvider);
       expect(total, 0);
     });
 
     test('one product with quantity = 1', () async {
       final container = makeProviderContainer(
-        cart: const AsyncData(Cart({'1': 1})),
-        products: const AsyncData(kTestProducts),
+        cart: Stream.value(const Cart({'1': 1})),
+        products: Stream.value(kTestProducts),
       );
+      await container.read(cartProvider.future);
+      await container.read(productsListStreamProvider.future);
       final total = container.read(cartTotalProvider);
       expect(total, 15);
     });
 
     test('one product with quantity = 5', () async {
       final container = makeProviderContainer(
-        cart: const AsyncData(Cart({'1': 5})),
-        products: const AsyncData(kTestProducts),
+        cart: Stream.value(const Cart({'1': 5})),
+        products: Stream.value(kTestProducts),
       );
+      await container.read(cartProvider.future);
+      await container.read(productsListStreamProvider.future);
       final total = container.read(cartTotalProvider);
       expect(total, 75);
     });
 
     test('two products', () async {
       final container = makeProviderContainer(
-        cart: const AsyncData(Cart({'1': 2, '2': 3})),
-        products: const AsyncData(kTestProducts),
+        cart: Stream.value(const Cart({'1': 2, '2': 3})),
+        products: Stream.value(kTestProducts),
       );
+      await container.read(cartProvider.future);
+      await container.read(productsListStreamProvider.future);
       final total = container.read(cartTotalProvider);
       expect(total, 69); // 15 * 2 + 13 * 3
     });
 
     test('product not found', () async {
       final container = makeProviderContainer(
-        cart: const AsyncData(Cart({'100': 1})),
-        products: const AsyncData(kTestProducts),
+        cart: Stream.value(const Cart({'100': 1})),
+        products: Stream.value(kTestProducts),
       );
+      await container.read(cartProvider.future);
+      await container.read(productsListStreamProvider.future);
       expect(() => container.read(cartTotalProvider), throwsStateError);
     });
   });
