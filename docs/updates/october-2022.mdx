@@ -1,0 +1,58 @@
+# Foundations Course - October 2022 Update
+
+This update brings the course up to date with Flutter 3.3, GoRouter 5.0 and Riverpod 2.0.
+
+## CHANGELOG
+
+### Updated the initial starter project to Flutter 3.3 and Dart 2.18
+
+Lesson 01.06 onwards:
+
+- `flutter_lints` is now listed under `dev_dependencies`
+- updated `IPHONEOS_DEPLOYMENT_TARGET` to 11.0 on iOS and macOS projects
+- updated `backgroundColor` and `foregroundColor` properties when working with `ElevatedButton` (since Flutter 3.3)
+- use `{super.key}` in all the widget constructors (supported since Dart 2.18) → *these changes have been applied to all the code snapshots, but many video lessons will still show the old `{Key? key}` syntax*
+
+### Use GoRouter 5.x
+
+Lesson 02.03:
+
+- Installed `go_router: 5.0.1`
+- Use new `routerConfig` argument of `MaterialApp.router` (supported since Flutter 3.3)
+
+Lesson 02.13:
+
+- Pending GoRouter 5.1 release: update with additional references to the **stateful nested navigation** feature
+
+Lesson 05.21:
+
+- `redirect` function now takes an additional `BuildContext` argument
+
+Lesson 05.22:
+
+- Added `GoRouterRefreshStream` class to be used with `refreshListenable` 
+
+### Use Riverpod 2.x
+
+Lesson 04.03:
+
+- Installed `flutter_riverpod: 2.0.0-dev.9`
+- Due to [this issue](https://github.com/rrousselGit/riverpod/issues/1713), the course project doesn't use the official Riverpod 2.0 release yet. I'll update relevant lessons when this is fixed
+
+Lesson 04.09:
+
+- Updated to clarify how to cache results with Riverpod 2.0 using the `keepAlive` method
+
+Lessons 08.11 and 08.25:
+
+- Updated notes to reflect the breaking changes introduced by Riverpod 2.0 (`AsyncError` syntax and removal of `overrideWithValue` from most providers)
+
+Lessons 12.05, 12.06:
+
+- Replace `cacheTime` with `keepAlive()`
+
+### Other Minor Changes
+
+Lesson 02.12:
+
+- Updated to clarify how to deal with "Don't use a BuildContext across an asynchronous gap" warning
