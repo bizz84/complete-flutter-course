@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/primary_button.dart';
-import 'package:ecommerce_app/src/common_widgets/responsive_scrollable_card.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
+import 'package:app/src/common_widgets/primary_button.dart';
+import 'package:app/src/common_widgets/responsive_scrollable_card.dart';
+import 'package:app/src/constants/app_sizes.dart';
 
 /// A page where the user can enter and submit all the address details.
 /// * This page is not yet in use. We will add it to the checkout flows later.

@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/src/exceptions/app_exception.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:app/src/exceptions/app_exception.dart';
+import 'package:app/src/features/products/domain/product.dart';
 
 /// Order status
 enum OrderStatus { confirmed, shipped, delivered }

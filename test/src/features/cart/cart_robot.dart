@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/src/common_widgets/item_quantity_selector.dart';
-import 'package:ecommerce_app/src/features/cart/presentation/shopping_cart/shopping_cart_item.dart';
-import 'package:ecommerce_app/src/features/products/presentation/home_app_bar/shopping_cart_icon.dart';
+import 'package:app/src/common_widgets/item_quantity_selector.dart';
+import 'package:app/src/features/cart/presentation/shopping_cart/shopping_cart_item.dart';
+import 'package:app/src/features/products/presentation/home_app_bar/shopping_cart_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

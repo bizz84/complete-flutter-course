@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_exception.freezed.dart';

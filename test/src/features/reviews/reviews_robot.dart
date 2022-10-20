@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/src/features/reviews/presentation/leave_review_screen/leave_review_screen.dart';
-import 'package:ecommerce_app/src/features/reviews/presentation/product_reviews/product_review_card.dart';
+import 'package:app/src/features/reviews/presentation/leave_review_screen/leave_review_screen.dart';
+import 'package:app/src/features/reviews/presentation/product_reviews/product_review_card.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 

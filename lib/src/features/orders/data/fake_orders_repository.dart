@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/src/features/orders/domain/order.dart';
-import 'package:ecommerce_app/src/utils/delay.dart';
-import 'package:ecommerce_app/src/utils/in_memory_store.dart';
+import 'package:app/src/features/orders/domain/order.dart';
+import 'package:app/src/utils/delay.dart';
+import 'package:app/src/utils/in_memory_store.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FakeOrdersRepository {

@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
-import 'package:ecommerce_app/src/features/reviews/presentation/leave_review_screen/leave_review_controller.dart';
+import 'package:app/src/features/reviews/domain/review.dart';
+import 'package:app/src/features/reviews/presentation/leave_review_screen/leave_review_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

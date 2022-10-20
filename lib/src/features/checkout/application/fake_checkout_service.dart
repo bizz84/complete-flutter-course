@@ -1,13 +1,13 @@
-import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
-import 'package:ecommerce_app/src/features/cart/data/remote/remote_cart_repository.dart';
-import 'package:ecommerce_app/src/features/cart/domain/cart.dart';
-import 'package:ecommerce_app/src/features/orders/data/fake_orders_repository.dart';
-import 'package:ecommerce_app/src/features/orders/domain/order.dart';
-import 'package:ecommerce_app/src/features/reviews/domain/purchase.dart';
-import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
-import 'package:ecommerce_app/src/features/reviews/data/fake_purchases_repository.dart';
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
-import 'package:ecommerce_app/src/utils/current_date_provider.dart';
+import 'package:app/src/features/authentication/data/fake_auth_repository.dart';
+import 'package:app/src/features/cart/data/remote/remote_cart_repository.dart';
+import 'package:app/src/features/cart/domain/cart.dart';
+import 'package:app/src/features/orders/data/fake_orders_repository.dart';
+import 'package:app/src/features/orders/domain/order.dart';
+import 'package:app/src/features/reviews/domain/purchase.dart';
+import 'package:app/src/features/products/data/fake_products_repository.dart';
+import 'package:app/src/features/reviews/data/fake_purchases_repository.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
+import 'package:app/src/utils/current_date_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// A fake checkout service that doesn't process real payments.

@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/src/constants/test_products.dart';
-import 'package:ecommerce_app/src/features/products/presentation/products_list/product_card.dart';
+import 'package:app/src/constants/test_products.dart';
+import 'package:app/src/features/products/presentation/products_list/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

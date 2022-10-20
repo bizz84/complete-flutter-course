@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/orders/presentation/orders_list/order_card.dart';
+import 'package:app/src/features/orders/presentation/orders_list/order_card.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class OrdersRobot {

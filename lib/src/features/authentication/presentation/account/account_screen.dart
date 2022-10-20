@@ -1,12 +1,12 @@
-import 'package:ecommerce_app/src/common_widgets/alert_dialogs.dart';
-import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
-import 'package:ecommerce_app/src/features/authentication/presentation/account/account_screen_controller.dart';
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
-import 'package:ecommerce_app/src/utils/async_value_ui.dart';
+import 'package:app/src/common_widgets/alert_dialogs.dart';
+import 'package:app/src/features/authentication/data/fake_auth_repository.dart';
+import 'package:app/src/features/authentication/presentation/account/account_screen_controller.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
+import 'package:app/src/utils/async_value_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/action_text_button.dart';
-import 'package:ecommerce_app/src/common_widgets/responsive_center.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
+import 'package:app/src/common_widgets/action_text_button.dart';
+import 'package:app/src/common_widgets/responsive_center.dart';
+import 'package:app/src/constants/app_sizes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Simple account screen showing some user info and a logout button.

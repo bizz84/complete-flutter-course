@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/src/exceptions/app_exception.dart';
-import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
-import 'package:ecommerce_app/src/features/authentication/domain/fake_app_user.dart';
-import 'package:ecommerce_app/src/utils/delay.dart';
-import 'package:ecommerce_app/src/utils/in_memory_store.dart';
+import 'package:app/src/exceptions/app_exception.dart';
+import 'package:app/src/features/authentication/domain/app_user.dart';
+import 'package:app/src/features/authentication/domain/fake_app_user.dart';
+import 'package:app/src/utils/delay.dart';
+import 'package:app/src/utils/in_memory_store.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FakeAuthRepository {

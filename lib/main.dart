@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:ecommerce_app/src/app.dart';
-import 'package:ecommerce_app/src/exceptions/async_error_logger.dart';
-import 'package:ecommerce_app/src/exceptions/error_logger.dart';
-import 'package:ecommerce_app/src/features/cart/application/cart_sync_service.dart';
-import 'package:ecommerce_app/src/features/cart/data/local/local_cart_repository.dart';
-import 'package:ecommerce_app/src/features/cart/data/local/sembast_cart_repository.dart';
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:app/src/app.dart';
+import 'package:app/src/exceptions/async_error_logger.dart';
+import 'package:app/src/exceptions/error_logger.dart';
+import 'package:app/src/features/cart/application/cart_sync_service.dart';
+import 'package:app/src/features/cart/data/local/local_cart_repository.dart';
+import 'package:app/src/features/cart/data/local/sembast_cart_repository.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

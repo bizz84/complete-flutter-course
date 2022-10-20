@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
-import 'package:ecommerce_app/src/features/orders/data/fake_orders_repository.dart';
-import 'package:ecommerce_app/src/features/orders/domain/order.dart';
+import 'package:app/src/features/authentication/data/fake_auth_repository.dart';
+import 'package:app/src/features/orders/data/fake_orders_repository.dart';
+import 'package:app/src/features/orders/domain/order.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Watch the list of user orders

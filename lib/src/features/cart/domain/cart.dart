@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
-import 'package:ecommerce_app/src/features/cart/domain/item.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:app/src/features/cart/domain/item.dart';
+import 'package:app/src/features/products/domain/product.dart';
 
 /// Model class representing the shopping cart contents.
 class Cart {

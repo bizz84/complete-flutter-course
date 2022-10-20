@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ecommerce_app/src/features/cart/domain/cart.dart';
-import 'package:ecommerce_app/src/features/cart/domain/item.dart';
-import 'package:ecommerce_app/src/features/cart/domain/mutable_cart.dart';
+import 'package:app/src/features/cart/domain/cart.dart';
+import 'package:app/src/features/cart/domain/item.dart';
+import 'package:app/src/features/cart/domain/mutable_cart.dart';
 
 void main() {
   group('set item', () {

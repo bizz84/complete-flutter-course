@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/src/exceptions/app_exception.dart';
-import 'package:ecommerce_app/src/exceptions/error_logger.dart';
-import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
+import 'package:app/src/exceptions/app_exception.dart';
+import 'package:app/src/exceptions/error_logger.dart';
+import 'package:app/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Error logger class to keep track of all AsyncError states that are set

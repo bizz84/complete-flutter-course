@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/src/features/cart/application/cart_service.dart';
-import 'package:ecommerce_app/src/features/cart/domain/item.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:app/src/features/cart/application/cart_service.dart';
+import 'package:app/src/features/cart/domain/item.dart';
+import 'package:app/src/features/products/domain/product.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AddToCartController extends StateNotifier<AsyncValue<int>> {

@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
-import 'package:ecommerce_app/src/utils/delay.dart';
-import 'package:ecommerce_app/src/utils/in_memory_store.dart';
+import 'package:app/src/features/products/domain/product.dart';
+import 'package:app/src/features/reviews/domain/review.dart';
+import 'package:app/src/utils/delay.dart';
+import 'package:app/src/utils/in_memory_store.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// A repository used to store all user reviews for all products

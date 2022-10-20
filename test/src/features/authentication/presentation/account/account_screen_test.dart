@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
+import 'package:app/src/features/authentication/domain/app_user.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

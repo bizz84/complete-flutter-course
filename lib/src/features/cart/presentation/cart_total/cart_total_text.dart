@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/src/features/cart/application/cart_service.dart';
-import 'package:ecommerce_app/src/utils/currency_formatter.dart';
+import 'package:app/src/features/cart/application/cart_service.dart';
+import 'package:app/src/utils/currency_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

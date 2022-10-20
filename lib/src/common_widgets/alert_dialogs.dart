@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

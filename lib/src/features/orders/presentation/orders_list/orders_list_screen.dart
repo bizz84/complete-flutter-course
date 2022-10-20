@@ -1,11 +1,11 @@
-import 'package:ecommerce_app/src/common_widgets/async_value_widget.dart';
-import 'package:ecommerce_app/src/features/orders/application/user_orders_provider.dart';
-import 'package:ecommerce_app/src/features/orders/presentation/orders_list/order_card.dart';
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:app/src/common_widgets/async_value_widget.dart';
+import 'package:app/src/features/orders/application/user_orders_provider.dart';
+import 'package:app/src/features/orders/presentation/orders_list/order_card.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/responsive_center.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
-import 'package:ecommerce_app/src/features/orders/domain/order.dart';
+import 'package:app/src/common_widgets/responsive_center.dart';
+import 'package:app/src/constants/app_sizes.dart';
+import 'package:app/src/features/orders/domain/order.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Shows the list of orders placed by the signed-in user.

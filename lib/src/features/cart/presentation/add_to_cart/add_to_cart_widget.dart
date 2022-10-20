@@ -1,14 +1,14 @@
 import 'dart:math';
 
-import 'package:ecommerce_app/src/features/cart/application/cart_service.dart';
-import 'package:ecommerce_app/src/features/cart/presentation/add_to_cart/add_to_cart_controller.dart';
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
-import 'package:ecommerce_app/src/utils/async_value_ui.dart';
+import 'package:app/src/features/cart/application/cart_service.dart';
+import 'package:app/src/features/cart/presentation/add_to_cart/add_to_cart_controller.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
+import 'package:app/src/utils/async_value_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/item_quantity_selector.dart';
-import 'package:ecommerce_app/src/common_widgets/primary_button.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:app/src/common_widgets/item_quantity_selector.dart';
+import 'package:app/src/common_widgets/primary_button.dart';
+import 'package:app/src/constants/app_sizes.dart';
+import 'package:app/src/features/products/domain/product.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// A widget that shows an [ItemQuantitySelector] along with a [PrimaryButton]

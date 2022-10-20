@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ecommerce_app/src/features/cart/domain/cart.dart';
+import 'package:app/src/features/cart/domain/cart.dart';
 
 /// API for reading, watching and writing local cart data (guest user)
 abstract class LocalCartRepository {

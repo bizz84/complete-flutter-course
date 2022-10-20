@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
-import 'package:ecommerce_app/src/routing/app_router.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
+import 'package:app/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/primary_button.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
+import 'package:app/src/common_widgets/primary_button.dart';
+import 'package:app/src/constants/app_sizes.dart';
 import 'package:go_router/go_router.dart';
 
 /// Placeholder widget showing a message and CTA to go back to the home screen.

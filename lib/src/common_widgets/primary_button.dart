@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
+import 'package:app/src/constants/app_sizes.dart';
 
 /// Primary button based on [ElevatedButton].
 /// Useful for CTAs in the app.

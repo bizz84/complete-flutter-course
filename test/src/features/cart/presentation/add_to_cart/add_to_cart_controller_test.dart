@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/src/features/cart/domain/item.dart';
-import 'package:ecommerce_app/src/features/cart/presentation/add_to_cart/add_to_cart_controller.dart';
+import 'package:app/src/features/cart/domain/item.dart';
+import 'package:app/src/features/cart/presentation/add_to_cart/add_to_cart_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

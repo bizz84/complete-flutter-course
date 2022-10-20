@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/checkout/application/fake_checkout_service.dart';
+import 'package:app/src/features/checkout/application/fake_checkout_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PaymentButtonController extends StateNotifier<AsyncValue<void>> {

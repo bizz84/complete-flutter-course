@@ -1,6 +1,6 @@
 {
-    "name": "ecommerce_app",
-    "short_name": "ecommerce_app",
+    "name": "sai",
+    "short_name": "sai",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

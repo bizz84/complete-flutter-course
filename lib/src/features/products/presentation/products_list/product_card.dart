@@ -1,10 +1,10 @@
-import 'package:ecommerce_app/src/features/products/presentation/product_screen/product_average_rating.dart';
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:app/src/features/products/presentation/product_screen/product_average_rating.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/custom_image.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:ecommerce_app/src/utils/currency_formatter.dart';
+import 'package:app/src/common_widgets/custom_image.dart';
+import 'package:app/src/constants/app_sizes.dart';
+import 'package:app/src/features/products/domain/product.dart';
+import 'package:app/src/utils/currency_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Used to show a single product inside a card.

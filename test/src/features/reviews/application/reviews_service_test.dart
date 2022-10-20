@@ -1,9 +1,9 @@
-import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
-import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
-import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
-import 'package:ecommerce_app/src/features/reviews/application/reviews_service.dart';
-import 'package:ecommerce_app/src/features/reviews/data/fake_reviews_repository.dart';
-import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
+import 'package:app/src/features/authentication/data/fake_auth_repository.dart';
+import 'package:app/src/features/authentication/domain/app_user.dart';
+import 'package:app/src/features/products/data/fake_products_repository.dart';
+import 'package:app/src/features/reviews/application/reviews_service.dart';
+import 'package:app/src/features/reviews/data/fake_reviews_repository.dart';
+import 'package:app/src/features/reviews/domain/review.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

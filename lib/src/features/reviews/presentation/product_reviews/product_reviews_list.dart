@@ -1,12 +1,12 @@
-import 'package:ecommerce_app/src/common_widgets/async_value_widget.dart';
-import 'package:ecommerce_app/src/constants/breakpoints.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:ecommerce_app/src/features/reviews/data/fake_reviews_repository.dart';
-import 'package:ecommerce_app/src/features/reviews/presentation/product_reviews/product_review_card.dart';
+import 'package:app/src/common_widgets/async_value_widget.dart';
+import 'package:app/src/constants/breakpoints.dart';
+import 'package:app/src/features/products/domain/product.dart';
+import 'package:app/src/features/reviews/data/fake_reviews_repository.dart';
+import 'package:app/src/features/reviews/presentation/product_reviews/product_review_card.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/responsive_center.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
-import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
+import 'package:app/src/common_widgets/responsive_center.dart';
+import 'package:app/src/constants/app_sizes.dart';
+import 'package:app/src/features/reviews/domain/review.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Shows the list of reviews for a given product ID

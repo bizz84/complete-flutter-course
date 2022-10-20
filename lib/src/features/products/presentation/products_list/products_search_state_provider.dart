@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:app/src/features/products/data/fake_products_repository.dart';
+import 'package:app/src/features/products/domain/product.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final productsSearchQueryStateProvider = StateProvider<String>((ref) {

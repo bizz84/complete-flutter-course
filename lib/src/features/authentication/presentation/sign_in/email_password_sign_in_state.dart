@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/string_validators.dart';
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:app/src/features/authentication/presentation/sign_in/string_validators.dart';
+import 'package:app/src/localization/string_hardcoded.dart';
 
 /// Form type for email & password authentication
 enum EmailPasswordSignInFormType { signIn, register }
