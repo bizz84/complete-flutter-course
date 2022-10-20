@@ -1,4 +1,4 @@
-name: ecommerce_app
+name: app
 description: Flutter eCommerce app (part of the Complete Flutter Course Bundle)
 
 # Prevent accidental publishing to pub.dev.
@@ -35,6 +35,7 @@ dev_dependencies:
     sdk: flutter    
   flutter_lints: 2.0.1
   mocktail: 0.3.0
+  change_app_package_name: ^1.1.0
 
 
 # Custom app icon. For more info see: https://pub.dev/packages/flutter_launcher_icons
