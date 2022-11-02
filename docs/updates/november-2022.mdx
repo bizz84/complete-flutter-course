@@ -1,0 +1,41 @@
+# Foundations Course - November 2022 Update
+
+This update brings the course up to date with Riverpod 2.1 and adds some other small code improvements.
+
+## CHANGELOG
+
+Lesson 04.03:
+
+- Updated starter project, now using Riverpod 2.1
+- Updated `main.dart` to use new Flutter 3.3 error handling code based on `PlatformDispatcher` (see [Handling errors in Flutter](https://docs.flutter.dev/testing/errors))
+
+Lesson 05.08:
+
+- Updated to mention the new `AsyncNotifier` class as a replacement for `StateNotifier` (added in Riverpod 2.0)
+- `AsyncNotifier` will be covered in the upcoming section 13
+
+Lesson 08.11:
+
+- Updated to show some new Riverpod 2.0 APIs (such as `AsyncLoading<int>().copyWithPrevious(state)`)
+
+Lesson 08.25:
+
+- Updated notes to mention that `StreamProvider.overrideWithValue` has been removed.
+- Updated tests to show how to use `overrideWith` using streams rather than `AsyncValue`
+
+Lesson 10.08:
+
+- Updated to show how to use the `ErrorLogger` class together with `PlatformDispatcher` in `main.dart`
+
+Lesson 11.02:
+
+- Reviews feature: updated starter project using a simplified implementation
+- removed `Purchase` and `FakePurchasesRepository` classes as the corresponding functionality is now implemented inside `FakeOrdersRepository` and `matchingUserOrdersProvider`
+
+Lesson 11.10:
+
+- Recorded entire lesson again, using the new `matchingUserOrdersProvider`
+
+## New section 13 about Riverpod Generator and AsyncNotifier
+
+This section will be released in the next few weeks.
