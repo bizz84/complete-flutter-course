@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/features/cart/application/cart_service.dart';
 import 'package:ecommerce_app/src/features/cart/domain/item.dart';
 import 'package:ecommerce_app/src/features/cart/presentation/add_to_cart/add_to_cart_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +8,16 @@ import 'package:mocktail/mocktail.dart';
 import '../../../../mocks.dart';
 
 void main() {
+  ProviderContainer makeProviderContainer(MockCartService cartService) {
+    final container = ProviderContainer(
+      overrides: [
+        cartServiceProvider.overrideWithValue(cartService),
+      ],
+    );
+    addTearDown(container.dispose);
+    return container;
+  }
+
   const productId = '1';
   group('addItem', () {
     test('item added with quantity = 2, success', () async {
@@ -17,26 +28,42 @@ void main() {
       when(() => cartService.addItem(item)).thenAnswer(
         (_) => Future.value(null),
       );
-      // run & verify
-      final controller = AddToCartController(cartService: cartService);
-      expect(
-        controller.debugState,
-        const AsyncData(1),
+      final container = makeProviderContainer(cartService);
+      final listener = Listener<AsyncValue<int>>();
+      container.listen(
+        addToCartControllerProvider,
+        listener,
+        fireImmediately: true,
       );
+      // run
+      const initialData = AsyncData<int>(1);
+      // the build method returns a value immediately, so we expect AsyncData
+      verify(() => listener(null, initialData));
+      // update quantity
+      final controller = container.read(addToCartControllerProvider.notifier);
       controller.updateQuantity(quantity);
-      expect(
-        controller.debugState,
-        const AsyncData(2),
-      );
-      // * if desired, use expectLater and emitsInOrder here to check that
-      // * addItems emits two values
+      // the quantity is updated
+      verify(() => listener(initialData, const AsyncData<int>(quantity)));
+      // add item
       await controller.addItem(productId);
-      verify(() => cartService.addItem(item)).called(1);
-      // check that quantity goes back to 1 after adding an item
-      expect(
-        controller.debugState,
-        const AsyncData(1),
+      verifyInOrder(
+        [
+          // the loading state is set
+          () => listener(
+                const AsyncData<int>(quantity),
+                const AsyncLoading<int>()
+                    .copyWithPrevious(const AsyncData<int>(quantity)),
+              ),
+          // then the data is set with quantity: 1
+          () => listener(
+                const AsyncLoading<int>()
+                    .copyWithPrevious(const AsyncData<int>(quantity)),
+                initialData,
+              ),
+        ],
       );
+      verifyNoMoreInteractions(listener);
+      verify(() => cartService.addItem(item)).called(1);
     });
 
     test('item added with quantity = 2, failure', () async {
@@ -45,30 +72,41 @@ void main() {
       final cartService = MockCartService();
       when(() => cartService.addItem(item))
           .thenThrow((_) => Exception('Connection failed'));
-      final controller = AddToCartController(cartService: cartService);
-      expect(
-        controller.debugState,
-        const AsyncData(1),
+      final container = makeProviderContainer(cartService);
+      final listener = Listener<AsyncValue<int>>();
+      container.listen(
+        addToCartControllerProvider,
+        listener,
+        fireImmediately: true,
       );
+      const initialData = AsyncData<int>(1);
+      // the build method returns a value immediately, so we expect AsyncData
+      verify(() => listener(null, initialData));
+      // update quantity
+      final controller = container.read(addToCartControllerProvider.notifier);
       controller.updateQuantity(quantity);
-      expect(
-        controller.debugState,
-        const AsyncData(2),
-      );
-      // * if desired, use expectLater and emitsInOrder here to check that
-      // * addItems emits two values
+      // the quantity is updated
+      verify(() => listener(initialData, const AsyncData<int>(quantity)));
+      // add item
       await controller.addItem(productId);
-      verify(() => cartService.addItem(item)).called(1);
-      // check that quantity goes back to 1 after adding an item
-      expect(
-        controller.debugState,
-        predicate<AsyncValue<int>>(
-          (value) {
-            expect(value.hasError, true);
-            return true;
-          },
-        ),
+      verifyInOrder(
+        [
+          // the loading state is set
+          () => listener(
+                const AsyncData<int>(quantity),
+                const AsyncLoading<int>()
+                    .copyWithPrevious(const AsyncData<int>(quantity)),
+              ),
+          // then an error is set
+          () => listener(
+                const AsyncLoading<int>()
+                    .copyWithPrevious(const AsyncData<int>(quantity)),
+                any(that: isA<AsyncError>()),
+              ),
+        ],
       );
+      verifyNoMoreInteractions(listener);
+      verify(() => cartService.addItem(item)).called(1);
     });
   });
 }

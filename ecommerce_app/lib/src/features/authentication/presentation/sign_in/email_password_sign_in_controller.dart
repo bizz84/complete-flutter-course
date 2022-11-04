@@ -1,16 +1,20 @@
+import 'dart:async';
+
 import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
 import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_form_type.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class EmailPasswordSignInController extends StateNotifier<AsyncValue<void>> {
-  EmailPasswordSignInController(this.ref) : super(const AsyncData<void>(null));
-  final Ref ref;
+class EmailPasswordSignInController extends AutoDisposeAsyncNotifier<void> {
+  @override
+  FutureOr<void> build() {
+    // ok to leave this empty if the return type is FutureOr<void>
+  }
 
   Future<bool> submit(
       {required String email,
       required String password,
       required EmailPasswordSignInFormType formType}) async {
-    state = const AsyncValue.loading();
+    state = const AsyncLoading();
     state =
         await AsyncValue.guard(() => _authenticate(email, password, formType));
     return state.hasError == false;
@@ -28,7 +32,6 @@ class EmailPasswordSignInController extends StateNotifier<AsyncValue<void>> {
   }
 }
 
-final emailPasswordSignInControllerProvider = StateNotifierProvider.autoDispose<
-    EmailPasswordSignInController, AsyncValue<void>>((ref) {
-  return EmailPasswordSignInController(ref);
-});
+final emailPasswordSignInControllerProvider =
+    AutoDisposeAsyncNotifierProvider<EmailPasswordSignInController, void>(
+        EmailPasswordSignInController.new);
