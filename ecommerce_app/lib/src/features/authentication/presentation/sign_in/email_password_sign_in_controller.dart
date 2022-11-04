@@ -2,9 +2,12 @@ import 'dart:async';
 
 import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
 import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_form_type.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class EmailPasswordSignInController extends AutoDisposeAsyncNotifier<void> {
+part 'email_password_sign_in_controller.g.dart';
+
+@riverpod
+class EmailPasswordSignInController extends _$EmailPasswordSignInController {
   @override
   FutureOr<void> build() {
     // ok to leave this empty if the return type is FutureOr<void>
@@ -31,7 +34,3 @@ class EmailPasswordSignInController extends AutoDisposeAsyncNotifier<void> {
     }
   }
 }
-
-final emailPasswordSignInControllerProvider =
-    AutoDisposeAsyncNotifierProvider<EmailPasswordSignInController, void>(
-        EmailPasswordSignInController.new);
