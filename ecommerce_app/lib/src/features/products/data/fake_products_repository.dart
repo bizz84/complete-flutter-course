@@ -5,6 +5,9 @@ import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:ecommerce_app/src/utils/delay.dart';
 import 'package:ecommerce_app/src/utils/in_memory_store.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'fake_products_repository.g.dart';
 
 class FakeProductsRepository {
   FakeProductsRepository({this.addDelay = true});
@@ -73,10 +76,11 @@ class FakeProductsRepository {
   }
 }
 
-final productsRepositoryProvider = Provider<FakeProductsRepository>((ref) {
+@Riverpod(keepAlive: true)
+FakeProductsRepository productsRepository(ProductsRepositoryRef ref) {
   // * Set addDelay to false for faster loading
   return FakeProductsRepository(addDelay: false);
-});
+}
 
 final productsListStreamProvider =
     StreamProvider.autoDispose<List<Product>>((ref) {
@@ -84,11 +88,11 @@ final productsListStreamProvider =
   return productsRepository.watchProductsList();
 });
 
-final productsListFutureProvider =
-    FutureProvider.autoDispose<List<Product>>((ref) {
+@riverpod
+Future<List<Product>> productsListFuture(ProductsListFutureRef ref) {
   final productsRepository = ref.watch(productsRepositoryProvider);
   return productsRepository.fetchProductsList();
-});
+}
 
 final productProvider =
     StreamProvider.autoDispose.family<Product?, String>((ref, id) {
@@ -96,14 +100,15 @@ final productProvider =
   return productsRepository.watchProduct(id);
 });
 
-final productsListSearchProvider = FutureProvider.autoDispose
-    .family<List<Product>, String>((ref, query) async {
+@Riverpod(keepAlive: false)
+Future<List<Product>> productsListSearch(
+    ProductsListSearchRef ref, String query) async {
   final link = ref.keepAlive();
   // * keep previous search results in memory for 60 seconds
-  final timer = Timer(const Duration(seconds: 60), () {
+  final timer = Timer(const Duration(seconds: 5), () {
     link.close();
   });
   ref.onDispose(() => timer.cancel());
   final productsRepository = ref.watch(productsRepositoryProvider);
   return productsRepository.searchProducts(query);
-});
+}
