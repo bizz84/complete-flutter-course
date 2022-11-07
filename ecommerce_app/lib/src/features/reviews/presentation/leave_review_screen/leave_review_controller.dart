@@ -4,9 +4,12 @@ import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:ecommerce_app/src/features/reviews/application/reviews_service.dart';
 import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
 import 'package:ecommerce_app/src/utils/current_date_provider.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class LeaveReviewController extends AutoDisposeAsyncNotifier<void> {
+part 'leave_review_controller.g.dart';
+
+@riverpod
+class LeaveReviewController extends _$LeaveReviewController {
   bool mounted = true;
   @override
   FutureOr<void> build() {
@@ -49,7 +52,3 @@ class LeaveReviewController extends AutoDisposeAsyncNotifier<void> {
     }
   }
 }
-
-final leaveReviewControllerProvider =
-    AutoDisposeAsyncNotifierProvider<LeaveReviewController, void>(
-        LeaveReviewController.new);

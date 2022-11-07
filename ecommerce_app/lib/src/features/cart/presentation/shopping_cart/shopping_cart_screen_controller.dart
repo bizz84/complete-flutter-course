@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:ecommerce_app/src/features/cart/application/cart_service.dart';
 import 'package:ecommerce_app/src/features/cart/domain/item.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class ShoppingCartScreenController extends AsyncNotifier<void> {
+part 'shopping_cart_screen_controller.g.dart';
+
+@riverpod
+class ShoppingCartScreenController extends _$ShoppingCartScreenController {
   @override
   FutureOr<void> build() {
     // ok to leave this empty if the return type is FutureOr<void>
@@ -24,7 +27,3 @@ class ShoppingCartScreenController extends AsyncNotifier<void> {
     state = await AsyncValue.guard(() => cartService.removeItemById(productId));
   }
 }
-
-final shoppingCartScreenControllerProvider =
-    AsyncNotifierProvider<ShoppingCartScreenController, void>(
-        ShoppingCartScreenController.new);

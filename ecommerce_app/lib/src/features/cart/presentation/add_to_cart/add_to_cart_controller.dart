@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:ecommerce_app/src/features/cart/application/cart_service.dart';
 import 'package:ecommerce_app/src/features/cart/domain/item.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class AddToCartController extends AutoDisposeAsyncNotifier<int> {
+part 'add_to_cart_controller.g.dart';
+
+@riverpod
+class AddToCartController extends _$AddToCartController {
   @override
   FutureOr<int> build() {
     return 1;
@@ -27,7 +30,3 @@ class AddToCartController extends AutoDisposeAsyncNotifier<int> {
     }
   }
 }
-
-final addToCartControllerProvider =
-    AutoDisposeAsyncNotifierProvider<AddToCartController, int>(
-        AddToCartController.new);

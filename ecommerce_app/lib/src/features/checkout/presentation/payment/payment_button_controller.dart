@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:ecommerce_app/src/features/checkout/application/fake_checkout_service.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class PaymentButtonController extends AutoDisposeAsyncNotifier<void> {
+part 'payment_button_controller.g.dart';
+
+@riverpod
+class PaymentButtonController extends _$PaymentButtonController {
   bool mounted = true;
 
   @override
@@ -23,7 +26,3 @@ class PaymentButtonController extends AutoDisposeAsyncNotifier<void> {
     }
   }
 }
-
-final paymentButtonControllerProvider =
-    AutoDisposeAsyncNotifierProvider<PaymentButtonController, void>(
-        PaymentButtonController.new);
