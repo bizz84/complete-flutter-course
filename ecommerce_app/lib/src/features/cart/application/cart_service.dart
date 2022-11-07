@@ -9,6 +9,9 @@ import 'package:ecommerce_app/src/features/cart/domain/mutable_cart.dart';
 import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'cart_service.g.dart';
 
 class CartService {
   CartService(this.ref);
@@ -59,10 +62,13 @@ class CartService {
   }
 }
 
-final cartServiceProvider = Provider<CartService>((ref) {
+@Riverpod(keepAlive: true)
+CartService cartService(CartServiceRef ref) {
   return CartService(ref);
-});
+}
 
+// Riverpod Generator doesn't support streams yet:
+// https://github.com/rrousselGit/riverpod/issues/1663
 final cartProvider = StreamProvider<Cart>((ref) {
   final user = ref.watch(authStateChangesProvider).value;
   if (user != null) {
@@ -72,14 +78,16 @@ final cartProvider = StreamProvider<Cart>((ref) {
   }
 });
 
-final cartItemsCountProvider = Provider<int>((ref) {
+@Riverpod(keepAlive: true)
+int cartItemsCount(CartItemsCountRef ref) {
   return ref.watch(cartProvider).maybeMap(
         data: (cart) => cart.value.items.length,
         orElse: () => 0,
       );
-});
+}
 
-final cartTotalProvider = Provider.autoDispose<double>((ref) {
+@riverpod
+double cartTotal(CartTotalRef ref) {
   final cart = ref.watch(cartProvider).value ?? const Cart();
   final productsList = ref.watch(productsListStreamProvider).value ?? [];
   if (cart.items.isNotEmpty && productsList.isNotEmpty) {
@@ -93,10 +101,10 @@ final cartTotalProvider = Provider.autoDispose<double>((ref) {
   } else {
     return 0.0;
   }
-});
+}
 
-final itemAvailableQuantityProvider =
-    Provider.autoDispose.family<int, Product>((ref, product) {
+@riverpod
+int itemAvailableQuantity(ItemAvailableQuantityRef ref, Product product) {
   final cart = ref.watch(cartProvider).value;
   if (cart != null) {
     // get the current quantity for the given product in the cart
@@ -106,4 +114,4 @@ final itemAvailableQuantityProvider =
   } else {
     return product.availableQuantity;
   }
-});
+}
