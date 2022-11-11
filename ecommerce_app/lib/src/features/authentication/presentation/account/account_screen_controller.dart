@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class AccountScreenController extends AutoDisposeAsyncNotifier<void> {
+part 'account_screen_controller.g.dart';
+
+@riverpod
+class AccountScreenController extends _$AccountScreenController {
   @override
   FutureOr<void> build() {
     // nothing to do
@@ -14,7 +17,3 @@ class AccountScreenController extends AutoDisposeAsyncNotifier<void> {
     state = await AsyncValue.guard(() => authRepository.signOut());
   }
 }
-
-final accountScreenControllerProvider =
-    AutoDisposeAsyncNotifierProvider<AccountScreenController, void>(
-        AccountScreenController.new);
