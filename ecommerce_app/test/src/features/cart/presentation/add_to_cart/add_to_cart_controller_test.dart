@@ -45,10 +45,10 @@ void main() {
       );
       // item quantity controller
       final itemQuantityController =
-          container.read(itemQuantityProvider.notifier);
+          container.read(itemQuantityControllerProvider.notifier);
       final itemQuantityListener = Listener<int>();
       container.listen(
-        itemQuantityProvider,
+        itemQuantityControllerProvider,
         itemQuantityListener.call,
         fireImmediately: true,
       );
@@ -58,7 +58,7 @@ void main() {
       verify(() => addToCartListener(null, initialData));
       verify(() => itemQuantityListener(null, 1));
       // update quantity
-      itemQuantityController.state = quantity;
+      itemQuantityController.updateQuantity(quantity);
       // the quantity is updated
       verify(() => itemQuantityListener(1, quantity));
       // add item
@@ -103,10 +103,10 @@ void main() {
       );
       // item quantity controller
       final itemQuantityController =
-          container.read(itemQuantityProvider.notifier);
+          container.read(itemQuantityControllerProvider.notifier);
       final itemQuantityListener = Listener<int>();
       container.listen(
-        itemQuantityProvider,
+        itemQuantityControllerProvider,
         itemQuantityListener.call,
         fireImmediately: true,
       );
@@ -116,7 +116,7 @@ void main() {
       verify(() => addToCartListener(null, initialData));
       verify(() => itemQuantityListener(null, 1));
       // update quantity
-      itemQuantityController.state = quantity;
+      itemQuantityController.updateQuantity(quantity);
       // the quantity is updated
       verify(() => itemQuantityListener(1, quantity));
       // add item

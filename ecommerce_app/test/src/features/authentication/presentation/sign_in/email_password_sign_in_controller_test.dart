@@ -10,6 +10,10 @@ import 'package:mocktail/mocktail.dart';
 import '../../../../mocks.dart';
 
 void main() {
+  const testEmail = 'test@test.com';
+  const testPassword = '1234';
+  const testFormType = EmailPasswordSignInFormType.signIn;
+
   ProviderContainer makeProviderContainer(MockAuthRepository authRepository) {
     final container = ProviderContainer(
       overrides: [
@@ -20,9 +24,9 @@ void main() {
     return container;
   }
 
-  const testEmail = 'test@test.com';
-  const testPassword = '1234';
-  const testFormType = EmailPasswordSignInFormType.signIn;
+  setUpAll(() {
+    registerFallbackValue(const AsyncLoading<int>());
+  });
 
   group('EmailPasswordSignInController', () {
     test('sign in success', () async {
@@ -33,17 +37,18 @@ void main() {
             testPassword,
           )).thenAnswer((_) => Future.value());
       final container = makeProviderContainer(authRepository);
+      final listener = Listener<AsyncValue<void>>();
+      container.listen(
+        emailPasswordSignInControllerProvider,
+        listener.call,
+        fireImmediately: true,
+      );
+      const data = AsyncData<void>(null);
+      // verify initial value from build method
+      verify(() => listener(null, data));
+      // run
       final controller =
           container.read(emailPasswordSignInControllerProvider.notifier);
-      // expect later
-      expectLater(
-        controller.stream,
-        emitsInOrder([
-          const AsyncLoading<void>(),
-          const AsyncData<void>(null),
-        ]),
-      );
-      // run
       final result = await controller.submit(
         email: testEmail,
         password: testPassword,
@@ -51,6 +56,13 @@ void main() {
       );
       // verify
       expect(result, true);
+      verifyInOrder([
+        // set loading state
+        () => listener(data, any(that: isA<AsyncLoading>())),
+        // data when complete
+        () => listener(any(that: isA<AsyncLoading>()), data),
+      ]);
+      verifyNoMoreInteractions(listener);
     });
     test('sign in failure', () async {
       // setup
@@ -61,20 +73,17 @@ void main() {
             testPassword,
           )).thenThrow(exception);
       final container = makeProviderContainer(authRepository);
+      final listener = Listener<AsyncValue<void>>();
+      container.listen(
+        emailPasswordSignInControllerProvider,
+        listener.call,
+        fireImmediately: true,
+      );
+      // verify initial value from build method
+      verify(() => listener(null, const AsyncData<void>(null)));
+      // run
       final controller =
           container.read(emailPasswordSignInControllerProvider.notifier);
-      // expect later
-      expectLater(
-        controller.stream,
-        emitsInOrder([
-          const AsyncLoading<void>(),
-          predicate<AsyncValue<void>>((state) {
-            expect(state.hasError, true);
-            return true;
-          }),
-        ]),
-      );
-      // run
       final result = await controller.submit(
         email: testEmail,
         password: testPassword,
@@ -82,6 +91,14 @@ void main() {
       );
       // verify
       expect(result, false);
+      verifyInOrder([
+        // set loading state
+        () => listener(
+            const AsyncData<void>(null), any(that: isA<AsyncLoading>())),
+        // error when complete
+        () => listener(
+            any(that: isA<AsyncLoading>()), any(that: isA<AsyncError>())),
+      ]);
     });
   });
 }

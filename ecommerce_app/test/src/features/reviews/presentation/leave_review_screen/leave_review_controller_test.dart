@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/src/features/reviews/application/reviews_service.dart';
 import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
 import 'package:ecommerce_app/src/features/reviews/presentation/leave_review_screen/leave_review_controller.dart';
+import 'package:ecommerce_app/src/utils/current_date_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -17,31 +19,41 @@ void main() {
   );
   const testProductId = '1';
 
-  late MockReviewsService reviewsService;
-  setUp(() {
-    reviewsService = MockReviewsService();
+  ProviderContainer makeProviderContainer(MockReviewsService reviewsService) {
+    final container = ProviderContainer(
+      overrides: [
+        reviewsServiceProvider.overrideWithValue(reviewsService),
+        currentDateBuilderProvider.overrideWithValue(() => testDate),
+      ],
+    );
+    addTearDown(container.dispose);
+    return container;
+  }
+
+  setUpAll(() {
+    registerFallbackValue(const AsyncLoading<int>());
   });
 
   group('submitReview', () {
     test('success', () async {
       // setup
+      final reviewsService = MockReviewsService();
       when(() => reviewsService.submitReview(
             productId: testProductId,
             review: testReview,
           )).thenAnswer((_) => Future.value());
-      final controller = LeaveReviewController(
-        reviewsService: reviewsService,
-        currentDateBuilder: () => testDate,
+      final container = makeProviderContainer(reviewsService);
+      final controller = container.read(leaveReviewControllerProvider.notifier);
+      final listener = Listener<AsyncValue<void>>();
+      container.listen(
+        leaveReviewControllerProvider,
+        listener.call,
+        fireImmediately: true,
       );
-      // run & verify
+      const data = AsyncData<void>(null);
+      verify(() => listener(null, data));
+      // run
       var didSucceed = false;
-      expectLater(
-        controller.stream,
-        emitsInOrder([
-          const AsyncLoading<void>(),
-          const AsyncData<void>(null),
-        ]),
-      );
       await controller.submitReview(
         previousReview: null,
         rating: testRating,
@@ -49,6 +61,12 @@ void main() {
         productId: testProductId,
         onSuccess: () => didSucceed = true,
       );
+      // verify
+      verifyInOrder([
+        () => listener(data, any(that: isA<AsyncLoading>())),
+        () => listener(any(that: isA<AsyncLoading>()), data),
+      ]);
+      verifyNoMoreInteractions(listener);
       verify(() => reviewsService.submitReview(
             productId: testProductId,
             review: testReview,
@@ -58,28 +76,23 @@ void main() {
 
     test('failure', () async {
       // setup
+      final reviewsService = MockReviewsService();
       when(() => reviewsService.submitReview(
             productId: testProductId,
             review: testReview,
           )).thenThrow(Exception('Connection failed'));
-      final controller = LeaveReviewController(
-        reviewsService: reviewsService,
-        currentDateBuilder: () => testDate,
+      final container = makeProviderContainer(reviewsService);
+      final controller = container.read(leaveReviewControllerProvider.notifier);
+      final listener = Listener<AsyncValue<void>>();
+      container.listen(
+        leaveReviewControllerProvider,
+        listener.call,
+        fireImmediately: true,
       );
-      // run & verify
+      const data = AsyncData<void>(null);
+      verify(() => listener(null, data));
+      // run
       var didSucceed = false;
-      expectLater(
-        controller.stream,
-        emitsInOrder([
-          const AsyncLoading<void>(),
-          predicate<AsyncValue<void>>(
-            (value) {
-              expect(value.hasError, true);
-              return true;
-            },
-          )
-        ]),
-      );
       await controller.submitReview(
         previousReview: null,
         rating: testRating,
@@ -87,6 +100,13 @@ void main() {
         productId: testProductId,
         onSuccess: () => didSucceed = true,
       );
+      // verify
+      verifyInOrder([
+        () => listener(data, any(that: isA<AsyncLoading>())),
+        () => listener(
+            any(that: isA<AsyncLoading>()), any(that: isA<AsyncError>())),
+      ]);
+      verifyNoMoreInteractions(listener);
       verify(() => reviewsService.submitReview(
             productId: testProductId,
             review: testReview,
@@ -96,20 +116,23 @@ void main() {
 
     test('same data as before', () async {
       // setup
+      final reviewsService = MockReviewsService();
       when(() => reviewsService.submitReview(
             productId: testProductId,
             review: testReview,
           )).thenThrow(Exception('Connection failed'));
-      final controller = LeaveReviewController(
-        reviewsService: reviewsService,
-        currentDateBuilder: () => testDate,
+      final container = makeProviderContainer(reviewsService);
+      final controller = container.read(leaveReviewControllerProvider.notifier);
+      final listener = Listener<AsyncValue<void>>();
+      container.listen(
+        leaveReviewControllerProvider,
+        listener.call,
+        fireImmediately: true,
       );
-      // run & verify
+      const data = AsyncData<void>(null);
+      verify(() => listener(null, data));
+      // run
       var didSucceed = false;
-      expectLater(
-        controller.stream,
-        emitsInOrder([]), // no state changes
-      );
       await controller.submitReview(
         previousReview: testReview,
         rating: testRating,
@@ -117,6 +140,7 @@ void main() {
         productId: testProductId,
         onSuccess: () => didSucceed = true,
       );
+      verifyNoMoreInteractions(listener);
       verifyNever(() => reviewsService.submitReview(
             productId: testProductId,
             review: testReview,
