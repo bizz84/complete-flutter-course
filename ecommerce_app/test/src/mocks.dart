@@ -26,3 +26,7 @@ class MockCheckoutService extends Mock implements FakeCheckoutService {}
 class MockReviewsRepository extends Mock implements FakeReviewsRepository {}
 
 class MockReviewsService extends Mock implements ReviewsService {}
+
+class Listener<T> extends Mock {
+  void call(T? previous, T next);
+}
