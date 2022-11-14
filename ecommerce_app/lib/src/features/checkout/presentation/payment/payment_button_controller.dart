@@ -1,12 +1,22 @@
-import 'package:ecommerce_app/src/features/checkout/application/fake_checkout_service.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'dart:async';
 
-class PaymentButtonController extends StateNotifier<AsyncValue<void>> {
-  PaymentButtonController({required this.checkoutService})
-      : super(const AsyncData(null));
-  final FakeCheckoutService checkoutService;
+import 'package:ecommerce_app/src/features/checkout/application/fake_checkout_service.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'payment_button_controller.g.dart';
+
+@riverpod
+class PaymentButtonController extends _$PaymentButtonController {
+  bool mounted = true;
+
+  @override
+  FutureOr<void> build() {
+    ref.onDispose(() => mounted = false);
+    // nothing to do
+  }
 
   Future<void> pay() async {
+    final checkoutService = ref.read(checkoutServiceProvider);
     state = const AsyncLoading();
     final newState = await AsyncValue.guard(checkoutService.placeOrder);
     // * Check if the controller is mounted before setting the state to prevent:
@@ -16,10 +26,3 @@ class PaymentButtonController extends StateNotifier<AsyncValue<void>> {
     }
   }
 }
-
-final paymentButtonControllerProvider = StateNotifierProvider.autoDispose<
-    PaymentButtonController, AsyncValue<void>>((ref) {
-  return PaymentButtonController(
-    checkoutService: ref.watch(checkoutServiceProvider),
-  );
-});
