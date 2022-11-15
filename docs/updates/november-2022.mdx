@@ -1,41 +1,88 @@
 # Foundations Course - November 2022 Update
 
-This update brings the course up to date with Riverpod 2.1 and adds some other small code improvements.
+This update brings the course up to date with Riverpod 2.1 and includes a brand new section about Riverpod 2.x & the Riverpod Generator package.
+
+All starter projects and code snapshots have been updated to the latest packages, starting from section 4.
 
 ## CHANGELOG
+
+### Section 4
 
 Lesson 04.03:
 
 - Updated starter project, now using Riverpod 2.1
 - Updated `main.dart` to use new Flutter 3.3 error handling code based on `PlatformDispatcher` (see [Handling errors in Flutter](https://docs.flutter.dev/testing/errors))
 
+### Section 5
+
 Lesson 05.08:
 
-- Updated to mention the new `AsyncNotifier` class as a replacement for `StateNotifier` (added in Riverpod 2.0)
+- `AsyncValue.error` now takes a non-optional `StackTrace` as second argument
+- Mention the new `AsyncNotifier` class as a replacement for `StateNotifier` (added in Riverpod 2.0)
 - `AsyncNotifier` will be covered in the upcoming section 13
+
+Lesson 05.10:
+
+- Updated condition for showing an alert dialog to `!state.isLoading && state.hasError`. Previously, it was `!state.isRefreshing && state.hasError`
+
+Lesson 05.13:
+
+- Updated `AsyncValueUI` exception to check for `!isLoading && hasError`, not `!isRefreshing && hasError`
+
+### Section 6
+
+Updated code snapshots, no other changes.
+
+### Section 7
+
+Updated code snapshots, no other changes.
+
+### Section 8
+
+Lesson 08.05:
+
+- Updated to show how to initialize Sembast with the new code in `main.dart` (error handling code is now based on `PlatformDispatcher`)
 
 Lesson 08.11:
 
 - Updated to show some new Riverpod 2.0 APIs (such as `AsyncLoading<int>().copyWithPrevious(state)`)
+- `AsyncValue.error` now takes a non-optional `StackTrace` as second argument
 
 Lesson 08.25:
 
 - Updated notes to mention that `StreamProvider.overrideWithValue` has been removed.
 - Updated tests to show how to use `overrideWith` using streams rather than `AsyncValue`
 
+### Section 9
+
+Updated code snapshots, no other changes.
+
+### Section 10
+
 Lesson 10.08:
 
 - Updated to show how to use the `ErrorLogger` class together with `PlatformDispatcher` in `main.dart`
+
+### Section 11
 
 Lesson 11.02:
 
 - Reviews feature: updated starter project using a simplified implementation
 - removed `Purchase` and `FakePurchasesRepository` classes as the corresponding functionality is now implemented inside `FakeOrdersRepository` and `matchingUserOrdersProvider`
 
+Lesson 11.06:
+
+- Added some notes about how to navigate with GoRouter inside a `StateNotifier`
+
 Lesson 11.10:
 
 - Recorded entire lesson again, using the new `matchingUserOrdersProvider`
 
+### Section 12
+
+Updated code snapshots, no other changes.
+
 ## New section 13 about Riverpod Generator and AsyncNotifier
 
-This section will be released in the next few weeks.
+10 new lessons covering the new Riverpod Generator package and the new `AsyncNotifier` class.
+
