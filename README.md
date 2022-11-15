@@ -248,4 +248,18 @@ This project includes a documentation website that can be found here:
 5. Riverpod caching with `autoDispose`, `keepAlive()` and `Timer`
 6. Debouncing and cancelling network requests
 
+### 13. New Riverpod 2.x APIs & Riverpod Generator
+
+1. Introduction to Riverpod 2.x
+2. Starter project and updated code walkthrough
+3. Installing the Riverpod Generator package
+4. Generating providers with the `@riverpod` syntax
+5. Migrating some more providers to Riverpod Generator + the `keepAlive` syntax
+6. Migrating the `AccountScreenController` from `StateNotifier` to `AsyncNotifier`
+7. Converting the `AccountScreenController` to use Riverpod Generator
+8. How to check if an `AsyncNotifier` is mounted
+9. How to write unit tests for `AsyncNotifier` subclasses
+10. Wrap Up
+11. Conclusion & Next Steps
+
 ### [LICENSE: MIT](LICENSE.md)
