@@ -88,6 +88,7 @@ class AuthRobot {
 
   Future<void> enterAndSubmitEmailAndPassword() async {
     await enterEmail('test@test.com');
+    await tester.pump();
     await enterPassword('test1234');
     await tapEmailAndPasswordSubmitButton();
   }
