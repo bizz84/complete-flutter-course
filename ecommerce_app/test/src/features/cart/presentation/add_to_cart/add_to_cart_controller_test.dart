@@ -34,40 +34,54 @@ void main() {
         (_) => Future.value(null),
       );
       final container = makeProviderContainer(cartService);
-      final controller = container.read(addToCartControllerProvider.notifier);
-      final listener = Listener<AsyncValue<int>>();
+      // add to cart controller
+      final addToCartController =
+          container.read(addToCartControllerProvider.notifier);
+      final addToCartListener = Listener<AsyncValue<void>>();
       container.listen(
         addToCartControllerProvider,
-        listener.call,
+        addToCartListener.call,
+        fireImmediately: true,
+      );
+      // item quantity controller
+      final itemQuantityController =
+          container.read(itemQuantityControllerProvider.notifier);
+      final itemQuantityListener = Listener<int>();
+      container.listen(
+        itemQuantityControllerProvider,
+        itemQuantityListener.call,
         fireImmediately: true,
       );
       // run
-      const initialData = AsyncData<int>(1);
+      const initialData = AsyncData<void>(null);
       // the build method returns a value immediately, so we expect AsyncData
-      verify(() => listener(null, initialData));
+      verify(() => addToCartListener(null, initialData));
+      verify(() => itemQuantityListener(null, 1));
       // update quantity
-      controller.updateQuantity(quantity);
+      itemQuantityController.updateQuantity(quantity);
       // the quantity is updated
-      verify(() => listener(initialData, const AsyncData<int>(quantity)));
+      verify(() => itemQuantityListener(1, quantity));
       // add item
-      await controller.addItem(productId);
+      await addToCartController.addItem(productId);
       verifyInOrder(
         [
           // the loading state is set
-          () => listener(
-                const AsyncData<int>(quantity),
-                const AsyncLoading<int>()
-                    .copyWithPrevious(const AsyncData<int>(quantity)),
+          () => addToCartListener(
+                initialData,
+                any(that: isA<AsyncLoading>()),
               ),
           // then the data is set with quantity: 1
-          () => listener(
-                const AsyncLoading<int>()
-                    .copyWithPrevious(const AsyncData<int>(quantity)),
+          () => addToCartListener(
+                any(that: isA<AsyncLoading>()),
                 initialData,
               ),
         ],
       );
-      verifyNoMoreInteractions(listener);
+      // on success, quantity goes back to 1
+      verify(() => itemQuantityListener(quantity, 1));
+      // then, no more interactions
+      verifyNoMoreInteractions(addToCartListener);
+      verifyNoMoreInteractions(itemQuantityListener);
       verify(() => cartService.addItem(item)).called(1);
     });
 
@@ -78,41 +92,53 @@ void main() {
       when(() => cartService.addItem(item))
           .thenThrow((_) => Exception('Connection failed'));
       final container = makeProviderContainer(cartService);
-      final controller = container.read(addToCartControllerProvider.notifier);
-      final listener = Listener<AsyncValue<int>>();
+      // add to cart controller
+      final addToCartController =
+          container.read(addToCartControllerProvider.notifier);
+      final addToCartListener = Listener<AsyncValue<void>>();
       container.listen(
         addToCartControllerProvider,
-        listener.call,
+        addToCartListener.call,
         fireImmediately: true,
       );
-      const initialData = AsyncData<int>(1);
-      // the build method returns a value immediately, so we expect AsyncData
-      verify(() => listener(null, initialData));
-      // update quantity
-      controller.updateQuantity(quantity);
-      // the quantity is updated
-      verify(
-        () => listener(initialData, const AsyncData<int>(quantity)),
+      // item quantity controller
+      final itemQuantityController =
+          container.read(itemQuantityControllerProvider.notifier);
+      final itemQuantityListener = Listener<int>();
+      container.listen(
+        itemQuantityControllerProvider,
+        itemQuantityListener.call,
+        fireImmediately: true,
       );
+      // run
+      const initialData = AsyncData<void>(null);
+      // the build method returns a value immediately, so we expect AsyncData
+      verify(() => addToCartListener(null, initialData));
+      verify(() => itemQuantityListener(null, 1));
+      // update quantity
+      itemQuantityController.updateQuantity(quantity);
+      // the quantity is updated
+      verify(() => itemQuantityListener(1, quantity));
       // add item
-      await controller.addItem(productId);
+      await addToCartController.addItem(productId);
       verifyInOrder(
         [
           // the loading state is set
-          () => listener(
-                const AsyncData<int>(quantity),
-                const AsyncLoading<int>()
-                    .copyWithPrevious(const AsyncData<int>(quantity)),
+          () => addToCartListener(
+                initialData,
+                any(that: isA<AsyncLoading>()),
               ),
-          // then an error is set
-          () => listener(
-                const AsyncLoading<int>()
-                    .copyWithPrevious(const AsyncData<int>(quantity)),
+          // then the data is set with quantity: 1
+          () => addToCartListener(
+                any(that: isA<AsyncLoading>()),
                 any(that: isA<AsyncError>()),
               ),
         ],
       );
-      verifyNoMoreInteractions(listener);
+      // on error, quantity doesn't change
+      // then, no more interactions
+      verifyNoMoreInteractions(addToCartListener);
+      verifyNoMoreInteractions(itemQuantityListener);
       verify(() => cartService.addItem(item)).called(1);
     });
   });
