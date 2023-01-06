@@ -30,20 +30,39 @@ class _SystemHash {
 }
 
 String $AddToCartControllerHash() =>
-    r'0238f81034cce3512a17fc50b91aba81ff5ac664';
+    r'9561d9e66460bf7ea99dce03b7a5900b38a7f930';
 
 /// See also [AddToCartController].
 final addToCartControllerProvider =
-    AutoDisposeAsyncNotifierProvider<AddToCartController, int>(
+    AutoDisposeAsyncNotifierProvider<AddToCartController, void>(
   AddToCartController.new,
   name: r'addToCartControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
       : $AddToCartControllerHash,
 );
-typedef AddToCartControllerRef = AutoDisposeAsyncNotifierProviderRef<int>;
+typedef AddToCartControllerRef = AutoDisposeAsyncNotifierProviderRef<void>;
 
-abstract class _$AddToCartController extends AutoDisposeAsyncNotifier<int> {
+abstract class _$AddToCartController extends AutoDisposeAsyncNotifier<void> {
   @override
-  FutureOr<int> build();
+  FutureOr<void> build();
+}
+
+String $ItemQuantityControllerHash() =>
+    r'e3aebb6b912ee6ef8fd2ff6b1ab26201380f7862';
+
+/// See also [ItemQuantityController].
+final itemQuantityControllerProvider =
+    AutoDisposeNotifierProvider<ItemQuantityController, int>(
+  ItemQuantityController.new,
+  name: r'itemQuantityControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : $ItemQuantityControllerHash,
+);
+typedef ItemQuantityControllerRef = AutoDisposeNotifierProviderRef<int>;
+
+abstract class _$ItemQuantityController extends AutoDisposeNotifier<int> {
+  @override
+  int build();
 }
