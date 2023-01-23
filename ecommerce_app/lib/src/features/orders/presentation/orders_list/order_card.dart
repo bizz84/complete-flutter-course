@@ -59,7 +59,7 @@ class OrderHeader extends ConsumerWidget {
                 children: [
                   Text(
                     'Order placed'.hardcoded.toUpperCase(),
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   gapH4,
                   Text(dateFormatted),
@@ -71,7 +71,7 @@ class OrderHeader extends ConsumerWidget {
                   Text(
                     'Total'.hardcoded.toUpperCase(),
                     textAlign: TextAlign.end,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   gapH4,
                   Text(totalFormatted),
