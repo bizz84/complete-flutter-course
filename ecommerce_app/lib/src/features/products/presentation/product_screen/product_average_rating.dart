@@ -18,7 +18,7 @@ class ProductAverageRating extends StatelessWidget {
         gapW8,
         Text(
           product.avgRating.toStringAsFixed(1),
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         gapW8,
         Expanded(
@@ -26,7 +26,7 @@ class ProductAverageRating extends StatelessWidget {
             product.numRatings == 1
                 ? '1 rating'
                 : '${product.numRatings} ratings',
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],

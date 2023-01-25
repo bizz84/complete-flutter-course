@@ -9,7 +9,7 @@ class OrderStatusLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.bodyText1!;
+    final textStyle = Theme.of(context).textTheme.bodyLarge!;
     switch (order.orderStatus) {
       case OrderStatus.confirmed:
         return Text(
