@@ -1,0 +1,36 @@
+# Deprecated text styles on Flutter 3.7
+
+As part of the ongoing migration to Material 3, many text styles have been renamed in Flutter 3.7.
+
+This resulted in a bunch of deprecation warnings:
+
+```
+Analyzing ecommerce_app...                                              
+
+   info • 'headline6' is deprecated and shouldn't be used. Use titleLarge instead. This feature was deprecated after v3.1.0-0.0.pre • lib/src/common_widgets/action_text_button.dart:18:18
+          • deprecated_member_use
+   info • 'headline4' is deprecated and shouldn't be used. Use headlineMedium instead. This feature was deprecated after v3.1.0-0.0.pre •
+          lib/src/common_widgets/empty_placeholder_widget.dart:24:50 • deprecated_member_use
+   info • 'headline6' is deprecated and shouldn't be used. Use titleLarge instead. This feature was deprecated after v3.1.0-0.0.pre •
+          lib/src/common_widgets/error_message_widget.dart:10:42 • deprecated_member_use
+   info • 'bodyText1' is deprecated and shouldn't be used. Use bodyLarge instead. This feature was deprecated after v3.1.0-0.0.pre •
+          lib/src/common_widgets/item_quantity_selector.dart:53:50 • deprecated_member_use
+   info • 'headline6' is deprecated and shouldn't be used. Use titleLarge instead. This feature was deprecated after v3.1.0-0.0.pre • lib/src/common_widgets/primary_button.dart:29:22 •
+          deprecated_member_use
+```
+
+## How to Fix
+
+If you're running on Flutter 3.7 or above, you'll encounter all these warnings when downloading the various starter projects in the course (since the code was written before Flutter 3.7).
+
+To fix them automatically, just run this command:
+
+```
+dart fix --apply
+```
+
+More info here:
+
+- [Using Dart analyze & Dart fix | Decoding Flutter](https://youtu.be/OBIuSrg_Quo)
+
+

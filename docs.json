@@ -59,6 +59,10 @@
                     "/faq/using-bash-zsh-on-windows"
                 ],
                 [
+                    "Deprecated text styles on Flutter 3.7",
+                    "/faq/deprecated-text-styles-flutter-3.7"
+                ],
+                [
                     "How to deal with localization (multiple `arb` files) with the feature-first approach",
                     "/faq/localization-feature-first"
                 ]
