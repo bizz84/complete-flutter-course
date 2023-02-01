@@ -1,0 +1,24 @@
+# The macOS deployment target ‘MACOSX_DEPLOYMENT_TARGET’ is set to 10.11, but the range of supported deployment target versions is 10.13 to 13.1.99
+
+When installing certain plugins (e.g. Firestore) that require a minimum deployment target that is **higher** than the one set in the Xcode project, this issue can appear:
+
+```
+The macOS deployment target ‘MACOSX_DEPLOYMENT_TARGET’ is set to 10.11, but the range of supported deployment target versions is 10.13 to 13.1.99
+```
+
+To address this, open the macOS project and set the minimum deployment target as needed:
+
+![](images/xcode-minimum-deployment-target.png)
+
+It's also a good idea to have the **same** target in the `Podfile` (first line at the top):
+
+```ruby
+platform :osx, '10.13'
+```
+
+### Resources
+
+Also note [my answer](https://stackoverflow.com/a/75308182/436422) on StackOverflow about additional changes in the `Podfile`:
+
+- [MACOSX_DEPLOYMENT_TARGET keeps reverting to old values](https://stackoverflow.com/questions/74843052/macosx-deployment-target-keeps-reverting-to-old-values)
+- [Flutter - The iOS Simulator deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0 && Build input file cannot be found GoogleService-Info.plist](https://stackoverflow.com/questions/61823044/flutter-the-ios-simulator-deployment-target-iphoneos-deployment-target-is-se/64385584#64385584)
