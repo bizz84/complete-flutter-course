@@ -47,7 +47,7 @@ class FakeAuthRepository {
     }
     // minimum password length requirement
     if (password.length < 8) {
-      throw const AppException.userNotFound();
+      throw const AppException.weakPassword();
     }
     // create new user
     _createNewUser(email, password);
