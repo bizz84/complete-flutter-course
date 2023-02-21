@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'app_exception.dart';
 
@@ -27,11 +27,11 @@ mixin _$AppException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? wrongPassword,
-    TResult Function()? userNotFound,
-    TResult Function(String status)? parseOrderFailure,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? userNotFound,
+    TResult? Function(String status)? parseOrderFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,11 +55,11 @@ mixin _$AppException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(ParseOrderFailure value)? parseOrderFailure,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(WeakPassword value)? weakPassword,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(ParseOrderFailure value)? parseOrderFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,16 +78,18 @@ mixin _$AppException {
 abstract class $AppExceptionCopyWith<$Res> {
   factory $AppExceptionCopyWith(
           AppException value, $Res Function(AppException) then) =
-      _$AppExceptionCopyWithImpl<$Res>;
+      _$AppExceptionCopyWithImpl<$Res, AppException>;
 }
 
 /// @nodoc
-class _$AppExceptionCopyWithImpl<$Res> implements $AppExceptionCopyWith<$Res> {
+class _$AppExceptionCopyWithImpl<$Res, $Val extends AppException>
+    implements $AppExceptionCopyWith<$Res> {
   _$AppExceptionCopyWithImpl(this._value, this._then);
 
-  final AppException _value;
   // ignore: unused_field
-  final $Res Function(AppException) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -99,14 +101,11 @@ abstract class _$$EmailAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$EmailAlreadyInUseCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$EmailAlreadyInUse>
     implements _$$EmailAlreadyInUseCopyWith<$Res> {
   __$$EmailAlreadyInUseCopyWithImpl(
       _$EmailAlreadyInUse _value, $Res Function(_$EmailAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$EmailAlreadyInUse));
-
-  @override
-  _$EmailAlreadyInUse get _value => super._value as _$EmailAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -143,11 +142,11 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? wrongPassword,
-    TResult Function()? userNotFound,
-    TResult Function(String status)? parseOrderFailure,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? userNotFound,
+    TResult? Function(String status)? parseOrderFailure,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -183,11 +182,11 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(ParseOrderFailure value)? parseOrderFailure,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(WeakPassword value)? weakPassword,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(ParseOrderFailure value)? parseOrderFailure,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -222,14 +221,11 @@ abstract class _$$WeakPasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$WeakPasswordCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$WeakPassword>
     implements _$$WeakPasswordCopyWith<$Res> {
   __$$WeakPasswordCopyWithImpl(
       _$WeakPassword _value, $Res Function(_$WeakPassword) _then)
-      : super(_value, (v) => _then(v as _$WeakPassword));
-
-  @override
-  _$WeakPassword get _value => super._value as _$WeakPassword;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -266,11 +262,11 @@ class _$WeakPassword implements WeakPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? wrongPassword,
-    TResult Function()? userNotFound,
-    TResult Function(String status)? parseOrderFailure,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? userNotFound,
+    TResult? Function(String status)? parseOrderFailure,
   }) {
     return weakPassword?.call();
   }
@@ -306,11 +302,11 @@ class _$WeakPassword implements WeakPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(ParseOrderFailure value)? parseOrderFailure,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(WeakPassword value)? weakPassword,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(ParseOrderFailure value)? parseOrderFailure,
   }) {
     return weakPassword?.call(this);
   }
@@ -345,14 +341,11 @@ abstract class _$$WrongPasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$WrongPasswordCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$WrongPassword>
     implements _$$WrongPasswordCopyWith<$Res> {
   __$$WrongPasswordCopyWithImpl(
       _$WrongPassword _value, $Res Function(_$WrongPassword) _then)
-      : super(_value, (v) => _then(v as _$WrongPassword));
-
-  @override
-  _$WrongPassword get _value => super._value as _$WrongPassword;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -389,11 +382,11 @@ class _$WrongPassword implements WrongPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? wrongPassword,
-    TResult Function()? userNotFound,
-    TResult Function(String status)? parseOrderFailure,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? userNotFound,
+    TResult? Function(String status)? parseOrderFailure,
   }) {
     return wrongPassword?.call();
   }
@@ -429,11 +422,11 @@ class _$WrongPassword implements WrongPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(ParseOrderFailure value)? parseOrderFailure,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(WeakPassword value)? weakPassword,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(ParseOrderFailure value)? parseOrderFailure,
   }) {
     return wrongPassword?.call(this);
   }
@@ -468,14 +461,11 @@ abstract class _$$UserNotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$UserNotFoundCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$UserNotFound>
     implements _$$UserNotFoundCopyWith<$Res> {
   __$$UserNotFoundCopyWithImpl(
       _$UserNotFound _value, $Res Function(_$UserNotFound) _then)
-      : super(_value, (v) => _then(v as _$UserNotFound));
-
-  @override
-  _$UserNotFound get _value => super._value as _$UserNotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -512,11 +502,11 @@ class _$UserNotFound implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? wrongPassword,
-    TResult Function()? userNotFound,
-    TResult Function(String status)? parseOrderFailure,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? userNotFound,
+    TResult? Function(String status)? parseOrderFailure,
   }) {
     return userNotFound?.call();
   }
@@ -552,11 +542,11 @@ class _$UserNotFound implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(ParseOrderFailure value)? parseOrderFailure,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(WeakPassword value)? weakPassword,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(ParseOrderFailure value)? parseOrderFailure,
   }) {
     return userNotFound?.call(this);
   }
@@ -587,26 +577,25 @@ abstract class _$$ParseOrderFailureCopyWith<$Res> {
   factory _$$ParseOrderFailureCopyWith(
           _$ParseOrderFailure value, $Res Function(_$ParseOrderFailure) then) =
       __$$ParseOrderFailureCopyWithImpl<$Res>;
+  @useResult
   $Res call({String status});
 }
 
 /// @nodoc
 class __$$ParseOrderFailureCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$ParseOrderFailure>
     implements _$$ParseOrderFailureCopyWith<$Res> {
   __$$ParseOrderFailureCopyWithImpl(
       _$ParseOrderFailure _value, $Res Function(_$ParseOrderFailure) _then)
-      : super(_value, (v) => _then(v as _$ParseOrderFailure));
+      : super(_value, _then);
 
-  @override
-  _$ParseOrderFailure get _value => super._value as _$ParseOrderFailure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
   }) {
     return _then(_$ParseOrderFailure(
-      status == freezed
+      null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
@@ -632,15 +621,15 @@ class _$ParseOrderFailure implements ParseOrderFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ParseOrderFailure &&
-            const DeepCollectionEquality().equals(other.status, status));
+            (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(status));
+  int get hashCode => Object.hash(runtimeType, status);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ParseOrderFailureCopyWith<_$ParseOrderFailure> get copyWith =>
       __$$ParseOrderFailureCopyWithImpl<_$ParseOrderFailure>(this, _$identity);
 
@@ -659,11 +648,11 @@ class _$ParseOrderFailure implements ParseOrderFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? weakPassword,
-    TResult Function()? wrongPassword,
-    TResult Function()? userNotFound,
-    TResult Function(String status)? parseOrderFailure,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? weakPassword,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? userNotFound,
+    TResult? Function(String status)? parseOrderFailure,
   }) {
     return parseOrderFailure?.call(status);
   }
@@ -699,11 +688,11 @@ class _$ParseOrderFailure implements ParseOrderFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(ParseOrderFailure value)? parseOrderFailure,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(WeakPassword value)? weakPassword,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(ParseOrderFailure value)? parseOrderFailure,
   }) {
     return parseOrderFailure?.call(this);
   }

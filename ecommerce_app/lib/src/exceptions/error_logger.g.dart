@@ -6,36 +6,18 @@ part of 'error_logger.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-// ignore_for_file: avoid_private_typedef_functions, non_constant_identifier_names, subtype_of_sealed_class, invalid_use_of_internal_member, unused_element, constant_identifier_names, unnecessary_raw_strings, library_private_types_in_public_api
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-String $errorLoggerHash() => r'9020cd58e56e6c6490fd2ff6cd3b8748bd0165dd';
+String _$errorLoggerHash() => r'9020cd58e56e6c6490fd2ff6cd3b8748bd0165dd';
 
 /// See also [errorLogger].
-final errorLoggerProvider = AutoDisposeProvider<ErrorLogger>(
+@ProviderFor(errorLogger)
+final errorLoggerProvider = AutoDisposeProvider<ErrorLogger>.internal(
   errorLogger,
   name: r'errorLoggerProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $errorLoggerHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$errorLoggerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
 );
+
 typedef ErrorLoggerRef = AutoDisposeProviderRef<ErrorLogger>;
+// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

@@ -6,7 +6,22 @@ part of 'reviews_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-// ignore_for_file: avoid_private_typedef_functions, non_constant_identifier_names, subtype_of_sealed_class, invalid_use_of_internal_member, unused_element, constant_identifier_names, unnecessary_raw_strings, library_private_types_in_public_api
+String _$reviewsServiceHash() => r'd91877727c3a90c4267086fa9cd81c8ab6938afd';
+
+/// See also [reviewsService].
+@ProviderFor(reviewsService)
+final reviewsServiceProvider = Provider<ReviewsService>.internal(
+  reviewsService,
+  name: r'reviewsServiceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$reviewsServiceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef ReviewsServiceRef = ProviderRef<ReviewsService>;
+String _$userReviewFutureHash() => r'98a78f997bf77c9b2cb80da2ddb23242c933893f';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,26 +44,68 @@ class _SystemHash {
   }
 }
 
-String $reviewsServiceHash() => r'd91877727c3a90c4267086fa9cd81c8ab6938afd';
+typedef UserReviewFutureRef = AutoDisposeFutureProviderRef<Review?>;
 
-/// See also [reviewsService].
-final reviewsServiceProvider = Provider<ReviewsService>(
-  reviewsService,
-  name: r'reviewsServiceProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : $reviewsServiceHash,
-);
-typedef ReviewsServiceRef = ProviderRef<ReviewsService>;
-String $userReviewFutureHash() => r'98a78f997bf77c9b2cb80da2ddb23242c933893f';
+/// Check if a product was previously reviewed by the user
+///
+/// Copied from [userReviewFuture].
+@ProviderFor(userReviewFuture)
+const userReviewFutureProvider = UserReviewFutureFamily();
+
+/// Check if a product was previously reviewed by the user
+///
+/// Copied from [userReviewFuture].
+class UserReviewFutureFamily extends Family<AsyncValue<Review?>> {
+  /// Check if a product was previously reviewed by the user
+  ///
+  /// Copied from [userReviewFuture].
+  const UserReviewFutureFamily();
+
+  /// Check if a product was previously reviewed by the user
+  ///
+  /// Copied from [userReviewFuture].
+  UserReviewFutureProvider call(
+    String productId,
+  ) {
+    return UserReviewFutureProvider(
+      productId,
+    );
+  }
+
+  @override
+  UserReviewFutureProvider getProviderOverride(
+    covariant UserReviewFutureProvider provider,
+  ) {
+    return call(
+      provider.productId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'userReviewFutureProvider';
+}
 
 /// Check if a product was previously reviewed by the user
 ///
 /// Copied from [userReviewFuture].
 class UserReviewFutureProvider extends AutoDisposeFutureProvider<Review?> {
+  /// Check if a product was previously reviewed by the user
+  ///
+  /// Copied from [userReviewFuture].
   UserReviewFutureProvider(
     this.productId,
-  ) : super(
+  ) : super.internal(
           (ref) => userReviewFuture(
             ref,
             productId,
@@ -58,7 +115,10 @@ class UserReviewFutureProvider extends AutoDisposeFutureProvider<Review?> {
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : $userReviewFutureHash,
+                  : _$userReviewFutureHash,
+          dependencies: UserReviewFutureFamily._dependencies,
+          allTransitiveDependencies:
+              UserReviewFutureFamily._allTransitiveDependencies,
         );
 
   final String productId;
@@ -76,40 +136,4 @@ class UserReviewFutureProvider extends AutoDisposeFutureProvider<Review?> {
     return _SystemHash.finish(hash);
   }
 }
-
-typedef UserReviewFutureRef = AutoDisposeFutureProviderRef<Review?>;
-
-/// Check if a product was previously reviewed by the user
-///
-/// Copied from [userReviewFuture].
-final userReviewFutureProvider = UserReviewFutureFamily();
-
-class UserReviewFutureFamily extends Family<AsyncValue<Review?>> {
-  UserReviewFutureFamily();
-
-  UserReviewFutureProvider call(
-    String productId,
-  ) {
-    return UserReviewFutureProvider(
-      productId,
-    );
-  }
-
-  @override
-  AutoDisposeFutureProvider<Review?> getProviderOverride(
-    covariant UserReviewFutureProvider provider,
-  ) {
-    return call(
-      provider.productId,
-    );
-  }
-
-  @override
-  List<ProviderOrFamily>? get allTransitiveDependencies => null;
-
-  @override
-  List<ProviderOrFamily>? get dependencies => null;
-
-  @override
-  String? get name => r'userReviewFutureProvider';
-}
+// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
