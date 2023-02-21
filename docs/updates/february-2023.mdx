@@ -1,0 +1,18 @@
+# Foundations Course - February 2023 Update
+
+During the upgrade to `riverpod_generator` 1.2.0 and `flutter_riverpod` 2.2.0, some deprecated member warnings appeared when running `flutter analyze`:
+
+```
+Analyzing ecommerce_app...                                              
+
+   info • 'debugGetCreateSourceHash' is deprecated and shouldn't be used. Will be removed in 3.0.0 • lib/src/exceptions/error_logger.g.dart:38:3 • deprecated_member_use
+   info • 'debugGetCreateSourceHash' is deprecated and shouldn't be used. Will be removed in 3.0.0 • lib/src/features/authentication/data/fake_auth_repository.g.dart:38:3 • deprecated_member_use
+```
+
+These can all be resolved by running the code generator again:
+
+```
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+The latest code in the `main` branch is already updated, but old code snapshots in the course are not (this only affects section 13).
