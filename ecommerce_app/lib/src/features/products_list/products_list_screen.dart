@@ -43,7 +43,10 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HomeAppBar(),
+      appBar: PreferredSize(
+        preferredSize: HomeAppBar.preferredSize,
+        child: const HomeAppBar(),
+      ),
       body: CustomScrollView(
         controller: _scrollController,
         slivers: const [
