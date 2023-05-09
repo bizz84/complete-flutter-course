@@ -62,7 +62,7 @@ class ShoppingCartIconBadge extends StatelessWidget {
           textScaleFactor: 1.0,
           style: Theme.of(context)
               .textTheme
-              .caption!
+              .bodySmall!
               .copyWith(color: Colors.white),
         ),
       ),

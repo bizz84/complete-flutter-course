@@ -33,7 +33,7 @@ class OrderItemListTile extends StatelessWidget {
                 gapH12,
                 Text(
                   'Quantity: ${item.quantity}'.hardcoded,
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
             ),

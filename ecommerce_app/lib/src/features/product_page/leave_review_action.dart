@@ -37,7 +37,7 @@ class LeaveReviewAction extends StatelessWidget {
               text: 'Leave a review'.hardcoded,
               style: Theme.of(context)
                   .textTheme
-                  .bodyText1!
+                  .bodyLarge!
                   .copyWith(color: Colors.green[700]),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(

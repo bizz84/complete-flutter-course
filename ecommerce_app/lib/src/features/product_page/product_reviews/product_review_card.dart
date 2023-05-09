@@ -31,14 +31,14 @@ class ProductReviewCard extends StatelessWidget {
                     showNotImplementedAlertDialog(context: context);
                   },
                 ),
-                Text(dateFormatted, style: Theme.of(context).textTheme.caption),
+                Text(dateFormatted, style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
             if (review.comment.isNotEmpty) ...[
               gapH16,
               Text(
                 review.comment,
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
               )
             ],
           ],

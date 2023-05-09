@@ -50,7 +50,7 @@ class ItemQuantitySelector extends StatelessWidget {
               '$quantity',
               key: quantityKey(itemIndex),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
           IconButton(
