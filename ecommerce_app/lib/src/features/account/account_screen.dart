@@ -20,6 +20,10 @@ class AccountScreen extends StatelessWidget {
             text: 'Logout'.hardcoded,
             onPressed: () async {
               showNotImplementedAlertDialog(context: context);
+              // * Get the navigator beforehand to prevent this warning:
+              // * Don't use 'BuildContext's across async gaps.
+              // * More info here: https://youtu.be/bzWaMpD1LHY
+              // final navigator = Navigator.of(context);
               // final logout = await showAlertDialog(
               //   context: context,
               //   title: 'Are you sure?'.hardcoded,
@@ -28,7 +32,7 @@ class AccountScreen extends StatelessWidget {
               // );
               // if (logout == true) {
               //   // TODO: Sign out the user.
-              //   Navigator.of(context).pop();
+              //   navigator.pop();
               // }
             },
           ),
