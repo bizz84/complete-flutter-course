@@ -4,7 +4,6 @@ import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 /// Generic function to show a platform-aware Material or Cupertino dialog
 Future<bool?> showAlertDialog({
@@ -28,22 +27,22 @@ Future<bool?> showAlertDialog({
               if (cancelActionText != null)
                 TextButton(
                   child: Text(cancelActionText),
-                  onPressed: () => context.pop(false),
+                  onPressed: () => Navigator.of(context).pop(false),
                 ),
               TextButton(
                 child: Text(defaultActionText),
-                onPressed: () => context.pop(true),
+                onPressed: () => Navigator.of(context).pop(true),
               ),
             ]
           : <Widget>[
               if (cancelActionText != null)
                 CupertinoDialogAction(
                   child: Text(cancelActionText),
-                  onPressed: () => context.pop(false),
+                  onPressed: () => Navigator.of(context).pop(false),
                 ),
               CupertinoDialogAction(
                 child: Text(defaultActionText),
-                onPressed: () => context.pop(true),
+                onPressed: () => Navigator.of(context).pop(true),
               ),
             ],
     ),
