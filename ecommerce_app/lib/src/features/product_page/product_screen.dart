@@ -25,10 +25,7 @@ class ProductScreen extends StatelessWidget {
     final product =
         kTestProducts.firstWhere((product) => product.id == productId);
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: HomeAppBar.preferredSize,
-        child: const HomeAppBar(),
-      ),
+      appBar: const HomeAppBar(),
       body: product == null
           ? EmptyPlaceholderWidget(
               message: 'Product not found'.hardcoded,

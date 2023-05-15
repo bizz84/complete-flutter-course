@@ -16,7 +16,7 @@ import 'package:ecommerce_app/src/features/home_app_bar/shopping_cart_icon.dart'
 /// - [ShoppingCartIcon]
 /// - Orders button
 /// - Account or Sign-in button
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
 
   @override
@@ -83,5 +83,6 @@ class HomeAppBar extends StatelessWidget {
     }
   }
 
-  static Size preferredSize = const Size.fromHeight(60.0);
+  @override
+  Size get preferredSize => const Size.fromHeight(60.0);
 }
