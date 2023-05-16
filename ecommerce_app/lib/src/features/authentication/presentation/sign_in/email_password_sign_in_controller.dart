@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/src/exceptions/app_exception.dart';
 import 'package:ecommerce_app/src/features/authentication/data/fake_auth_repository.dart';
 import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:multiple_result/multiple_result.dart';
 
 class EmailPasswordSignInController
     extends StateNotifier<EmailPasswordSignInState> {
@@ -12,12 +14,17 @@ class EmailPasswordSignInController
 
   Future<bool> submit(String email, String password) async {
     state = state.copyWith(value: const AsyncValue.loading());
-    final value = await AsyncValue.guard(() => _authenticate(email, password));
+    final result = await _authenticate(email, password);
+    final value = result.when(
+      (success) => AsyncData(success),
+      (error) => AsyncError(error, StackTrace.current),
+    ) as AsyncValue;
     state = state.copyWith(value: value);
     return value.hasError == false;
   }
 
-  Future<void> _authenticate(String email, String password) {
+  Future<Result<void, AppException>> _authenticate(
+      String email, String password) {
     switch (state.formType) {
       case EmailPasswordSignInFormType.signIn:
         return authRepository.signInWithEmailAndPassword(email, password);
