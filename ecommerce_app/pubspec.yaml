@@ -22,6 +22,7 @@ dependencies:
   sembast: 3.5.0+1
   sembast_web: 2.2.0
   path_provider: 2.1.1
+  multiple_result: 5.0.0
 
 dev_dependencies:
   flutter_test:
