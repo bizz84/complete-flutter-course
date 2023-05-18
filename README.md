@@ -220,8 +220,8 @@ This project includes a documentation website that can be found here:
 6. Adding an `AsyncErrorLogger` using `ProviderObserver`
 7. Creating a reusable `ErrorLogger` to catch all exceptions
 8. Completing the error handling system
-9.  Working with the Result type (`Success` and `Error`)
-10. Drawbacks of the Result type (and when not to use it)
+9. Working with the `Result` type (`Success` and `Error`)
+10. Drawbacks of the `Result` type (and when not to use it)
 11. Wrap Up
 
 ### 11. Feature: Product Reviews
