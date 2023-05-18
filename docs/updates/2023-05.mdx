@@ -1,0 +1,128 @@
+# Foundations Course - May 2023 Update
+
+Main changes:
+
+- Updated course to Flutter 3.10, Dart 3.0
+- Updated course to latest package versions
+- Replaced Freezed with **sealed classes** for error handling
+- **Replaced downloadable snapshots with git branches**
+
+Here are the most important details for each section / lesson. 👇
+
+### Section 1
+
+Lesson 01.05:
+
+- Intro to GitHub project → now using git branches
+
+Lesson 01.06:
+
+- New starter project introduction
+- Clone from git branch
+- Updated `pubspec.yaml` to latest packages, Dart 3.0
+
+Lesson 01.08:
+
+- Updated overview of `main.dart` file (now using updated error handling)
+
+### Section 2
+
+We’ll be using **GoRouter version 7.0**.
+
+Lesson 02.01:
+
+- Updated notes to mention version 7.0
+
+Lesson 02.03:
+
+- show how to set the URL path strategy with `usePathUrlStrategy`
+
+Lesson 02.08:
+
+- Passing parameters to a route: `params` has been renamed to `pathParameters`
+
+Lesson 02.12:
+
+- Now showing how to pop routes with GoRouter (with or without a value)
+
+Lesson 02.13:
+
+- Overview of nested navigation
+- Explain that `ShellRoute` has been added but this doesn’t yet support **stateful** nested navigation
+
+Lesson 02.14:
+
+- Bug fix: no longer passing `key: state.pageKey` when creating a `MaterialPage` inside a `GoRoute`
+
+### Section 3
+
+This is mostly the same but now using git branches rather than downloadable zip files.
+
+### Section 4
+
+Mostly minor changes.
+
+Lesson 04.03:
+
+- Updated installation instructions to use flutter_riverpod 2.3.6
+- Mentioned that Riverpod Generator will be covered in section 13
+
+### Section 5
+
+- Removed lesson 05.23 (now addressed at the end of section 2)
+
+### Section 6
+
+Only minor changes
+
+### Section 7
+
+Only minor changes
+
+Lesson 07.06:
+
+- Updated the notes about how to setup a widget tests for code that uses GoRouter under the hood
+
+### Section 8
+
+Only minor changes
+
+### Section 9
+
+Only minor changes
+
+### Section 10
+
+Revamped this section to show how to use **sealed classes** rather than Freezed when defining domain-specific exceptions
+
+Lesson 10.04:
+
+- A new lesson about defining an `AppException` sealed class
+
+Lesson 10.05:
+
+- Showing how to use the `AppException` class in the project
+
+Lesson 10.09:
+
+- Updated to show how to use [multiple_result](https://pub.dev/packages/multiple_result) version 5.0
+
+### Section 11
+
+Only minor changes
+
+### Section 12
+
+Only minor changes
+
+### Section 13
+
+Updated this section to the latest Riverpod Generator version (which supports `StreamProvider`)
+
+Lesson 11.03:
+
+- Updated installation instructions
+
+Lesson 11.05:
+
+- Showing how to create FutureProviders and StreamProviders with the new API (using Riverpod snippets)
