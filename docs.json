@@ -61,6 +61,10 @@
                 [
                     "How to deal with localization (multiple `arb` files) with the feature-first approach",
                     "/faq/localization-feature-first"
+                ],
+                [
+                    "Can't run build_runner due to BuildForInputLogger error",
+                    "/faq/build-runner-error-BuildForInputLogger"
                 ]
             ]
         ],
