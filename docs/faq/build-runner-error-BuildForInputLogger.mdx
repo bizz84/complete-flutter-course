@@ -1,0 +1,39 @@
+# Can't run build_runner due to BuildForInputLogger error
+
+Either of these commands can be used to run `build_runner` (useful when generating the updated Riverpod providers):
+
+```
+dart run build_runner watch -d
+flutter pub run build_runner watch -d
+```
+
+If you encounter this error:
+
+```
+Failed to build build_runner:build_runner:
+../../../../../.pub-cache/hosted/pub.dev/build_runner_core-7.2.7/lib/src/logging/build_for_input_logger.dart:13:7: Error: The non-abstract class 'BuildForInputLogger' is missing implementations for these members:
+ - Logger.onLevelChanged
+Try to either
+ - provide an implementation,
+ - inherit an implementation from a superclass or mixin,
+ - mark the class as abstract, or
+ - provide a 'noSuchMethod' implementation.
+
+class BuildForInputLogger implements Logger {
+      ^^^^^^^^^^^^^^^^^^^
+../../../../../.pub-cache/hosted/pub.dev/logging-1.2.0/lib/src/logger.dart:162:22: Context: 'Logger.onLevelChanged' is defined here.
+  Stream<Level?> get onLevelChanged {
+```
+
+Then simply run this:
+
+```
+dart pub upgrade
+```
+
+That should give you a newer version of `build_runner_core` with the fix.
+
+More info here:
+
+
+- [Can't run build_runner because BuildForInputLogger](https://github.com/dart-lang/build/issues/3519)
