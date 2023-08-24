@@ -35,12 +35,13 @@ GoRouter goRouter(GoRouterRef ref) {
     debugLogDiagnostics: false,
     redirect: (context, state) {
       final isLoggedIn = authRepository.currentUser != null;
+      final path = state.uri.path;
       if (isLoggedIn) {
-        if (state.location == '/signIn') {
+        if (path == '/signIn') {
           return '/';
         }
       } else {
-        if (state.location == '/account' || state.location == '/orders') {
+        if (path == '/account' || path == '/orders') {
           return '/';
         }
       }
