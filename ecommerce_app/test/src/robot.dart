@@ -11,6 +11,7 @@ import 'package:ecommerce_app/src/features/products/presentation/home_app_bar/mo
 import 'package:ecommerce_app/src/features/reviews/data/fake_reviews_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 
 import 'features/authentication/auth_robot.dart';
 import 'features/cart/cart_robot.dart';
@@ -39,6 +40,9 @@ class Robot {
   final GoldenRobot golden;
 
   Future<void> pumpMyApp() async {
+    // ensure URL changes in the address bar when using push / pushNamed
+    // more info here: https://docs.google.com/document/d/1VCuB85D5kYxPR3qYOjVmw8boAGKb7k62heFyfFHTOvw/edit
+    GoRouter.optionURLReflectsImperativeAPIs = true;
     final productsRepository = FakeProductsRepository(addDelay: false);
     final authRepository = FakeAuthRepository(addDelay: false);
     final localCartRepository = FakeLocalCartRepository(addDelay: false);
