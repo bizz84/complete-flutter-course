@@ -1,0 +1,66 @@
+# Foundations Course - August 2023 Update
+
+Mainly **minor** changes:
+
+- Updated course to Flutter 3.13, Dart 3.1
+- Updated course to latest package versions
+
+Here are the most important details for each section / lesson. 👇
+
+### Section 1
+
+- Added `useMaterial3: false` flag to `ThemeData` in `MaterialApp` (the next Flutter release will switch to Material 3 by default but we don't need that)
+- Updated `showAlertDialog` function in `alert_dialogs.dart` to use the new `AlertDialog.adaptive` constructor that was added to Flutter 3.13
+- Updated to `flutter_layout_grid: 2.0.4` to fix a compile issue with Flutter 3.13
+
+### Section 2
+
+We’ll be using **GoRouter version 10.1**.
+
+As a result, some code changes are needed:
+
+Lesson 02.03:
+
+- Install `go_router: 10.1.0`
+
+Lesson 02.10:
+
+- Set `GoRouter.optionURLReflectsImperativeAPIs = true` inside `main`. This is necessary to preserve the old URL navigation behavior on Flutter web (and also prevents an issue with redirects).
+
+Lesson 02.12:
+
+- Updated notes to show the usage of `AlertDialog.adaptive` in the `showAlertDialog` function
+
+### Section 4
+
+Lesson 04.03:
+
+- Updated `pubspec.yaml` to use `flutter_riverpod: 2.3.7`
+
+### Section 5
+
+Lesson 05.21:
+
+- Following the removal of `GoRouterState.location` in [GoRouter 10.0](https://pub.dev/packages/go_router/changelog#1000), the code has been updated to use the `state.uri.path` property instead (see notes)
+
+### Section 6
+
+Lesson 06.12:
+
+- Install `mocktail: 1.0.0`
+
+Lessons 13,14,15:
+
+- As of `state_notifier: 1.0.0` (which is installed with `flutter_riverpod: 2.3.7`), `state` is now accessible in tests without a warning (see the [changelog](https://pub.dev/packages/state_notifier/changelog#100---2023-08-16))
+- So I've replaced `controller.debugState` with `controller.state` in the tests code
+
+### Section 7
+
+Lesson 07.11:
+
+- Added note about setting `GoRouter.optionURLReflectsImperativeAPIs = true` inside `pumpMyApp()`.
+
+Lesson 07.14:
+
+- Updated notes to mention [Patrol](https://patrol.leancode.co/) for integration testing.
+
