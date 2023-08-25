@@ -21,7 +21,7 @@ Future<bool?> showAlertDialog({
     builder: (context) => AlertDialog.adaptive(
       title: Text(title),
       content: content != null ? Text(content) : null,
-      // * Use [TextButton] or [CupertinoButton] depending on the platform
+      // * Use [TextButton] or [CupertinoDialogAction] depending on the platform
       actions: kIsWeb || !Platform.isIOS
           ? <Widget>[
               if (cancelActionText != null)
@@ -36,11 +36,11 @@ Future<bool?> showAlertDialog({
             ]
           : <Widget>[
               if (cancelActionText != null)
-                CupertinoButton(
+                CupertinoDialogAction(
                   child: Text(cancelActionText),
                   onPressed: () => Navigator.of(context).pop(false),
                 ),
-              CupertinoButton(
+              CupertinoDialogAction(
                 child: Text(defaultActionText),
                 onPressed: () => Navigator.of(context).pop(true),
               ),
