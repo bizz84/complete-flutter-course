@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       home: const ProductsListScreen(),
       onGenerateTitle: (BuildContext context) => 'My Shop'.hardcoded,
       theme: ThemeData(
+        useMaterial3: false,
         primarySwatch: Colors.grey,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black87,
