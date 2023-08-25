@@ -1,8 +1,4 @@
-import 'dart:io';
-
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// Generic function to show a platform-aware Material or Cupertino dialog
@@ -13,38 +9,19 @@ Future<bool?> showAlertDialog({
   String? cancelActionText,
   String defaultActionText = 'OK',
 }) async {
-  if (kIsWeb || !Platform.isIOS) {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(title),
-        content: content != null ? Text(content) : null,
-        actions: <Widget>[
-          if (cancelActionText != null)
-            TextButton(
-              child: Text(cancelActionText),
-              onPressed: () => Navigator.of(context).pop(false),
-            ),
-          TextButton(
-            child: Text(defaultActionText),
-            onPressed: () => Navigator.of(context).pop(true),
-          ),
-        ],
-      ),
-    );
-  }
-  return showCupertinoDialog(
+  return showDialog(
     context: context,
-    builder: (context) => CupertinoAlertDialog(
+    // * AlertDialog.adaptive was added in Flutter 3.13
+    builder: (context) => AlertDialog.adaptive(
       title: Text(title),
       content: content != null ? Text(content) : null,
       actions: <Widget>[
         if (cancelActionText != null)
-          CupertinoDialogAction(
+          TextButton(
             child: Text(cancelActionText),
             onPressed: () => Navigator.of(context).pop(false),
           ),
-        CupertinoDialogAction(
+        TextButton(
           child: Text(defaultActionText),
           onPressed: () => Navigator.of(context).pop(true),
         ),
