@@ -51,6 +51,10 @@
             "FAQ (Other)",
             [
                 [
+                    "Flutter 3.13 update",
+                    "/faq/flutter-3.13-update"
+                ],
+                [
                     "How to recreate the starter project from scratch",
                     "/faq/how-to-recreate-starter-project"
                 ],
