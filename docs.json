@@ -73,6 +73,10 @@
                 [
                     "The webOnlyWarmupEngine API is deprecated and will be removed in a future release",
                     "/faq/webOnlyWarmupEngine-deprecated"
+                ],
+                [
+                    "Extra page shown when swiping back in Safari on iOS",
+                    "/faq/extra-page-swiping-safari-ios"
                 ]
             ]
         ],
