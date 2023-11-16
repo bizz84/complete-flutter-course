@@ -31,6 +31,10 @@
                 [
                     "Enable macOS/Linux desktop support",
                     "/faq/enable-macos-desktop-support"
+                ],
+                [
+                    "Xcode sandbox error when building for iOS",
+                    "/faq/xcode-ios-sandbox-error"
                 ]
             ]
         ],

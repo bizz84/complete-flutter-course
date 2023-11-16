@@ -1,0 +1,11 @@
+# Xcode sandbox error when building for iOS
+
+When building the Flutter app for iOS, you may come across this error:
+
+- [error while build iOS app in Xcode : Sandbox: rsync.samba (13105) deny(1) file-write-create, Flutter failed to write to a file](https://stackoverflow.com/questions/76590131/error-while-build-ios-app-in-xcode-sandbox-rsync-samba-13105-deny1-file-w)
+
+To fix this:
+
+- Open the project in Xcode and go to the build settings
+- Select "all" and type "sandbox" in the search filter
+- Set the "User Script Sandboxing" value to **No**
