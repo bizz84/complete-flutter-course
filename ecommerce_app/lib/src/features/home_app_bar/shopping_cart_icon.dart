@@ -56,10 +56,10 @@ class ShoppingCartIconBadge extends StatelessWidget {
         child: Text(
           '$itemsCount',
           textAlign: TextAlign.center,
-          // * Force textScaleFactor to 1.0 irrespective of the device's
+          // * Force text scale factor to 1.0 irrespective of the device's
           // * textScaleFactor. This is to prevent the text from growing bigger
           // * than the available space.
-          textScaleFactor: 1.0,
+          textScaler: const TextScaler.linear(1.0),
           style: Theme.of(context)
               .textTheme
               .bodySmall!
