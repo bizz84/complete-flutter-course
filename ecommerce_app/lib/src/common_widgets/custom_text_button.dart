@@ -19,6 +19,7 @@ class CustomTextButton extends StatelessWidget {
           text,
           style: style,
           textAlign: TextAlign.center,
+          overflow: TextOverflow.visible,
         ),
       ),
     );
