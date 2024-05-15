@@ -7,20 +7,20 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.2.0 <4.0.0"
+  sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: 0.13.1
-  intl: 0.18.1
-  flutter_layout_grid: 2.0.5
+  intl: 0.19.0
+  flutter_layout_grid: 2.0.6
   flutter_rating_bar: 4.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: 3.0.1
+  flutter_lints: 4.0.0
 
 # Custom app icon. For more info see: https://pub.dev/packages/flutter_launcher_icons
 flutter_icons:
