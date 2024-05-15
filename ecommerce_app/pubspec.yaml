@@ -32,7 +32,13 @@ flutter_icons:
   # https://github.com/fluttercommunity/flutter_launcher_icons/issues/144
   adaptive_icon_background: "assets/app-icon-background.png"
   adaptive_icon_foreground: "assets/app-icon-foreground.png"
-  
+  macos:
+    generate: true
+    image_path: "assets/app-icon.png"
+  web:
+    generate: true
+    image_path: "assets/app-icon.png"
+
 flutter:
   uses-material-design: true
 
