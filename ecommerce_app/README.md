@@ -2,7 +2,7 @@
 
 This is the official Flutter Project for this course:
 
-- [Complete Flutter Course Bundle](https://codewithandrea.com/courses/complete-flutter-bundle/)
+- [Flutter Foundations](https://codewithandrea.com/courses/flutter-foundations/)
 
 This will include a full-stack eCommerce app using Flutter & Firebase:
 
@@ -32,5 +32,13 @@ And to prevent any conflicts, you may need to reset your local changes:
 git reset --hard HEAD
 git checkout <branch-name>
 ```
+
+## Troubleshooting
+
+If the course project doesn't compile or run for you, there are a number of things to look out for.
+
+I'm keeping a list of all the FAQs here:
+
+- [List of Common Problems and Solutions](https://pro.codewithandrea.com/flutter-foundations/a1-common-problems/a-intro)
 
 ### [LICENSE: MIT](../LICENSE.md)

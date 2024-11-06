@@ -33,11 +33,13 @@ git reset --hard HEAD
 git checkout <branch-name>
 ```
 
-## Documentation & FAQ
+## Troubleshooting
 
-This project includes a documentation website that can be found here:
+If the course project doesn't compile or run for you, there are a number of things to look out for.
 
-- [Complete Flutter Course Bundle - Documentation](https://docs.page/bizz84/complete-flutter-course)
+I'm keeping a list of all the FAQs here:
+
+- [List of Common Problems and Solutions](https://pro.codewithandrea.com/flutter-foundations/a1-common-problems/a-intro)
 
 ## Flutter Foundations - Course Syllabus
 
