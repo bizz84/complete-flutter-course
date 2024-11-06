@@ -17,6 +17,7 @@ class LeaveReviewAction extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: Read from data source
     final purchase = Purchase(orderId: 'abc', orderDate: DateTime.now());
+    // ignore: unnecessary_null_comparison
     if (purchase != null) {
       // TODO: Inject date formatter
       final dateFormatted = kDateFormatter.format(purchase.orderDate);
