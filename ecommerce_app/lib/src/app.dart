@@ -14,9 +14,26 @@ class MyApp extends StatelessWidget {
       home: const ProductsListScreen(),
       onGenerateTitle: (BuildContext context) => 'My Shop'.hardcoded,
       theme: ThemeData(
-        // * Use this to toggle Material 3 (defaults to true since Flutter 3.16)
+        // Light theme
         useMaterial3: true,
         primarySwatch: Colors.grey,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          elevation: 0,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.grey[200], // Light background color
+            foregroundColor: Colors.black, // Light text color
+          ),
+        ),
+      ),
+      darkTheme: ThemeData(
+        // Dark theme
+        useMaterial3: true,
+        primarySwatch: Colors.grey,
+        brightness: Brightness.dark,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black87,
           foregroundColor: Colors.white,
@@ -24,11 +41,12 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black, // background (button) color
-            foregroundColor: Colors.white, // foreground (text) color
+            backgroundColor: Colors.black, // Dark background color
+            foregroundColor: Colors.white, // Dark text color
           ),
         ),
       ),
+      themeMode: ThemeMode.system, // Use system theme by default
     );
   }
 }
