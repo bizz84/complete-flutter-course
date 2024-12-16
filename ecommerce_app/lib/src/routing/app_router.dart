@@ -7,12 +7,13 @@ final goRouter =
     GoRouter(initialLocation: '/', debugLogDiagnostics: true, routes: [
   GoRoute(
       path: '/',
-      pageBuilder: (context, state) =>
-          MaterialPage(child: const ProductsListScreen()),
+      builder: (context, state) => const ProductsListScreen(),
       routes: [
         GoRoute(
             path: 'cart',
-            pageBuilder: (context, state) =>
-                MaterialPage(child: const ShoppingCartScreen()))
+            pageBuilder: (context, state) => MaterialPage(
+                key: state.pageKey,
+                fullscreenDialog: true,
+                child: const ShoppingCartScreen()))
       ]),
 ]);
