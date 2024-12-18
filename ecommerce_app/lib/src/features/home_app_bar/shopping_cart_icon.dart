@@ -1,7 +1,6 @@
-import 'package:ecommerce_app/src/features/shopping_cart/shopping_cart_screen.dart';
+import 'package:ecommerce_app/src/constants/app_sizes.dart';
 import 'package:ecommerce_app/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/constants/app_sizes.dart';
 import 'package:go_router/go_router.dart';
 
 /// Shopping cart icon with items count badge
