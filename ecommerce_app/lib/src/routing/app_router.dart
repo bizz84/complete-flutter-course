@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/src/features/account/account_screen.dart';
+import 'package:ecommerce_app/src/features/not_found/not_found_screen.dart';
 import 'package:ecommerce_app/src/features/orders_list/orders_list_screen.dart';
 import 'package:ecommerce_app/src/features/product_page/product_screen.dart';
 import 'package:ecommerce_app/src/features/products_list/products_list_screen.dart';
@@ -17,60 +18,64 @@ enum AppRoute {
   signIn,
 }
 
-final goRouter =
-    GoRouter(initialLocation: '/', debugLogDiagnostics: true, routes: [
-  GoRoute(
-      path: '/',
-      name: AppRoute.home.name,
-      builder: (context, state) => const ProductsListScreen(),
-      routes: [
-        GoRoute(
-          path: 'product/:id',
-          name: AppRoute.product.name,
-          builder: (context, state) {
-            final productId = state.pathParameters['id']!;
-            return ProductScreen(productId: productId);
-          },
-        ),
-        GoRoute(
-          path: 'orders',
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const OrdersListScreen(),
+final goRouter = GoRouter(
+  initialLocation: '/',
+  debugLogDiagnostics: true,
+  routes: [
+    GoRoute(
+        path: '/',
+        name: AppRoute.home.name,
+        builder: (context, state) => const ProductsListScreen(),
+        routes: [
+          GoRoute(
+            path: 'product/:id',
+            name: AppRoute.product.name,
+            builder: (context, state) {
+              final productId = state.pathParameters['id']!;
+              return ProductScreen(productId: productId);
+            },
           ),
-        ),
-        GoRoute(
-            path: 'cart',
-            name: AppRoute.cart.name,
+          GoRoute(
+            path: 'orders',
             pageBuilder: (context, state) => MaterialPage(
-                key: state.pageKey,
-                fullscreenDialog: true,
-                child: const ShoppingCartScreen())),
-        GoRoute(
-          path: 'orders',
-          name: AppRoute.orders.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const OrdersListScreen(),
-          ),
-        ),
-        GoRoute(
-          path: 'account',
-          name: AppRoute.account.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const AccountScreen(),
-          ),
-        ),
-        GoRoute(
-          path: 'signIn',
-          name: AppRoute.signIn.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const EmailPasswordSignInScreen(
-              formType: EmailPasswordSignInFormType.signIn,
+              key: state.pageKey,
+              child: const OrdersListScreen(),
             ),
           ),
-        ),
-      ]),
-]);
+          GoRoute(
+              path: 'cart',
+              name: AppRoute.cart.name,
+              pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  fullscreenDialog: true,
+                  child: const ShoppingCartScreen())),
+          GoRoute(
+            path: 'orders',
+            name: AppRoute.orders.name,
+            pageBuilder: (context, state) => MaterialPage(
+              key: state.pageKey,
+              child: const OrdersListScreen(),
+            ),
+          ),
+          GoRoute(
+            path: 'account',
+            name: AppRoute.account.name,
+            pageBuilder: (context, state) => MaterialPage(
+              key: state.pageKey,
+              child: const AccountScreen(),
+            ),
+          ),
+          GoRoute(
+            path: 'signIn',
+            name: AppRoute.signIn.name,
+            pageBuilder: (context, state) => MaterialPage(
+              key: state.pageKey,
+              child: const EmailPasswordSignInScreen(
+                formType: EmailPasswordSignInFormType.signIn,
+              ),
+            ),
+          ),
+        ]),
+  ],
+  errorBuilder: (context, state) => const NotFoundScreen(),
+);
