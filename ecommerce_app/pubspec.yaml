@@ -1,5 +1,5 @@
 name: ecommerce_app
-description: Flutter eCommerce app (part of the Complete Flutter Course Bundle)
+description: Flutter eCommerce app (official project for the Flutter Foundations course)
 
 # Prevent accidental publishing to pub.dev.
 publish_to: 'none'
@@ -7,14 +7,14 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.4.0 <4.0.0"
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_launcher_icons: 0.14.1
-  intl: 0.19.0
-  flutter_layout_grid: 2.0.7
+  flutter_launcher_icons: 0.14.3
+  intl: ^0.19.0
+  flutter_layout_grid: 2.0.8
   flutter_rating_bar: 4.0.1
 
 dev_dependencies:
