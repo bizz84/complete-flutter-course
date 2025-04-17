@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -22,7 +20,10 @@ Future<bool?> showAlertDialog({
       title: Text(title),
       content: content != null ? Text(content) : null,
       // * Use [TextButton] or [CupertinoDialogAction] depending on the platform
-      actions: kIsWeb || !Platform.isIOS
+      // https://codewithandrea.com/tips/default-target-platform/
+      actions: kIsWeb ||
+              !(defaultTargetPlatform == TargetPlatform.iOS ||
+                  defaultTargetPlatform == TargetPlatform.macOS)
           ? <Widget>[
               if (cancelActionText != null)
                 TextButton(
