@@ -1,4 +1,0 @@
-synthetic-package: false
-arb-dir: lib/src/localization
-template-arb-file: app_en.arb
-nullable-getter: false
